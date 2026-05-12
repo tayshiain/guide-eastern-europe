@@ -123,8 +123,8 @@
       line-height: 1.1;
     }
 
-    .guide-shell .topbar-title::after {
-      content: " — bon voyage";
+    .guide-shell .topbar-title::before {
+      content: "S'évader - ";
       font-style: italic;
       color: var(--color-text-secondary);
       font-weight: 400;
@@ -145,7 +145,6 @@
 
     .guide-title-card {
       margin-bottom: 1rem;
-      border-left: 3px solid var(--color-text-primary);
     }
 
     .guide-title-card h1 {
@@ -389,6 +388,87 @@
       text-transform: uppercase;
     }
 
+    .weather-forecast-strip {
+      display: flex;
+      gap: 6px;
+      margin: 0.6rem 0 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+
+    .weather-forecast-strip::-webkit-scrollbar { display: none; }
+
+    .weather-day {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 6px 8px;
+      min-width: 46px;
+      text-align: center;
+    }
+
+    .weather-day.today {
+      background: var(--color-background-info);
+      border-color: var(--blue);
+    }
+
+    .weather-day-name {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--color-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .weather-day.today .weather-day-name {
+      color: var(--color-text-info);
+    }
+
+    .weather-day-icon {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .weather-day-high {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+
+    .weather-day-low {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+    }
+
+    .weather-loading {
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+      padding: 0.4rem 0;
+    }
+
+    .weather-live-label {
+      font-size: 10px;
+      color: var(--color-text-tertiary);
+      margin-top: 2px;
+      letter-spacing: 0.3px;
+    }
+
+    .weather-live-label .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-right: 3px;
+      vertical-align: middle;
+    }
+
     .guide-table-wrap {
       overflow-x: auto;
       margin-top: 0.5rem;
@@ -467,26 +547,6 @@
         display: none;
       }
     }
-
-    .site-footer {
-      max-width: 720px;
-      margin: 2rem auto 0;
-      padding: 1rem 0 0;
-      text-align: center;
-      border-top: 0.5px solid var(--color-border-tertiary);
-    }
-
-    .site-footer a {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--color-text-secondary);
-      text-decoration: none;
-    }
-
-    .site-footer a:hover {
-      color: var(--color-text-primary);
-      text-decoration: underline;
-    }
 </style>
 </head>
 <body>
@@ -494,14 +554,14 @@
     <div class="guide-shell">
       <div class="topbar">
         <button class="menu-btn" type="button" aria-hidden="true" tabindex="-1">☰ Menu</button>
-        <div class="topbar-title">Eastern Europe Guide</div>
+        <div class="topbar-title">your guide to Eastern Europe</div>
       </div>
 
       <div class="content">
-        <section class="guide-title-card">
+        <!-- <section class="guide-title-card">
           <h1>Trip Guide • Budapest, Krakow, Prague, Vienna</h1>
           <p>Mobile-first itinerary notes with planning blocks, entrance fee lists, weather snapshot for August 2026, and local currency per city.</p>
-        </section>
+        </section> -->
 
         <nav class="guide-tabs" role="tablist" aria-label="City tabs">
           <div class="tab active" role="tab" aria-selected="true" id="tab-budapest" data-city="budapest">Budapest</div>
@@ -535,7 +595,8 @@
               <div class="guide-card weather-card">
                 <div class="guide-kicker">Weather</div>
                 <h3>Weather overview</h3>
-                <p class="weather-title">🌤️ August 2026 weather overview</p>
+                <div id="forecast-budapest" class="weather-loading">Loading forecast…</div>
+                <p class="weather-title" style="margin-top:0.5rem">August 2026 outlook</p>
                 <p class="guide-meta" id="weather-budapest"></p>
               </div>
 
@@ -593,7 +654,8 @@
               <div class="guide-card weather-card">
                 <div class="guide-kicker">Weather</div>
                 <h3>Weather overview</h3>
-                <p class="weather-title">🌧️ August 2026 weather overview</p>
+                <div id="forecast-krakow" class="weather-loading">Loading forecast…</div>
+                <p class="weather-title" style="margin-top:0.5rem">August 2026 outlook</p>
                 <p class="guide-meta" id="weather-krakow"></p>
               </div>
 
@@ -651,7 +713,8 @@
               <div class="guide-card weather-card">
                 <div class="guide-kicker">Weather</div>
                 <h3>Weather overview</h3>
-                <p class="weather-title">⛅ August 2026 weather overview</p>
+                <div id="forecast-prague" class="weather-loading">Loading forecast…</div>
+                <p class="weather-title" style="margin-top:0.5rem">August 2026 outlook</p>
                 <p class="guide-meta" id="weather-prague"></p>
               </div>
 
@@ -709,7 +772,8 @@
               <div class="guide-card weather-card">
                 <div class="guide-kicker">Weather</div>
                 <h3>Weather overview</h3>
-                <p class="weather-title">☀️ August 2026 weather overview</p>
+                <div id="forecast-vienna" class="weather-loading">Loading forecast…</div>
+                <p class="weather-title" style="margin-top:0.5rem">August 2026 outlook</p>
                 <p class="guide-meta" id="weather-vienna"></p>
               </div>
 
@@ -744,10 +808,6 @@
           </section>
         </main>
       </div>
-
-      <footer class="site-footer">
-        <a href="about.html">About S'évader</a>
-      </footer>
     </div>
   </div>
 
@@ -1020,10 +1080,114 @@
       });
     };
 
+    // ── Open-Meteo free weather API (no key required) ──────────────────────
+    const cityCoords = {
+      budapest: { lat: 47.4979, lon: 19.0402, tz: "Europe/Budapest" },
+      krakow:   { lat: 50.0647, lon: 19.9450, tz: "Europe/Warsaw" },
+      prague:   { lat: 50.0755, lon: 14.4378, tz: "Europe/Prague" },
+      vienna:   { lat: 48.2082, lon: 16.3738, tz: "Europe/Vienna" },
+    };
+
+    const weatherCache = {};
+
+    const WMO_ICON = (code, isDay = true) => {
+      if (code === 0) return isDay ? "☀️" : "🌙";
+      if (code <= 2) return isDay ? "🌤️" : "🌤️";
+      if (code <= 3) return "☁️";
+      if (code <= 48) return "🌫️";
+      if (code <= 57) return "🌦️";
+      if (code <= 67) return "🌧️";
+      if (code <= 77) return "🌨️";
+      if (code <= 82) return "🌦️";
+      if (code <= 86) return "❄️";
+      if (code <= 99) return "⛈️";
+      return "🌡️";
+    };
+
+    const DAY_ABBR = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+    const renderForecast = (city, data) => {
+      const el = document.getElementById(`forecast-${city}`);
+      if (!el) return;
+
+      const today = new Date().getDay();
+      const { time, temperature_2m_max, temperature_2m_min, weathercode } = data.daily;
+
+      const strip = document.createElement("div");
+      strip.className = "weather-forecast-strip";
+
+      time.slice(0, 7).forEach((dateStr, i) => {
+        const d = new Date(dateStr);
+        const dayIdx = d.getDay();
+        const isToday = i === 0;
+        const high = Math.round(temperature_2m_max[i]);
+        const low = Math.round(temperature_2m_min[i]);
+        const icon = WMO_ICON(weathercode[i]);
+
+        const dayEl = document.createElement("div");
+        dayEl.className = "weather-day" + (isToday ? " today" : "");
+        dayEl.innerHTML = `
+          <span class="weather-day-name">${isToday ? "Today" : DAY_ABBR[dayIdx]}</span>
+          <span class="weather-day-icon">${icon}</span>
+          <span class="weather-day-high">${high}°</span>
+          <span class="weather-day-low">${low}°</span>
+        `;
+        strip.appendChild(dayEl);
+      });
+
+      const liveLabel = document.createElement("p");
+      liveLabel.className = "weather-live-label";
+      liveLabel.innerHTML = '<span class="dot"></span>Live · 7-day · Open-Meteo';
+
+      el.innerHTML = "";
+      el.className = "";
+      el.appendChild(strip);
+      el.appendChild(liveLabel);
+    };
+
+    const fetchWeather = async (city) => {
+      if (weatherCache[city]) {
+        renderForecast(city, weatherCache[city]);
+        return;
+      }
+      const { lat, lon, tz } = cityCoords[city];
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=${encodeURIComponent(tz)}&forecast_days=7`;
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        weatherCache[city] = data;
+        renderForecast(city, data);
+      } catch (err) {
+        const el = document.getElementById(`forecast-${city}`);
+        if (el) {
+          el.textContent = "";
+          el.className = "";
+        }
+      }
+    };
+
+    // Fetch weather for the active city on load, and on every tab switch
+    const originalSwitchCity = switchCity;
+    const switchCityWithWeather = (city) => {
+      originalSwitchCity(city);
+      fetchWeather(city);
+    };
+
+    // Patch tab listeners to use new switch
+    const setupTabsWithWeather = () => {
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => switchCityWithWeather(tab.dataset.city));
+      });
+    };
+
     renderContent();
     hydrateAll();
-    setupTabs();
+    // setupTabs() is replaced below — don't call it here
     setupActions();
+    setupTabsWithWeather();
+    // Fetch for initial active city (budapest)
+    fetchWeather("budapest");
   </script>
 </body>
 </html>
