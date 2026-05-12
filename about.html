@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About S'évader — Travel itinerary app</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --color-text-primary: #1c1917;
+      --color-text-secondary: #57534e;
+      --color-text-tertiary: #a8a29e;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f4f2;
+      --color-border-tertiary: #e7e5e4;
+      --border-radius-lg: 10px;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(7px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      color: var(--color-text-primary);
+      background: #f9f7f4;
+      min-height: 100vh;
+      padding: 2rem 1rem 3rem;
+    }
+
+    .about-shell {
+      max-width: 560px;
+      margin: 0 auto;
+      animation: reveal 0.3s ease-out;
+    }
+
+    .about-back {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+    }
+
+    .about-back:hover {
+      color: var(--color-text-primary);
+      text-decoration: underline;
+    }
+
+    .about-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .about-logo {
+      width: min(220px, 72vw);
+      height: auto;
+      margin: 0 auto 1.25rem;
+      display: block;
+    }
+
+    .about-brand {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 5vw, 2rem);
+      font-weight: 500;
+      margin: 0 0 0.35rem;
+      line-height: 1.15;
+    }
+
+    .about-tagline {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      font-weight: 500;
+      margin: 0 0 1.75rem;
+    }
+
+    .about-body {
+      text-align: left;
+      border-top: 0.5px solid var(--color-border-tertiary);
+      padding-top: 1.5rem;
+    }
+
+    .about-body p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--color-text-secondary);
+      margin: 0 0 1rem;
+    }
+
+    .about-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-body strong {
+      color: var(--color-text-primary);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="about-shell">
+    <a class="about-back" href="index.html">← Back to guide</a>
+
+    <article class="about-card">
+      <img class="about-logo" src="sevader-logo-black.png" width="440" alt="S'évader — compass, path, and peaks">
+      <h1 class="about-brand">S'évader</h1>
+      <p class="about-tagline">Travel itinerary app</p>
+
+      <div class="about-body">
+        <p><strong>S'évader</strong> helps you plan and carry a trip in one calm place: city notes, practical blocks for hotels and flights, quick context like weather and currency, and lists of sights with entrance fees so you can budget before you go.</p>
+        <p>Your edits can be saved in the browser so drafts survive between sessions. Rates and fees are indicative—always double-check official sites before you book.</p>
+        <p>The name <em>S'évader</em> is about slipping away: a small escape, thoughtfully mapped.</p>
+      </div>
+    </article>
+  </div>
+</body>
+</html>
