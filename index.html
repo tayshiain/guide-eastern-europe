@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eastern Europe Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(7px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .guide-panel {
+      padding: 0 0 2rem 0;
+      animation: reveal .25s ease-out;
+    }
+
+    @media (max-width: 700px) {
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 901px) {
+      .guide-shell {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+      }
+    }
+    :root {
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+
+      --color-text-primary: #1c1917;
+      --color-text-secondary: #57534e;
+      --color-text-tertiary: #a8a29e;
+      --color-text-success: #15803d;
+      --color-text-warning: #92400e;
+      --color-text-danger: #b91c1c;
+      --color-text-info: #1d4ed8;
+
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f4f2;
+      --color-background-success: #f0fdf4;
+      --color-background-warning: #fffbeb;
+      --color-background-danger: #fef2f2;
+      --color-background-info: #eff6ff;
+
+      --color-border-secondary: #d6d3d1;
+      --color-border-tertiary: #e7e5e4;
+      --color-border-warning: #fcd34d;
+
+      --border-radius-lg: 10px;
+      --border-radius-md: 6px;
+
+      --bg: var(--color-background-primary);
+      --bg2: var(--color-background-primary);
+      --bg3: var(--color-background-secondary);
+      --card: var(--color-background-primary);
+      --border: var(--color-border-tertiary);
+      --accent: var(--color-text-primary);
+      --accent2: var(--color-text-primary);
+      --calligraphy: #e2a15f;
+      --gold: #d4a843;
+      --blue: #5b9bd5;
+      --green: #6baa7a;
+      --purple: #9b7fc8;
+      --text: var(--color-text-primary);
+      --text2: var(--color-text-secondary);
+      --text3: var(--color-text-tertiary);
+      --red: #d05555;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text-primary);
+      background: #f9f7f4;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .guide-wrap,
+    .guide-shell {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .guide-shell .topbar {
+      margin: 0 0 1rem;
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      position: static;
+      z-index: auto;
+      top: auto;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .guide-shell .topbar-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      line-height: 1.1;
+    }
+
+    .guide-shell .topbar-title::after {
+      content: " — bon voyage";
+      font-style: italic;
+      color: var(--color-text-secondary);
+      font-weight: 400;
+    }
+
+    .guide-shell .menu-btn {
+      display: none;
+    }
+
+    .guide-title-card,
+    .guide-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1rem 1.125rem;
+      margin-bottom: 10px;
+    }
+
+    .guide-title-card {
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--color-text-primary);
+    }
+
+    .guide-title-card h1 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      line-height: 1.1;
+      margin: 0 0 .35rem;
+      font-family: var(--font-serif);
+    }
+
+    .guide-title-card p {
+      font-size: 0.82rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .guide-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      margin-bottom: 1.25rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 0;
+    }
+
+    .guide-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .guide-tabs .tab {
+      border: none;
+      background: transparent;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: var(--font-sans);
+      margin-bottom: -1px;
+      transition: all .2s;
+    }
+
+    .guide-tabs .tab.active {
+      color: var(--color-text-primary);
+      border-bottom-color: var(--color-text-primary);
+    }
+
+    .guide-section {
+      display: none;
+    }
+
+    .guide-section[aria-hidden="false"] {
+      display: block;
+    }
+
+    .guide-grid {
+      margin-bottom: 10px;
+      gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .guide-grid > .guide-card:first-child {
+      grid-row: span 2;
+    }
+
+    .guide-card.weather-card {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .guide-card.currency-card {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .guide-kicker {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .guide-card h3,
+    .guide-card h4,
+    .guide-card p,
+    .guide-card li,
+    .guide-card .guide-meta {
+      margin-bottom: 0.4rem;
+      color: var(--color-text-primary);
+    }
+
+    .guide-card h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .guide-card h4 {
+      font-size: 13px;
+      color: var(--color-text-primary);
+      font-weight: 500;
+    }
+
+    .guide-meta {
+      color: var(--color-text-secondary);
+      font-size: 13px;
+    }
+
+    .guide-label,
+    .guide-form-title {
+      display: block;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin: 0 0 .4rem;
+      font-weight: 500;
+    }
+
+    .guide-field,
+    .guide-convert-input {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 6px 10px;
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      margin-bottom: 0.6rem;
+    }
+
+    .guide-field::placeholder,
+    .guide-convert-input::placeholder {
+      color: var(--color-text-tertiary);
+    }
+
+    .guide-field:focus,
+    .guide-convert-input:focus {
+      outline: none;
+      border-color: var(--color-text-primary);
+    }
+
+    .guide-textarea {
+      min-height: 95px;
+      resize: vertical;
+    }
+
+    .guide-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin: 0.35rem 0 0.4rem;
+    }
+
+    .guide-btn,
+    .guide-btn.save {
+      border: 1px solid var(--color-border-secondary);
+      background: var(--color-background-secondary);
+      color: var(--color-text-secondary);
+      font-family: var(--font-sans);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 9px;
+      cursor: pointer;
+      transition: all .2s;
+      height: auto;
+    }
+
+    .guide-btn.save {
+      background: var(--color-background-primary);
+      color: var(--text);
+      border-color: var(--color-border-secondary);
+    }
+
+    .guide-btn:hover {
+      border-color: var(--color-text-primary);
+      color: var(--color-text-primary);
+    }
+
+    .guide-status {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin: 0;
+      min-height: 16px;
+      line-height: 1.6;
+    }
+
+    .guide-status.ok {
+      color: var(--color-text-success);
+    }
+
+    .guide-sight-list {
+      margin: 0.2rem 0 0 1rem;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+      font-size: 12px;
+    }
+
+    .guide-hint {
+      margin-top: 8px;
+      background: var(--color-background-warning);
+      border: 1px dashed var(--color-border-warning);
+      border-radius: 8px;
+      color: var(--color-text-warning);
+      padding: 0.5rem 0.65rem;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .guide-convert-result {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+
+    .guide-rate-note {
+      color: var(--color-text-tertiary);
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .weather-title,
+    .guide-converter .guide-label {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .guide-table-wrap {
+      overflow-x: auto;
+      margin-top: 0.5rem;
+    }
+
+    .guide-forms {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .guide-forms th,
+    .guide-forms td {
+      text-align: left;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      padding: 8px 10px;
+      color: var(--color-text-secondary);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .guide-forms th {
+      color: var(--color-text-tertiary);
+      font-weight: 500;
+      border-bottom-color: var(--color-border-tertiary);
+      background: var(--color-background-secondary);
+    }
+
+    .guide-forms td:first-child {
+      color: var(--color-text-primary);
+      width: 65%;
+      font-weight: 500;
+    }
+
+    .guide-forms tr:first-child th,
+    .guide-forms tr:first-child td {
+      border-top: none;
+    }
+
+    @media (max-width: 700px) {
+      .guide-wrap,
+      .guide-shell {
+        width: min(100%, 720px);
+      }
+
+      .guide-wrap {
+        padding: 0;
+      }
+
+      .guide-shell .topbar {
+        padding: 0.75rem 1rem;
+        border-bottom: 0.5px solid var(--color-border-tertiary);
+        margin-bottom: 0.85rem;
+        border-radius: 10px;
+      }
+
+      .guide-shell .topbar-title {
+        font-size: 22px;
+      }
+
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .guide-card.weather-card,
+      .guide-card.currency-card {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .guide-grid > .guide-card:first-child {
+        grid-row: auto;
+      }
+
+      .guide-shell .menu-btn {
+        display: none;
+      }
+    }
+</style>
+</head>
+<body>
+  <div class="guide-wrap">
+    <div class="guide-shell">
+      <div class="topbar">
+        <button class="menu-btn" type="button" aria-hidden="true" tabindex="-1">☰ Menu</button>
+        <div class="topbar-title">Eastern Europe Guide</div>
+      </div>
+
+      <div class="content">
+        <section class="guide-title-card">
+          <h1>Trip Guide • Budapest, Krakow, Prague, Vienna</h1>
+          <p>Mobile-first itinerary notes with planning blocks, entrance fee lists, weather snapshot for August 2026, and local currency per city.</p>
+        </section>
+
+        <nav class="guide-tabs" role="tablist" aria-label="City tabs">
+          <div class="tab active" role="tab" aria-selected="true" id="tab-budapest" data-city="budapest">Budapest</div>
+          <div class="tab" role="tab" aria-selected="false" id="tab-krakow" data-city="krakow">Krakow</div>
+          <div class="tab" role="tab" aria-selected="false" id="tab-prague" data-city="prague">Prague</div>
+          <div class="tab" role="tab" aria-selected="false" id="tab-vienna" data-city="vienna">Vienna</div>
+        </nav>
+
+        <main class="guide-panel">
+          <section class="guide-section" id="budapest" data-city="budapest" aria-hidden="false">
+            <div class="guide-grid">
+              <div class="guide-card">
+                <div class="guide-kicker">Hotel & flight</div>
+                <label class="guide-label" for="hotelName-budapest">Hotel name</label>
+                <input class="guide-field plan-field" id="hotelName-budapest" data-city="budapest" data-field="hotelName" type="text" placeholder="Danubia Hotel Budapest">
+
+                <label class="guide-label" for="hotelAddress-budapest">Hotel address</label>
+                <input class="guide-field plan-field" id="hotelAddress-budapest" data-city="budapest" data-field="hotelAddress" type="text" placeholder="District, street, postal code">
+
+                <label class="guide-label" for="flightInfo-budapest">Flight information</label>
+                <textarea class="guide-field guide-textarea plan-field" id="flightInfo-budapest" data-city="budapest" data-field="flightInfo" placeholder="Flight number, departure and arrival, departure time, booking reference"></textarea>
+
+                <div class="guide-actions">
+                  <button class="guide-btn save" data-action="save" data-city="budapest" type="button">Save</button>
+                  <button class="guide-btn" data-action="load" data-city="budapest" type="button">Load saved</button>
+                  <button class="guide-btn" data-action="clear" data-city="budapest" type="button">Clear</button>
+                </div>
+                <p class="guide-status" id="status-budapest">No saved draft</p>
+              </div>
+
+              <div class="guide-card weather-card">
+                <div class="guide-kicker">Weather</div>
+                <h3>Weather overview</h3>
+                <p class="weather-title">🌤️ August 2026 weather overview</p>
+                <p class="guide-meta" id="weather-budapest"></p>
+              </div>
+
+              <div class="guide-card currency-card">
+                <div class="guide-kicker">Currency</div>
+                <h3>Currency</h3>
+                <p class="guide-meta" id="currency-budapest"></p>
+                <div class="guide-converter">
+                  <label class="guide-label" for="convert-budapest">Convert to €</label>
+                  <input class="guide-field guide-convert-input" id="convert-budapest" data-city="budapest" inputmode="decimal" type="number" min="0" step="0.01" placeholder="Amount in HUF">
+                  <p class="guide-convert-result">= <strong id="converted-budapest">€—</strong></p>
+                  <p class="guide-rate-note" id="rate-budapest"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-kicker">Sights & entrance fees</div>
+              <h3>What to visit</h3>
+              <div class="guide-table-wrap">
+                <table class="guide-forms">
+                  <thead>
+                    <tr>
+                      <th>Sight</th>
+                      <th>Entrance fee</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sights-budapest"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="guide-section" id="krakow" data-city="krakow" aria-hidden="true">
+            <div class="guide-grid">
+              <div class="guide-card">
+                <div class="guide-kicker">Hotel & flight</div>
+                <label class="guide-label" for="hotelName-krakow">Hotel name</label>
+                <input class="guide-field plan-field" id="hotelName-krakow" data-city="krakow" data-field="hotelName" type="text" placeholder="The Royal Hotel Krakow">
+
+                <label class="guide-label" for="hotelAddress-krakow">Hotel address</label>
+                <input class="guide-field plan-field" id="hotelAddress-krakow" data-city="krakow" data-field="hotelAddress" type="text" placeholder="Main square, district, postal code">
+
+                <label class="guide-label" for="flightInfo-krakow">Flight information</label>
+                <textarea class="guide-field guide-textarea plan-field" id="flightInfo-krakow" data-city="krakow" data-field="flightInfo" placeholder="Flight number, departure and arrival, departure time, booking reference"></textarea>
+
+                <div class="guide-actions">
+                  <button class="guide-btn save" data-action="save" data-city="krakow" type="button">Save</button>
+                  <button class="guide-btn" data-action="load" data-city="krakow" type="button">Load saved</button>
+                  <button class="guide-btn" data-action="clear" data-city="krakow" type="button">Clear</button>
+                </div>
+                <p class="guide-status" id="status-krakow">No saved draft</p>
+              </div>
+
+              <div class="guide-card weather-card">
+                <div class="guide-kicker">Weather</div>
+                <h3>Weather overview</h3>
+                <p class="weather-title">🌧️ August 2026 weather overview</p>
+                <p class="guide-meta" id="weather-krakow"></p>
+              </div>
+
+              <div class="guide-card currency-card">
+                <div class="guide-kicker">Currency</div>
+                <h3>Currency</h3>
+                <p class="guide-meta" id="currency-krakow"></p>
+                <div class="guide-converter">
+                  <label class="guide-label" for="convert-krakow">Convert to €</label>
+                  <input class="guide-field guide-convert-input" id="convert-krakow" data-city="krakow" inputmode="decimal" type="number" min="0" step="0.01" placeholder="Amount in PLN">
+                  <p class="guide-convert-result">= <strong id="converted-krakow">€—</strong></p>
+                  <p class="guide-rate-note" id="rate-krakow"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-kicker">Sights & entrance fees</div>
+              <h3>What to visit</h3>
+              <div class="guide-table-wrap">
+                <table class="guide-forms">
+                  <thead>
+                    <tr>
+                      <th>Sight</th>
+                      <th>Entrance fee</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sights-krakow"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="guide-section" id="prague" data-city="prague" aria-hidden="true">
+            <div class="guide-grid">
+              <div class="guide-card">
+                <div class="guide-kicker">Hotel & flight</div>
+                <label class="guide-label" for="hotelName-prague">Hotel name</label>
+                <input class="guide-field plan-field" id="hotelName-prague" data-city="prague" data-field="hotelName" type="text" placeholder="Prague City Hotel">
+
+                <label class="guide-label" for="hotelAddress-prague">Hotel address</label>
+                <input class="guide-field plan-field" id="hotelAddress-prague" data-city="prague" data-field="hotelAddress" type="text" placeholder="Old Town, district, postal code">
+
+                <label class="guide-label" for="flightInfo-prague">Flight information</label>
+                <textarea class="guide-field guide-textarea plan-field" id="flightInfo-prague" data-city="prague" data-field="flightInfo" placeholder="Flight number, departure and arrival, departure time, booking reference"></textarea>
+
+                <div class="guide-actions">
+                  <button class="guide-btn save" data-action="save" data-city="prague" type="button">Save</button>
+                  <button class="guide-btn" data-action="load" data-city="prague" type="button">Load saved</button>
+                  <button class="guide-btn" data-action="clear" data-city="prague" type="button">Clear</button>
+                </div>
+                <p class="guide-status" id="status-prague">No saved draft</p>
+              </div>
+
+              <div class="guide-card weather-card">
+                <div class="guide-kicker">Weather</div>
+                <h3>Weather overview</h3>
+                <p class="weather-title">⛅ August 2026 weather overview</p>
+                <p class="guide-meta" id="weather-prague"></p>
+              </div>
+
+              <div class="guide-card currency-card">
+                <div class="guide-kicker">Currency</div>
+                <h3>Currency</h3>
+                <p class="guide-meta" id="currency-prague"></p>
+                <div class="guide-converter">
+                  <label class="guide-label" for="convert-prague">Convert to €</label>
+                  <input class="guide-field guide-convert-input" id="convert-prague" data-city="prague" inputmode="decimal" type="number" min="0" step="0.01" placeholder="Amount in CZK">
+                  <p class="guide-convert-result">= <strong id="converted-prague">€—</strong></p>
+                  <p class="guide-rate-note" id="rate-prague"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-kicker">Sights & entrance fees</div>
+              <h3>What to visit</h3>
+              <div class="guide-table-wrap">
+                <table class="guide-forms">
+                  <thead>
+                    <tr>
+                      <th>Sight</th>
+                      <th>Entrance fee</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sights-prague"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="guide-section" id="vienna" data-city="vienna" aria-hidden="true">
+            <div class="guide-grid">
+              <div class="guide-card">
+                <div class="guide-kicker">Hotel & flight</div>
+                <label class="guide-label" for="hotelName-vienna">Hotel name</label>
+                <input class="guide-field plan-field" id="hotelName-vienna" data-city="vienna" data-field="hotelName" type="text" placeholder="Vienna Central Residence">
+
+                <label class="guide-label" for="hotelAddress-vienna">Hotel address</label>
+                <input class="guide-field plan-field" id="hotelAddress-vienna" data-city="vienna" data-field="hotelAddress" type="text" placeholder="Innere Stadt, district, postal code">
+
+                <label class="guide-label" for="flightInfo-vienna">Flight information</label>
+                <textarea class="guide-field guide-textarea plan-field" id="flightInfo-vienna" data-city="vienna" data-field="flightInfo" placeholder="Flight number, departure and arrival, departure time, booking reference"></textarea>
+
+                <div class="guide-actions">
+                  <button class="guide-btn save" data-action="save" data-city="vienna" type="button">Save</button>
+                  <button class="guide-btn" data-action="load" data-city="vienna" type="button">Load saved</button>
+                  <button class="guide-btn" data-action="clear" data-city="vienna" type="button">Clear</button>
+                </div>
+                <p class="guide-status" id="status-vienna">No saved draft</p>
+              </div>
+
+              <div class="guide-card weather-card">
+                <div class="guide-kicker">Weather</div>
+                <h3>Weather overview</h3>
+                <p class="weather-title">☀️ August 2026 weather overview</p>
+                <p class="guide-meta" id="weather-vienna"></p>
+              </div>
+
+              <div class="guide-card currency-card">
+                <div class="guide-kicker">Currency</div>
+                <h3>Currency</h3>
+                <p class="guide-meta" id="currency-vienna"></p>
+                <div class="guide-converter">
+                  <label class="guide-label" for="convert-vienna">Convert to €</label>
+                  <input class="guide-field guide-convert-input" id="convert-vienna" data-city="vienna" inputmode="decimal" type="number" min="0" step="0.01" placeholder="Amount in EUR">
+                  <p class="guide-convert-result">= <strong id="converted-vienna">€—</strong></p>
+                  <p class="guide-rate-note" id="rate-vienna"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-kicker">Sights & entrance fees</div>
+              <h3>What to visit</h3>
+              <div class="guide-table-wrap">
+                <table class="guide-forms">
+                  <thead>
+                    <tr>
+                      <th>Sight</th>
+                      <th>Entrance fee</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sights-vienna"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cityData = {
+      budapest: {
+        currency: "Hungarian forint (HUF)",
+        currencyCode: "HUF",
+        toEuroRate: 390,
+        weather: "Avg max/min: 29°C / 16°C · Humidity 63% · Rainy days around 10–12 days in August.",
+        sights: [
+          ["Buda Castle", "4,900 HUF (~€12.50)"],
+          ["Fisherman’s Bastion", "2,600 HUF"],
+          ["Parliament Building Guided Tour", "6,900 HUF"],
+          ["Gellért Baths (entry + locker)", "10,000 HUF"],
+          ["Heroes' Square", "Free"],
+          ["Budapest Zoo Aquarium", "8,290 HUF"],
+          ["City Park Ice Cream & view spots", "Free"]
+        ]
+      },
+      krakow: {
+        currency: "Polish złoty (PLN)",
+        currencyCode: "PLN",
+        toEuroRate: 4.4,
+        weather: "Avg max/min: 27°C / 15°C · Humidity 66% · Rainy days around 17 days, usually short showers.",
+        sights: [
+          ["Wawel Royal Castle", "100 PLN"],
+          ["St. Mary's Basilica tower climb", "30 PLN"],
+          ["Main Market Square", "Free"],
+          ["Wieliczka Salt Mine", "130 PLN"],
+          ["Kazimierz Jewish District museum", "35 PLN"],
+          ["Ojców National Park entry", "15 PLN"],
+          ["Schindler's Factory", "25 PLN"]
+        ]
+      },
+      prague: {
+        currency: "Czech koruna (CZK)",
+        currencyCode: "CZK",
+        toEuroRate: 25,
+        weather: "Avg max/min: 27°C / 14°C · Humidity 61% · Rainy days around 8–10 days in August.",
+        sights: [
+          ["Prague Castle", "250 CZK (tourist pass available)"],
+          ["St. Vitus Cathedral", "50 CZK"],
+          ["Charles Bridge sunrise area", "Free"],
+          ["Lennon Wall area", "Free"],
+          ["Astronomical Clock tower entry", "250 CZK"],
+          ["Petřín funicular + tower", "220 CZK"],
+          ["National Museum", "250 CZK"]
+        ]
+      },
+      vienna: {
+        currency: "Euro (EUR)",
+        currencyCode: "EUR",
+        toEuroRate: 1,
+        weather: "Avg max/min: 28°C / 16°C · Humidity 65% · Rainy days around 11 days with afternoon showers.",
+        sights: [
+          ["Schönbrunn Palace", "22 EUR (Grand Entrance)"],
+          ["Belvedere Palace", "17 EUR"],
+          ["Hofburg Palace", "22 EUR (selected areas)"],
+          ["Schmetterling (butterfly house)", "19 EUR"],
+          ["Vienna State Opera guided tour", "12 EUR"],
+          ["Prater park rides (wheel combo)", "13 EUR"],
+          ["St. Stephen's Cathedral", "6 EUR"
+          ]
+        ]
+      }
+    };
+
+    const storageKey = "eastern-europe-guide-v1";
+
+    const tabs = document.querySelectorAll(".guide-tabs .tab");
+    const sections = document.querySelectorAll(".guide-section");
+    const planFields = document.querySelectorAll(".plan-field");
+    const buttons = document.querySelectorAll("[data-action]");
+    const converterInputs = document.querySelectorAll(".guide-convert-input");
+    const safeTime = (value) => {
+      try {
+        return new Date(value).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      } catch (error) {
+        return "";
+      }
+    };
+
+    const getStore = () => {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || {};
+      } catch (error) {
+        console.warn("Could not read guide plan cache.", error);
+        return {};
+      }
+    };
+
+    const setStore = (value) => {
+      localStorage.setItem(storageKey, JSON.stringify(value));
+    };
+
+    const cityFields = (city) => document.querySelectorAll(`[data-city="${city}"].plan-field`);
+
+    const planSnapshot = (city) => {
+      const snapshot = {};
+      cityFields(city).forEach((field) => {
+        snapshot[field.dataset.field] = field.value.trim();
+      });
+      return snapshot;
+    };
+
+    const applySnapshot = (city, snapshot) => {
+      cityFields(city).forEach((field) => {
+        field.value = snapshot?.[field.dataset.field] || "";
+      });
+    };
+
+    const formatEuro = (value) => {
+      return `€${value.toFixed(2)}`;
+    };
+
+    const convertToEuro = (city) => {
+      const input = document.getElementById(`convert-${city}`);
+      const output = document.getElementById(`converted-${city}`);
+      const rate = cityData[city]?.toEuroRate;
+
+      if (!input || !output || !rate) {
+        if (output) output.textContent = "€—";
+        return;
+      }
+
+      const raw = input.value;
+      const numericValue = Number.parseFloat(raw);
+      if (!raw || Number.isNaN(numericValue) || numericValue <= 0) {
+        output.innerHTML = "<strong>€—</strong>";
+        return;
+      }
+
+      const euroValue = numericValue / rate;
+      output.innerHTML = `<strong>${formatEuro(euroValue)}</strong>`;
+    };
+
+    const setPlanStatus = (city, message, ok = false) => {
+      const status = document.getElementById(`status-${city}`);
+      if (!status) return;
+      status.textContent = message;
+      status.classList.toggle("ok", ok);
+    };
+
+    const savePlan = (city) => {
+      const data = getStore();
+      const snapshot = planSnapshot(city);
+      const hasData = Object.values(snapshot).some((value) => value.length > 0);
+      if (!hasData) {
+        setPlanStatus(city, "No details to save.");
+        return;
+      }
+
+      data[city] = {
+        ...snapshot,
+        savedAt: new Date().toISOString()
+      };
+      setStore(data);
+        setPlanStatus(city, `Saved at ${safeTime(data[city].savedAt)}.`, true);
+    };
+
+    const loadPlan = (city) => {
+      const data = getStore();
+      const saved = data[city];
+      if (!saved) {
+        setPlanStatus(city, "No saved draft found.");
+        return;
+      }
+
+      applySnapshot(city, saved);
+      const when = saved.savedAt ? new Date(saved.savedAt).toLocaleDateString() : "";
+      setPlanStatus(city, when ? `Loaded plan saved on ${when}.` : "Loaded saved draft.");
+    };
+
+    const clearPlan = (city) => {
+      const data = getStore();
+      delete data[city];
+      setStore(data);
+      cityFields(city).forEach((field) => (field.value = ""));
+      const converter = document.getElementById(`convert-${city}`);
+      const converted = document.getElementById(`converted-${city}`);
+      if (converter) converter.value = "";
+      if (converted) converted.textContent = "€—";
+      setPlanStatus(city, "Cleared.");
+    };
+
+    const hydrateAll = () => {
+      const data = getStore();
+      Object.keys(cityData).forEach((city) => {
+        if (data[city]) {
+          applySnapshot(city, data[city]);
+          const savedAt = data[city].savedAt ? new Date(data[city].savedAt).toLocaleDateString() : "";
+          setPlanStatus(city, savedAt ? `Draft restored: ${savedAt}.` : "Draft restored.", true);
+        }
+      });
+    };
+
+    const switchCity = (city) => {
+      tabs.forEach((tab) => {
+        const isActive = tab.dataset.city === city;
+        tab.classList.toggle("active", isActive);
+        tab.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+
+      sections.forEach((section) => {
+        const isActive = section.dataset.city === city;
+        section.classList.toggle("active", isActive);
+        section.setAttribute("aria-hidden", isActive ? "false" : "true");
+      });
+    };
+
+    const setupTabs = () => {
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => switchCity(tab.dataset.city));
+      });
+    };
+
+    const setupActions = () => {
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const action = button.dataset.action;
+          const city = button.dataset.city;
+
+          if (action === "save") {
+            savePlan(city);
+          }
+          if (action === "load") {
+            loadPlan(city);
+          }
+          if (action === "clear") {
+            clearPlan(city);
+          }
+        });
+      });
+
+      planFields.forEach((field) => {
+        field.addEventListener("input", () => savePlan(field.dataset.city));
+      });
+
+      converterInputs.forEach((input) => {
+        input.addEventListener("input", () => {
+          convertToEuro(input.dataset.city);
+        });
+      });
+    };
+
+    const renderContent = () => {
+      Object.entries(cityData).forEach(([city, cityInfo]) => {
+        document.getElementById(`currency-${city}`).textContent = cityInfo.currency;
+        document.getElementById(`weather-${city}`).textContent = cityInfo.weather;
+        const rateNode = document.getElementById(`rate-${city}`);
+        const convertedNode = document.getElementById(`converted-${city}`);
+        if (rateNode) {
+          rateNode.textContent = `1 EUR ≈ ${cityInfo.toEuroRate} ${cityInfo.currencyCode} (live rates vary)`;
+        }
+        if (convertedNode) {
+          convertedNode.innerHTML = "<strong>€—</strong>";
+        }
+        const list = document.getElementById(`sights-${city}`);
+        cityInfo.sights.forEach(([place, price]) => {
+          const row = document.createElement("tr");
+          const placeCell = document.createElement("td");
+          const priceCell = document.createElement("td");
+          placeCell.textContent = place;
+          priceCell.textContent = price;
+          row.appendChild(placeCell);
+          row.appendChild(priceCell);
+          list.appendChild(row);
+        });
+      });
+    };
+
+    renderContent();
+    hydrateAll();
+    setupTabs();
+    setupActions();
+  </script>
+</body>
+</html>
