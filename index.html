@@ -117,7 +117,7 @@
 
     .guide-shell .topbar-title {
       font-family: var(--font-serif);
-      font-size: 28px;
+      font-size: 18px;
       font-weight: 500;
       color: var(--color-text-primary);
       line-height: 1.1;
@@ -125,9 +125,36 @@
 
     .guide-shell .topbar-title::before {
       content: "S'évader - ";
+      font-size: 28px;
       font-style: italic;
       color: var(--color-text-secondary);
       font-weight: 400;
+    }
+
+    .guide-shell .guide-footer {
+      margin-top: 1.25rem;
+      padding-top: 0.75rem;
+      text-align: center;
+      border-top: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .guide-shell .guide-footer-about {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-text-tertiary);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      letter-spacing: 0.02em;
+      transition: color .2s;
+    }
+
+    .guide-shell .guide-footer-about:hover {
+      color: var(--color-text-secondary);
+    }
+
+    .guide-shell .guide-footer-about:focus-visible {
+      outline: 2px solid var(--color-text-info);
+      outline-offset: 2px;
     }
 
     .guide-shell .menu-btn {
@@ -262,6 +289,11 @@
     .guide-meta {
       color: var(--color-text-secondary);
       font-size: 13px;
+    }
+
+    .guide-meta.guide-food-lede {
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     .guide-label,
@@ -508,6 +540,124 @@
       border-top: none;
     }
 
+    .sight-picks {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .sight-pick {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .sight-pick-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--border-radius-md);
+      border: 0.5px solid var(--color-border-tertiary);
+      margin-bottom: 0.45rem;
+      flex-shrink: 0;
+    }
+
+    .sight-pick-img--placeholder {
+      background: linear-gradient(135deg, var(--color-background-secondary) 0%, #ebe8e4 50%, var(--color-background-secondary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-tertiary);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .sight-pick-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin: 0 0 0.25rem;
+      line-height: 1.25;
+    }
+
+    .sight-pick-desc {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.45;
+      margin: 0 0 0.35rem;
+    }
+
+    .sight-pick-maps {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-text-info);
+      text-decoration: none;
+      align-self: flex-start;
+      border-bottom: 1px solid transparent;
+      transition: color .15s, border-color .15s;
+    }
+
+    .sight-pick-maps:hover {
+      color: #1e40af;
+      border-bottom-color: rgba(30, 64, 175, 0.35);
+    }
+
+    .sight-pick-maps:focus-visible {
+      outline: 2px solid var(--color-text-info);
+      outline-offset: 2px;
+    }
+
+    .food-picks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem 0.55rem;
+      margin-top: 0.35rem;
+    }
+
+    .food-pick {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .food-pick-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--border-radius-md);
+      border: 0.5px solid var(--color-border-tertiary);
+      margin-bottom: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .food-pick-img--placeholder {
+      background: linear-gradient(125deg, #f0ebe4 0%, #e8e0d6 45%, #f2ede6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-tertiary);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .food-pick-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin: 0 0 0.2rem;
+      line-height: 1.2;
+    }
+
+    .food-pick-desc {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      line-height: 1.35;
+      margin: 0;
+    }
+
     @media (max-width: 700px) {
       .guide-wrap,
       .guide-shell {
@@ -526,6 +676,10 @@
       }
 
       .guide-shell .topbar-title {
+        font-size: 18px;
+      }
+
+      .guide-shell .topbar-title::before {
         font-size: 22px;
       }
 
@@ -616,6 +770,33 @@
             <div class="guide-card">
               <div class="guide-kicker">Sights & entrance fees</div>
               <h3>What to visit</h3>
+              <h4>Top sights</h4>
+              <div class="sight-picks" aria-label="Featured sights in Budapest">
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Hungarian Parliament Building">Photo</div>
+                  <div class="sight-pick-name">Hungarian Parliament</div>
+                  <p class="sight-pick-desc">Neo-Gothic riverside landmark; guided tours show the cupola hall when parliament is not in session.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Hungarian%20Parliament%20Building%2C%20Budapest" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Buda Castle">Photo</div>
+                  <div class="sight-pick-name">Buda Castle</div>
+                  <p class="sight-pick-desc">Castle district palace complex with museums, courtyards, and views over the Danube to Pest.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Buda%20Castle%2C%20Budapest" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Fisherman's Bastion">Photo</div>
+                  <div class="sight-pick-name">Fisherman’s Bastion</div>
+                  <p class="sight-pick-desc">Fairytale terraces and turrets on Castle Hill—classic sunrise or sunset spot over the bridges.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Fisherman%27s%20Bastion%2C%20Budapest" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Danube River Budapest">Photo</div>
+                  <div class="sight-pick-name">Danube River</div>
+                  <p class="sight-pick-desc">Walk the embankments between bridges, or cross on foot for the full Pest↔Buda panorama.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Danube%20River%20Chain%20Bridge%20Budapest" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+              </div>
               <div class="guide-table-wrap">
                 <table class="guide-forms">
                   <thead>
@@ -626,6 +807,44 @@
                   </thead>
                   <tbody id="sights-budapest"></tbody>
                 </table>
+              </div>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-kicker">Food & drink</div>
+              <h3>Local cuisine</h3>
+              <p class="guide-meta guide-food-lede">Hungarian cuisine is characterized by its bold, hearty flavors and the generous use of Hungarian paprika, sour cream, and onion. It is a rich, meat-heavy cuisine often considered the spiciest in Europe.</p>
+              <div class="food-picks" aria-label="Budapest food and drink picks">
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: gulyás">Photo</div>
+                  <div class="food-pick-name">Gulyás</div>
+                  <p class="food-pick-desc">Paprika beef soup with roots—not the thick “goulash” stew abroad.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: halászlé">Photo</div>
+                  <div class="food-pick-name">Halászlé</div>
+                  <p class="food-pick-desc">Bright, peppery fisherman's soup with carp or catfish; Szeged-style is famous.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: pörkölt">Photo</div>
+                  <div class="food-pick-name">Pörkölt & nokedli</div>
+                  <p class="food-pick-desc">Slow-cooked meat ragù with hand-torn egg dumplings; kin to paprikás csirke.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: lángos">Photo</div>
+                  <div class="food-pick-name">Lángos</div>
+                  <p class="food-pick-desc">Crisp fried dough, garlic rub, then tejföl and grated cheese—market staple.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: kürtőskalács">Photo</div>
+                  <div class="food-pick-name">Kürtőskalács</div>
+                  <p class="food-pick-desc">Chimney cake from embers: caramelized sugar, cinnamon, or crushed nuts.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: fröccs">Photo</div>
+                  <div class="food-pick-name">Fröccs & ruin bars</div>
+                  <p class="food-pick-desc">Wine spritzer culture in the Jewish Quarter—courtyards, DJs, and local craft taps.</p>
+                </article>
               </div>
             </div>
           </section>
@@ -675,6 +894,33 @@
             <div class="guide-card">
               <div class="guide-kicker">Sights & entrance fees</div>
               <h3>What to visit</h3>
+              <h4>Top sights</h4>
+              <div class="sight-picks" aria-label="Featured sights in Kraków">
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Rynek Główny">Photo</div>
+                  <div class="sight-pick-name">Rynek Główny</div>
+                  <p class="sight-pick-desc">Europe’s largest medieval market square—Sukiennice, cafés, and the rhythm of the Old Town.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Rynek%20G%C5%82%C3%B3wny%2C%20Krak%C3%B3w" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Wawel Royal Castle">Photo</div>
+                  <div class="sight-pick-name">Wawel Royal Castle</div>
+                  <p class="sight-pick-desc">Hilltop cathedral, royal apartments, and courtyards with views over the Vistula.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Wawel%20Royal%20Castle%2C%20Krak%C3%B3w" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: St. Mary's Basilica">Photo</div>
+                  <div class="sight-pick-name">Basilica</div>
+                  <p class="sight-pick-desc">St. Mary’s on Rynek—Gothic interior, Veit Stoss altarpiece, and the hourly hejnał trumpet call.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Mary%27s%20Basilica%20Krak%C3%B3w" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Wieliczka Salt Mine">Photo</div>
+                  <div class="sight-pick-name">Salt mine</div>
+                  <p class="sight-pick-desc">Wieliczka’s underground chapels and timber passages—allow a half day; book timed entry and transport.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Wieliczka%20Salt%20Mine" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+              </div>
               <div class="guide-table-wrap">
                 <table class="guide-forms">
                   <thead>
@@ -734,6 +980,33 @@
             <div class="guide-card">
               <div class="guide-kicker">Sights & entrance fees</div>
               <h3>What to visit</h3>
+              <h4>Top sights</h4>
+              <div class="sight-picks" aria-label="Featured sights in Prague">
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Prague Castle">Photo</div>
+                  <div class="sight-pick-name">Prague Castle</div>
+                  <p class="sight-pick-desc">Hradčany complex—St. Vitus Cathedral, Golden Lane, and terraces over red roofs and the river.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Prague%20Castle%2C%20Prague" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Prague Astronomical Clock">Photo</div>
+                  <div class="sight-pick-name">Astronomical Clock</div>
+                  <p class="sight-pick-desc">Medieval orloj on the Old Town Hall—crowds gather on the hour for apostles in the windows.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Prague%20Astronomical%20Clock%20Old%20Town%20Hall" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Charles Bridge">Photo</div>
+                  <div class="sight-pick-name">Prague bridge</div>
+                  <p class="sight-pick-desc">Charles Bridge—baroque statues, buskers, and sunrise views between Old Town and Malá Strana.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Charles%20Bridge%2C%20Prague" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Old Town Square">Photo</div>
+                  <div class="sight-pick-name">Old Town Square</div>
+                  <p class="sight-pick-desc">Staroměstské náměstí—Týn Church spires, cafés, and the hub between the clock and Jewish Quarter walks.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Square%20Prague" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+              </div>
               <div class="guide-table-wrap">
                 <table class="guide-forms">
                   <thead>
@@ -793,6 +1066,33 @@
             <div class="guide-card">
               <div class="guide-kicker">Sights & entrance fees</div>
               <h3>What to visit</h3>
+              <h4>Top sights</h4>
+              <div class="sight-picks" aria-label="Featured sights in Vienna">
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Schönbrunn Palace">Photo</div>
+                  <div class="sight-pick-name">Schönbrunn Palace</div>
+                  <p class="sight-pick-desc">Habsburg summer residence—palace tour, formal gardens, Gloriette viewpoint, and zoo nearby.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Sch%C3%B6nbrunn%20Palace%2C%20Vienna" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Vienna State Opera">Photo</div>
+                  <div class="sight-pick-name">Vienna State Opera</div>
+                  <p class="sight-pick-desc">Renaissance Revival house on the Ring—standing-room tickets or a guided backstage visit by day.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Vienna%20State%20Opera" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: St. Stephen's Cathedral">Photo</div>
+                  <div class="sight-pick-name">St. Stephen’s Cathedral</div>
+                  <p class="sight-pick-desc">Stephansdom—tiled roof, south-tower climb, and the heart of the pedestrian Innere Stadt.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Stephen%27s%20Cathedral%2C%20Vienna" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+                <article class="sight-pick">
+                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Kunsthistorisches Museum">Photo</div>
+                  <div class="sight-pick-name">Kunsthistorisches Museum</div>
+                  <p class="sight-pick-desc">Ring palace of fine art—Bruegel, Velázquez, Egyptian antiquities, and the grand café under the dome.</p>
+                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Kunsthistorisches%20Museum%2C%20Vienna" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </article>
+              </div>
               <div class="guide-table-wrap">
                 <table class="guide-forms">
                   <thead>
@@ -808,6 +1108,9 @@
           </section>
         </main>
       </div>
+      <footer class="guide-footer">
+        <a class="guide-footer-about" href="about.html">About</a>
+      </footer>
     </div>
   </div>
 
