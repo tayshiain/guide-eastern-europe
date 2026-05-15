@@ -307,6 +307,12 @@
       font-weight: 500;
     }
 
+    .guide-label-optional {
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 400;
+    }
+
     .guide-field,
     .guide-convert-input {
       width: 100%;
@@ -399,6 +405,133 @@
       border: 0;
     }
 
+    .hotel-dates {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hotel-dates > div {
+      min-width: 0;
+    }
+
+    .hotel-dates .guide-label {
+      margin-bottom: 0.35rem;
+    }
+
+    .hotel-dates .guide-field {
+      margin-bottom: 0;
+    }
+
+    .guide-field[type="date"] {
+      min-height: 32px;
+      color-scheme: light;
+    }
+
+    .guide-field[type="date"].is-empty {
+      color: var(--color-text-tertiary);
+    }
+
+    .guide-field[type="date"]:not(.is-empty) {
+      color: var(--color-text-primary);
+    }
+
+    .guide-field[type="date"].is-empty::-webkit-datetime-edit,
+    .guide-field[type="date"].is-empty::-webkit-datetime-edit-fields-wrapper,
+    .guide-field[type="date"].is-empty::-webkit-datetime-edit-text,
+    .guide-field[type="date"].is-empty::-webkit-datetime-edit-month-field,
+    .guide-field[type="date"].is-empty::-webkit-datetime-edit-day-field,
+    .guide-field[type="date"].is-empty::-webkit-datetime-edit-year-field {
+      color: var(--color-text-tertiary);
+    }
+
+    .guide-field[type="date"]::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+      opacity: 0.65;
+    }
+
+    .hotel-field-wrap {
+      position: relative;
+    }
+
+    .hotel-suggestions {
+      position: absolute;
+      z-index: 20;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      margin: 0;
+      padding: 0.25rem 0;
+      list-style: none;
+      background: var(--color-background-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--border-radius-md);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .hotel-suggestions:empty {
+      display: none;
+    }
+
+    .hotel-suggestions li button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.45rem 0.65rem;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      font-size: 12px;
+      line-height: 1.35;
+      color: var(--color-text-primary);
+      cursor: pointer;
+    }
+
+    .hotel-suggestions li button:hover,
+    .hotel-suggestions li button:focus-visible {
+      background: var(--color-background-secondary);
+      outline: none;
+    }
+
+    .hotel-suggestions .hotel-suggest-name {
+      display: block;
+      font-weight: 500;
+    }
+
+    .hotel-suggestions .hotel-suggest-addr {
+      display: block;
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      margin-top: 2px;
+    }
+
+    .transport-hubs {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .transport-hub-type {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+
+    .transport-hub-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin: 0 0 0.35rem;
+      line-height: 1.3;
+    }
+
     .guide-sight-list {
       margin: 0.2rem 0 0 1rem;
       color: var(--color-text-secondary);
@@ -429,7 +562,6 @@
       margin-top: 4px;
     }
 
-    .weather-title,
     .guide-converter .guide-label {
       font-size: 11px;
       color: var(--color-text-tertiary);
@@ -718,14 +850,433 @@
         display: none;
       }
     }
+
+    .app-view.hidden {
+      display: none;
+    }
+
+    .landing-view {
+      animation: reveal 0.3s ease-out;
+    }
+
+    .landing-hero {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.75rem 1.5rem 1.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .landing-brand {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 5vw, 1.9rem);
+      font-weight: 500;
+      margin: 0 0 0.25rem;
+      line-height: 1.15;
+    }
+
+    .landing-tagline {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      font-weight: 500;
+      margin: 0 0 1rem;
+    }
+
+    .landing-lead {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--color-text-secondary);
+      margin: 0;
+      text-align: left;
+      border-top: 0.5px solid var(--color-border-tertiary);
+      padding-top: 1rem;
+    }
+
+    .landing-section-title {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      font-weight: 500;
+      margin: 0 0 0.65rem;
+    }
+
+    .landing-city-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      margin-bottom: 1rem;
+    }
+
+    .landing-city-card {
+      text-align: left;
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      background: var(--color-background-primary);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+    }
+
+    .landing-city-card:hover {
+      border-color: var(--color-border-secondary);
+    }
+
+    .landing-city-card.selected {
+      border-color: var(--color-text-primary);
+      background: var(--color-background-secondary);
+      box-shadow: 0 0 0 1px var(--color-text-primary);
+    }
+
+    .landing-city-card:focus-visible {
+      outline: 2px solid var(--color-text-info);
+      outline-offset: 2px;
+    }
+
+    .landing-city-name {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 0.15rem;
+    }
+
+    .landing-city-country {
+      display: block;
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+    }
+
+    .landing-survey {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1rem 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .landing-survey-heading {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 500;
+      margin: 0 0 0.85rem;
+      color: var(--color-text-primary);
+    }
+
+    .survey-field {
+      margin-bottom: 0.9rem;
+    }
+
+    .survey-field:last-child {
+      margin-bottom: 0;
+    }
+
+    .survey-field .guide-label {
+      margin-bottom: 0.4rem;
+    }
+
+    .survey-origin-wrap {
+      position: relative;
+    }
+
+    .survey-origin-wrap .guide-field {
+      margin-bottom: 0;
+    }
+
+    .survey-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+    }
+
+    @media (max-width: 420px) {
+      .survey-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .survey-chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .survey-chip {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: 20px;
+      padding: 0.35rem 0.7rem;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+    }
+
+    .survey-chip:hover {
+      border-color: var(--color-border-secondary);
+      color: var(--color-text-primary);
+    }
+
+    .survey-chip.selected {
+      border-color: var(--color-text-primary);
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      box-shadow: 0 0 0 1px var(--color-text-primary);
+    }
+
+    .survey-chip:focus-visible {
+      outline: 2px solid var(--color-text-info);
+      outline-offset: 2px;
+    }
+
+    .survey-hint {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      margin: 0.35rem 0 0;
+      line-height: 1.4;
+    }
+
+    .survey-field fieldset {
+      border: none;
+      margin: 0;
+      padding: 0;
+      min-width: 0;
+    }
+
+    .survey-field legend.guide-label {
+      display: block;
+      width: 100%;
+      float: none;
+    }
+
+    .survey-field .guide-field {
+      margin-bottom: 0;
+    }
+
+    .inspiration-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .inspiration-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 0.7rem 0.8rem;
+    }
+
+    .inspiration-card-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin: 0 0 0.25rem;
+      line-height: 1.3;
+    }
+
+    .inspiration-card-desc {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .landing-cta-wrap {
+      text-align: center;
+    }
+
+    .landing-btn-primary {
+      width: 100%;
+      border: 1px solid var(--color-text-primary);
+      background: var(--color-text-primary);
+      color: var(--color-background-primary);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 0.65rem 1rem;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .landing-btn-primary:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+
+    .landing-btn-primary:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .landing-hint {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      margin: 0.5rem 0 0;
+    }
+
+    .topbar-trip {
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+      margin: 0.35rem 0 0;
+      font-weight: 400;
+      font-family: var(--font-sans);
+      letter-spacing: 0.02em;
+    }
+
+    .guide-footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .guide-footer-change {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-text-tertiary);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .guide-footer-change:hover {
+      color: var(--color-text-secondary);
+    }
+
+    .guide-tabs .tab.is-hidden {
+      display: none;
+    }
+
+    .guide-section.is-hidden {
+      display: none !important;
+    }
 </style>
 </head>
 <body>
   <div class="guide-wrap">
     <div class="guide-shell">
+      <section id="landing-view" class="landing-view app-view" aria-label="Trip setup">
+        <header class="landing-hero">
+          <h1 class="landing-brand">S'évader</h1>
+          <p class="landing-tagline">Travel itinerary app</p>
+          <p class="landing-lead"><strong>S'évader</strong> is your calm pocket guide to travelling in Eastern Europe: hotel notes, live weather, currency, top sights, and local food picks.</p>
+        </header>
+
+        <p class="landing-section-title">Which cities are you visiting?</p>
+        <div class="landing-city-grid" id="landing-city-grid" role="group" aria-label="Select cities">
+          <button type="button" class="landing-city-card" data-city="budapest" aria-pressed="false">
+            <span class="landing-city-name">Budapest</span>
+            <span class="landing-city-country">Hungary</span>
+          </button>
+          <button type="button" class="landing-city-card" data-city="krakow" aria-pressed="false">
+            <span class="landing-city-name">Krakow</span>
+            <span class="landing-city-country">Poland</span>
+          </button>
+          <button type="button" class="landing-city-card" data-city="prague" aria-pressed="false">
+            <span class="landing-city-name">Prague</span>
+            <span class="landing-city-country">Czechia</span>
+          </button>
+          <button type="button" class="landing-city-card" data-city="vienna" aria-pressed="false">
+            <span class="landing-city-name">Vienna</span>
+            <span class="landing-city-country">Austria</span>
+          </button>
+        </div>
+
+        <form class="landing-survey" id="trip-survey" aria-label="Trip preferences survey" novalidate>
+          <h2 class="landing-survey-heading">Tell us about your trip</h2>
+
+          <div class="survey-field">
+            <label class="guide-label" for="trip-origin">Where are you coming from?</label>
+            <div class="survey-origin-wrap">
+              <input class="guide-field" id="trip-origin" name="origin" type="text" placeholder="Your home city" autocomplete="off">
+              <ul class="hotel-suggestions" id="origin-suggest" role="listbox" aria-label="City suggestions"></ul>
+            </div>
+          </div>
+
+          <fieldset class="survey-field">
+            <legend class="guide-label">What would you like to see?</legend>
+            <div class="survey-chip-grid" id="survey-interests" role="group" aria-label="Trip interests">
+              <button type="button" class="survey-chip" data-survey="interest" data-value="mountains" aria-pressed="false">Mountains</button>
+              <button type="button" class="survey-chip" data-survey="interest" data-value="beach" aria-pressed="false">Beach</button>
+              <button type="button" class="survey-chip" data-survey="interest" data-value="cities" aria-pressed="false">Cities</button>
+              <button type="button" class="survey-chip" data-survey="interest" data-value="history" aria-pressed="false">History</button>
+              <button type="button" class="survey-chip" data-survey="interest" data-value="food" aria-pressed="false">Food &amp; wine</button>
+              <button type="button" class="survey-chip" data-survey="interest" data-value="nightlife" aria-pressed="false">Nightlife</button>
+              <button type="button" class="survey-chip" data-survey="interest" data-value="nature" aria-pressed="false">Nature</button>
+            </div>
+            <p class="survey-hint">Pick as many as you like.</p>
+          </fieldset>
+
+          <fieldset class="survey-field">
+            <legend class="guide-label">Who are you travelling with?</legend>
+            <div class="survey-chip-grid" id="survey-companions" role="radiogroup" aria-label="Travel companions">
+              <button type="button" class="survey-chip" data-survey="companions" data-value="solo" aria-pressed="false">Solo</button>
+              <button type="button" class="survey-chip" data-survey="companions" data-value="partner" aria-pressed="false">Partner</button>
+              <button type="button" class="survey-chip" data-survey="companions" data-value="friends" aria-pressed="false">Friends</button>
+              <button type="button" class="survey-chip" data-survey="companions" data-value="family" aria-pressed="false">Family</button>
+            </div>
+          </fieldset>
+
+          <div class="survey-row">
+            <div class="survey-field">
+              <label class="guide-label" for="trip-month">When are you travelling?</label>
+              <select class="guide-field" id="trip-month" name="travelMonth">
+                <option value="">Select month</option>
+                <option value="january">January</option>
+                <option value="february">February</option>
+                <option value="march">March</option>
+                <option value="april">April</option>
+                <option value="may">May</option>
+                <option value="june">June</option>
+                <option value="july">July</option>
+                <option value="august">August</option>
+                <option value="september">September</option>
+                <option value="october">October</option>
+                <option value="november">November</option>
+                <option value="december">December</option>
+              </select>
+            </div>
+            <div class="survey-field">
+              <label class="guide-label" for="trip-days">How many days?</label>
+              <input class="guide-field" id="trip-days" name="tripDays" type="number" min="1" max="60" step="1" placeholder="e.g. 10" inputmode="numeric">
+            </div>
+          </div>
+
+          <fieldset class="survey-field">
+            <legend class="guide-label">What's your budget?</legend>
+            <div class="survey-chip-grid" id="survey-budget" role="radiogroup" aria-label="Trip budget">
+              <button type="button" class="survey-chip" data-survey="budget" data-value="budget" aria-pressed="false">Budget</button>
+              <button type="button" class="survey-chip" data-survey="budget" data-value="moderate" aria-pressed="false">Moderate</button>
+              <button type="button" class="survey-chip" data-survey="budget" data-value="comfortable" aria-pressed="false">Comfortable</button>
+              <button type="button" class="survey-chip" data-survey="budget" data-value="luxury" aria-pressed="false">Luxury</button>
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="landing-cta-wrap">
+          <button type="button" class="landing-btn-primary" id="landing-start" disabled>Start planning</button>
+          <p class="landing-hint" id="landing-hint">Select at least one city</p>
+        </div>
+      </section>
+
+      <section id="guide-view" class="guide-view app-view hidden" aria-label="Trip guide">
       <div class="topbar">
         <button class="menu-btn" type="button" aria-hidden="true" tabindex="-1">☰ Menu</button>
-        <div class="topbar-title">your guide to Eastern Europe</div>
+        <div>
+          <div class="topbar-title">your guide to Eastern Europe</div>
+          <p class="topbar-trip" id="topbar-trip"></p>
+        </div>
       </div>
 
       <div class="content">
@@ -745,15 +1296,26 @@
           <section class="guide-section" id="budapest" data-city="budapest" aria-hidden="false">
             <div class="guide-grid">
               <div class="guide-card">
-                <div class="guide-kicker">Hotel & flight</div>
+                <div class="guide-kicker">Hotel</div>
                 <label class="guide-label" for="hotelName-budapest">Hotel name</label>
-                <input class="guide-field plan-field" id="hotelName-budapest" data-city="budapest" data-field="hotelName" type="text" placeholder="Danubia Hotel Budapest">
+                <div class="hotel-field-wrap">
+                  <input class="guide-field plan-field hotel-name-field" id="hotelName-budapest" data-city="budapest" data-field="hotelName" type="text" placeholder="Danubia Hotel Budapest" autocomplete="off">
+                  <ul class="hotel-suggestions" id="hotelSuggest-budapest" role="listbox" aria-label="Hotel suggestions"></ul>
+                </div>
 
                 <label class="guide-label" for="hotelAddress-budapest">Hotel address</label>
                 <input class="guide-field plan-field" id="hotelAddress-budapest" data-city="budapest" data-field="hotelAddress" type="text" placeholder="District, street, postal code">
+                <div class="hotel-dates">
+                  <div>
+                    <label class="guide-label" for="checkIn-budapest">Check-in</label>
+                    <input class="guide-field plan-field" id="checkIn-budapest" data-city="budapest" data-field="checkIn" type="date">
+                  </div>
+                  <div>
+                    <label class="guide-label" for="checkOut-budapest">Check-out</label>
+                    <input class="guide-field plan-field" id="checkOut-budapest" data-city="budapest" data-field="checkOut" type="date">
+                  </div>
+                </div>
 
-                <label class="guide-label" for="flightInfo-budapest">Flight information</label>
-                <textarea class="guide-field guide-textarea plan-field" id="flightInfo-budapest" data-city="budapest" data-field="flightInfo" placeholder="Flight number, departure and arrival, departure time, booking reference"></textarea>
 
                 <div class="guide-actions">
                   <button class="guide-btn save" data-action="save" data-city="budapest" type="button">Save</button>
@@ -764,14 +1326,13 @@
                 <div class="hotel-map-wrap">
                   <iframe class="hotel-map" id="hotelMap-budapest" title="Hotel location — Budapest" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                 </div>
+                <div class="transport-hubs" id="transport-budapest" aria-label="Airport and train station"></div>
               </div>
 
               <div class="guide-card weather-card">
                 <div class="guide-kicker">Weather</div>
                 <h3>Weather overview</h3>
                 <div id="forecast-budapest" class="weather-loading">Loading forecast…</div>
-                <p class="weather-title" style="margin-top:0.5rem">August 2026 outlook</p>
-                <p class="guide-meta" id="weather-budapest"></p>
               </div>
 
               <div class="guide-card currency-card">
@@ -872,15 +1433,26 @@
           <section class="guide-section" id="krakow" data-city="krakow" aria-hidden="true">
             <div class="guide-grid">
               <div class="guide-card">
-                <div class="guide-kicker">Hotel & flight</div>
+                <div class="guide-kicker">Hotel</div>
                 <label class="guide-label" for="hotelName-krakow">Hotel name</label>
-                <input class="guide-field plan-field" id="hotelName-krakow" data-city="krakow" data-field="hotelName" type="text" placeholder="The Royal Hotel Krakow">
+                <div class="hotel-field-wrap">
+                  <input class="guide-field plan-field hotel-name-field" id="hotelName-krakow" data-city="krakow" data-field="hotelName" type="text" placeholder="The Royal Hotel Krakow" autocomplete="off">
+                  <ul class="hotel-suggestions" id="hotelSuggest-krakow" role="listbox" aria-label="Hotel suggestions"></ul>
+                </div>
 
                 <label class="guide-label" for="hotelAddress-krakow">Hotel address</label>
                 <input class="guide-field plan-field" id="hotelAddress-krakow" data-city="krakow" data-field="hotelAddress" type="text" placeholder="Main square, district, postal code">
+                <div class="hotel-dates">
+                  <div>
+                    <label class="guide-label" for="checkIn-krakow">Check-in</label>
+                    <input class="guide-field plan-field" id="checkIn-krakow" data-city="krakow" data-field="checkIn" type="date">
+                  </div>
+                  <div>
+                    <label class="guide-label" for="checkOut-krakow">Check-out</label>
+                    <input class="guide-field plan-field" id="checkOut-krakow" data-city="krakow" data-field="checkOut" type="date">
+                  </div>
+                </div>
 
-                <label class="guide-label" for="flightInfo-krakow">Flight information</label>
-                <textarea class="guide-field guide-textarea plan-field" id="flightInfo-krakow" data-city="krakow" data-field="flightInfo" placeholder="Flight number, departure and arrival, departure time, booking reference"></textarea>
 
                 <div class="guide-actions">
                   <button class="guide-btn save" data-action="save" data-city="krakow" type="button">Save</button>
@@ -891,14 +1463,13 @@
                 <div class="hotel-map-wrap">
                   <iframe class="hotel-map" id="hotelMap-krakow" title="Hotel location — Krakow" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                 </div>
+                <div class="transport-hubs" id="transport-krakow" aria-label="Airport and train station"></div>
               </div>
 
               <div class="guide-card weather-card">
                 <div class="guide-kicker">Weather</div>
                 <h3>Weather overview</h3>
                 <div id="forecast-krakow" class="weather-loading">Loading forecast…</div>
-                <p class="weather-title" style="margin-top:0.5rem">August 2026 outlook</p>
-                <p class="guide-meta" id="weather-krakow"></p>
               </div>
 
               <div class="guide-card currency-card">
@@ -999,15 +1570,26 @@
           <section class="guide-section" id="prague" data-city="prague" aria-hidden="true">
             <div class="guide-grid">
               <div class="guide-card">
-                <div class="guide-kicker">Hotel & flight</div>
+                <div class="guide-kicker">Hotel</div>
                 <label class="guide-label" for="hotelName-prague">Hotel name</label>
-                <input class="guide-field plan-field" id="hotelName-prague" data-city="prague" data-field="hotelName" type="text" placeholder="Prague City Hotel">
+                <div class="hotel-field-wrap">
+                  <input class="guide-field plan-field hotel-name-field" id="hotelName-prague" data-city="prague" data-field="hotelName" type="text" placeholder="Prague City Hotel" autocomplete="off">
+                  <ul class="hotel-suggestions" id="hotelSuggest-prague" role="listbox" aria-label="Hotel suggestions"></ul>
+                </div>
 
                 <label class="guide-label" for="hotelAddress-prague">Hotel address</label>
                 <input class="guide-field plan-field" id="hotelAddress-prague" data-city="prague" data-field="hotelAddress" type="text" placeholder="Old Town, district, postal code">
+                <div class="hotel-dates">
+                  <div>
+                    <label class="guide-label" for="checkIn-prague">Check-in</label>
+                    <input class="guide-field plan-field" id="checkIn-prague" data-city="prague" data-field="checkIn" type="date">
+                  </div>
+                  <div>
+                    <label class="guide-label" for="checkOut-prague">Check-out</label>
+                    <input class="guide-field plan-field" id="checkOut-prague" data-city="prague" data-field="checkOut" type="date">
+                  </div>
+                </div>
 
-                <label class="guide-label" for="flightInfo-prague">Flight information</label>
-                <textarea class="guide-field guide-textarea plan-field" id="flightInfo-prague" data-city="prague" data-field="flightInfo" placeholder="Flight number, departure and arrival, departure time, booking reference"></textarea>
 
                 <div class="guide-actions">
                   <button class="guide-btn save" data-action="save" data-city="prague" type="button">Save</button>
@@ -1018,14 +1600,13 @@
                 <div class="hotel-map-wrap">
                   <iframe class="hotel-map" id="hotelMap-prague" title="Hotel location — Prague" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                 </div>
+                <div class="transport-hubs" id="transport-prague" aria-label="Airport and train station"></div>
               </div>
 
               <div class="guide-card weather-card">
                 <div class="guide-kicker">Weather</div>
                 <h3>Weather overview</h3>
                 <div id="forecast-prague" class="weather-loading">Loading forecast…</div>
-                <p class="weather-title" style="margin-top:0.5rem">August 2026 outlook</p>
-                <p class="guide-meta" id="weather-prague"></p>
               </div>
 
               <div class="guide-card currency-card">
@@ -1126,15 +1707,26 @@
           <section class="guide-section" id="vienna" data-city="vienna" aria-hidden="true">
             <div class="guide-grid">
               <div class="guide-card">
-                <div class="guide-kicker">Hotel & flight</div>
+                <div class="guide-kicker">Hotel</div>
                 <label class="guide-label" for="hotelName-vienna">Hotel name</label>
-                <input class="guide-field plan-field" id="hotelName-vienna" data-city="vienna" data-field="hotelName" type="text" placeholder="Vienna Central Residence">
+                <div class="hotel-field-wrap">
+                  <input class="guide-field plan-field hotel-name-field" id="hotelName-vienna" data-city="vienna" data-field="hotelName" type="text" placeholder="Vienna Central Residence" autocomplete="off">
+                  <ul class="hotel-suggestions" id="hotelSuggest-vienna" role="listbox" aria-label="Hotel suggestions"></ul>
+                </div>
 
                 <label class="guide-label" for="hotelAddress-vienna">Hotel address</label>
                 <input class="guide-field plan-field" id="hotelAddress-vienna" data-city="vienna" data-field="hotelAddress" type="text" placeholder="Innere Stadt, district, postal code">
+                <div class="hotel-dates">
+                  <div>
+                    <label class="guide-label" for="checkIn-vienna">Check-in</label>
+                    <input class="guide-field plan-field" id="checkIn-vienna" data-city="vienna" data-field="checkIn" type="date">
+                  </div>
+                  <div>
+                    <label class="guide-label" for="checkOut-vienna">Check-out</label>
+                    <input class="guide-field plan-field" id="checkOut-vienna" data-city="vienna" data-field="checkOut" type="date">
+                  </div>
+                </div>
 
-                <label class="guide-label" for="flightInfo-vienna">Flight information</label>
-                <textarea class="guide-field guide-textarea plan-field" id="flightInfo-vienna" data-city="vienna" data-field="flightInfo" placeholder="Flight number, departure and arrival, departure time, booking reference"></textarea>
 
                 <div class="guide-actions">
                   <button class="guide-btn save" data-action="save" data-city="vienna" type="button">Save</button>
@@ -1145,14 +1737,13 @@
                 <div class="hotel-map-wrap">
                   <iframe class="hotel-map" id="hotelMap-vienna" title="Hotel location — Vienna" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                 </div>
+                <div class="transport-hubs" id="transport-vienna" aria-label="Airport and train station"></div>
               </div>
 
               <div class="guide-card weather-card">
                 <div class="guide-kicker">Weather</div>
                 <h3>Weather overview</h3>
                 <div id="forecast-vienna" class="weather-loading">Loading forecast…</div>
-                <p class="weather-title" style="margin-top:0.5rem">August 2026 outlook</p>
-                <p class="guide-meta" id="weather-vienna"></p>
               </div>
 
               <div class="guide-card currency-card">
@@ -1252,18 +1843,31 @@
         </main>
       </div>
       <footer class="guide-footer">
-        <a class="guide-footer-about" href="about.html">About</a>
+        <div class="guide-footer-links">
+          <button type="button" class="guide-footer-change" id="change-cities">Change cities</button>
+          <a class="guide-footer-about" href="about.html">About</a>
+        </div>
       </footer>
+      </section>
     </div>
   </div>
 
   <script>
     const cityData = {
       budapest: {
+        transport: {
+          airport: {
+            name: "Budapest Ferenc Liszt International Airport (BUD)",
+            mapsQuery: "Budapest Ferenc Liszt International Airport"
+          },
+          station: {
+            name: "Budapest Keleti (Eastern) railway station",
+            mapsQuery: "Budapest Keleti railway station"
+          }
+        },
         currency: "Hungarian forint (HUF)",
         currencyCode: "HUF",
         toEuroRate: 390,
-        weather: "Avg max/min: 29°C / 16°C · Humidity 63% · Rainy days around 10–12 days in August.",
         sights: [
           ["Buda Castle", "4,900 HUF (~€12.50)"],
           ["Fisherman’s Bastion", "2,600 HUF"],
@@ -1275,10 +1879,19 @@
         ]
       },
       krakow: {
+        transport: {
+          airport: {
+            name: "Kraków John Paul II International Airport (KRK)",
+            mapsQuery: "Kraków John Paul II International Airport"
+          },
+          station: {
+            name: "Kraków Główny (main railway station)",
+            mapsQuery: "Kraków Główny railway station"
+          }
+        },
         currency: "Polish złoty (PLN)",
         currencyCode: "PLN",
         toEuroRate: 4.4,
-        weather: "Avg max/min: 27°C / 15°C · Humidity 66% · Rainy days around 17 days, usually short showers.",
         sights: [
           ["Wawel Royal Castle", "100 PLN"],
           ["St. Mary's Basilica tower climb", "30 PLN"],
@@ -1290,10 +1903,19 @@
         ]
       },
       prague: {
+        transport: {
+          airport: {
+            name: "Václav Havel Airport Prague (PRG)",
+            mapsQuery: "Václav Havel Airport Prague"
+          },
+          station: {
+            name: "Praha hlavní nádraží (Prague Main Station)",
+            mapsQuery: "Praha hlavní nádraží"
+          }
+        },
         currency: "Czech koruna (CZK)",
         currencyCode: "CZK",
         toEuroRate: 25,
-        weather: "Avg max/min: 27°C / 14°C · Humidity 61% · Rainy days around 8–10 days in August.",
         sights: [
           ["Prague Castle", "250 CZK (tourist pass available)"],
           ["St. Vitus Cathedral", "50 CZK"],
@@ -1305,10 +1927,19 @@
         ]
       },
       vienna: {
+        transport: {
+          airport: {
+            name: "Vienna International Airport (VIE)",
+            mapsQuery: "Vienna International Airport"
+          },
+          station: {
+            name: "Wien Hauptbahnhof (main railway station)",
+            mapsQuery: "Wien Hauptbahnhof"
+          }
+        },
         currency: "Euro (EUR)",
         currencyCode: "EUR",
         toEuroRate: 1,
-        weather: "Avg max/min: 28°C / 16°C · Humidity 65% · Rainy days around 11 days with afternoon showers.",
         sights: [
           ["Schönbrunn Palace", "22 EUR (Grand Entrance)"],
           ["Belvedere Palace", "17 EUR"],
@@ -1323,6 +1954,328 @@
     };
 
     const storageKey = "eastern-europe-guide-v1";
+    const tripStorageKey = "sevader-trip-v1";
+
+    const cityCatalog = {
+      budapest: { label: "Budapest", country: "Hungary", tabLabel: "Budapest" },
+      krakow: { label: "Krakow", country: "Poland", tabLabel: "Krakow" },
+      prague: { label: "Prague", country: "Czechia", tabLabel: "Prague" },
+      vienna: { label: "Vienna", country: "Austria", tabLabel: "Vienna" },
+    };
+
+    const allCities = Object.keys(cityCatalog);
+
+    const emptySurvey = () => ({
+      interests: [],
+      companions: "",
+      travelMonth: "",
+      tripDays: "",
+      budget: "",
+    });
+
+    const normalizeSurvey = (survey) => ({
+      interests: Array.isArray(survey?.interests) ? survey.interests.filter(Boolean) : [],
+      companions: survey?.companions || "",
+      travelMonth: survey?.travelMonth || "",
+      tripDays: survey?.tripDays != null && survey.tripDays !== "" ? String(survey.tripDays) : "",
+      budget: survey?.budget || "",
+    });
+
+    let activeTrip = {
+      cities: [...allCities],
+      origin: "",
+      originCountry: "",
+      survey: emptySurvey(),
+    };
+    let selectedCities = [];
+    let originMeta = { label: "", country: "" };
+    let originSuggestTimer = null;
+
+    const landingView = document.getElementById("landing-view");
+    const guideView = document.getElementById("guide-view");
+    const topbarTrip = document.getElementById("topbar-trip");
+    const landingStart = document.getElementById("landing-start");
+    const landingHint = document.getElementById("landing-hint");
+    const tripOriginInput = document.getElementById("trip-origin");
+    const tripMonthSelect = document.getElementById("trip-month");
+    const tripDaysInput = document.getElementById("trip-days");
+    const originSuggestList = document.getElementById("origin-suggest");
+    const surveyChips = document.querySelectorAll(".survey-chip[data-survey]");
+    const changeCitiesBtn = document.getElementById("change-cities");
+    const landingCityCards = document.querySelectorAll(".landing-city-card");
+
+    const getTripStore = () => {
+      try {
+        return JSON.parse(localStorage.getItem(tripStorageKey)) || null;
+      } catch (error) {
+        console.warn("Could not read trip settings.", error);
+        return null;
+      }
+    };
+
+    const setTripStore = (trip) => {
+      localStorage.setItem(tripStorageKey, JSON.stringify(trip));
+    };
+
+    const showView = (view) => {
+      if (landingView) landingView.classList.toggle("hidden", view !== "landing");
+      if (guideView) guideView.classList.toggle("hidden", view !== "guide");
+    };
+
+    const updateLandingSelectionUI = () => {
+      landingCityCards.forEach((card) => {
+        const city = card.dataset.city;
+        const on = selectedCities.includes(city);
+        card.classList.toggle("selected", on);
+        card.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      if (landingStart) landingStart.disabled = selectedCities.length === 0;
+      if (landingHint) {
+        landingHint.textContent =
+          selectedCities.length === 0
+            ? "Select at least one city"
+            : `${selectedCities.length} ${selectedCities.length === 1 ? "city" : "cities"} selected`;
+      }
+    };
+
+    const readSurveyFromForm = () => {
+      const interests = [];
+      surveyChips.forEach((chip) => {
+        if (chip.dataset.survey !== "interest" || !chip.classList.contains("selected")) return;
+        interests.push(chip.dataset.value);
+      });
+
+      let companions = "";
+      let budget = "";
+      surveyChips.forEach((chip) => {
+        if (!chip.classList.contains("selected")) return;
+        if (chip.dataset.survey === "companions") companions = chip.dataset.value;
+        if (chip.dataset.survey === "budget") budget = chip.dataset.value;
+      });
+
+      const tripDaysRaw = tripDaysInput?.value.trim() || "";
+      const tripDays = tripDaysRaw && Number.isFinite(Number(tripDaysRaw)) ? String(Number(tripDaysRaw)) : "";
+
+      return normalizeSurvey({
+        interests,
+        companions,
+        travelMonth: tripMonthSelect?.value || "",
+        tripDays,
+        budget,
+      });
+    };
+
+    const applySurveyToForm = (survey) => {
+      const data = normalizeSurvey(survey);
+      surveyChips.forEach((chip) => {
+        const type = chip.dataset.survey;
+        const value = chip.dataset.value;
+        let on = false;
+        if (type === "interest") on = data.interests.includes(value);
+        else if (type === "companions") on = data.companions === value;
+        else if (type === "budget") on = data.budget === value;
+        chip.classList.toggle("selected", on);
+        chip.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      if (tripMonthSelect) tripMonthSelect.value = data.travelMonth;
+      if (tripDaysInput) tripDaysInput.value = data.tripDays;
+    };
+
+    const formatOriginLabel = (props) => {
+      const name = props.name || props.city || "";
+      const country = props.country || "";
+      return country ? `${name}, ${country}` : name;
+    };
+
+    const clearOriginSuggestions = () => {
+      if (originSuggestList) originSuggestList.innerHTML = "";
+    };
+
+    const applyOriginSelection = (label, country) => {
+      originMeta = { label, country };
+      if (tripOriginInput) tripOriginInput.value = label;
+      clearOriginSuggestions();
+    };
+
+    const fetchOriginSuggestions = async (query) => {
+      if (!originSuggestList) return;
+
+      const url = `https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=10&lang=en`;
+
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        const features = (data.features || []).filter((feature) => {
+          const props = feature.properties || {};
+          const placeType = props.osm_value || props.type || "";
+          return ["city", "town", "village", "locality", "administrative"].includes(placeType);
+        });
+
+        originSuggestList.innerHTML = "";
+        if (!features.length) return;
+
+        features.slice(0, 6).forEach((feature) => {
+          const props = feature.properties || {};
+          const label = formatOriginLabel(props);
+          if (!label) return;
+          const li = document.createElement("li");
+          const button = document.createElement("button");
+          button.type = "button";
+          button.innerHTML = `<span class="hotel-suggest-name">${label}</span>`;
+          button.addEventListener("click", () =>
+            applyOriginSelection(label, props.country || "")
+          );
+          li.appendChild(button);
+          originSuggestList.appendChild(li);
+        });
+      } catch (error) {
+        originSuggestList.innerHTML = "";
+      }
+    };
+
+    const applyTripToGuide = () => {
+      const cities = activeTrip.cities.filter((city) => allCities.includes(city));
+      if (!cities.length) return;
+
+      tabs.forEach((tab) => {
+        const visible = cities.includes(tab.dataset.city);
+        tab.classList.toggle("is-hidden", !visible);
+      });
+
+      sections.forEach((section) => {
+        const visible = cities.includes(section.dataset.city);
+        section.classList.toggle("is-hidden", !visible);
+      });
+
+      if (topbarTrip) {
+        topbarTrip.textContent = cities.map((city) => cityCatalog[city].tabLabel).join(" · ");
+      }
+    };
+
+    const persistTrip = () => {
+      setTripStore({
+        cities: activeTrip.cities,
+        origin: activeTrip.origin,
+        originCountry: activeTrip.originCountry || "",
+        survey: normalizeSurvey(activeTrip.survey),
+      });
+    };
+
+    const enterGuide = () => {
+      const originLabel = originMeta.label || tripOriginInput?.value.trim() || "";
+      activeTrip = {
+        cities: selectedCities.filter((city) => allCities.includes(city)),
+        origin: originLabel,
+        originCountry: originMeta.country || "",
+        survey: readSurveyFromForm(),
+      };
+      if (!activeTrip.cities.length) return;
+      persistTrip();
+      showView("guide");
+      applyTripToGuide();
+      switchCityWithWeather(activeTrip.cities[0]);
+    };
+
+    const setupLanding = () => {
+      landingCityCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const city = card.dataset.city;
+          if (selectedCities.includes(city)) {
+            selectedCities = selectedCities.filter((item) => item !== city);
+          } else {
+            selectedCities = [...selectedCities, city];
+          }
+          updateLandingSelectionUI();
+        });
+      });
+
+      landingStart?.addEventListener("click", enterGuide);
+
+      changeCitiesBtn?.addEventListener("click", () => {
+        selectedCities = [...activeTrip.cities];
+        originMeta = {
+          label: activeTrip.origin || "",
+          country: activeTrip.originCountry || "",
+        };
+        if (tripOriginInput) tripOriginInput.value = activeTrip.origin || "";
+        applySurveyToForm(activeTrip.survey);
+        updateLandingSelectionUI();
+        showView("landing");
+      });
+
+      surveyChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          const type = chip.dataset.survey;
+          if (type === "interest") {
+            chip.classList.toggle("selected");
+            chip.setAttribute("aria-pressed", chip.classList.contains("selected") ? "true" : "false");
+            return;
+          }
+          document.querySelectorAll(`.survey-chip[data-survey="${type}"]`).forEach((option) => {
+            const on = option === chip;
+            option.classList.toggle("selected", on);
+            option.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+        });
+      });
+
+      tripOriginInput?.addEventListener("input", () => {
+        const query = tripOriginInput.value.trim();
+        originMeta = { label: query, country: "" };
+        clearTimeout(originSuggestTimer);
+
+        if (query.length < 2) {
+          clearOriginSuggestions();
+          return;
+        }
+
+        originSuggestTimer = setTimeout(() => fetchOriginSuggestions(query), 280);
+      });
+
+      tripOriginInput?.addEventListener("blur", () => {
+        setTimeout(() => clearOriginSuggestions(), 180);
+      });
+
+      document.addEventListener("click", (event) => {
+        if (event.target.closest(".survey-origin-wrap")) return;
+        clearOriginSuggestions();
+      });
+
+      document.getElementById("trip-survey")?.addEventListener("submit", (event) => {
+        event.preventDefault();
+      });
+    };
+
+    const initTrip = () => {
+      const saved = getTripStore();
+      const forceSetup = new URLSearchParams(location.search).get("setup") === "1";
+
+      if (saved?.cities?.length && !forceSetup) {
+        activeTrip = {
+          cities: saved.cities.filter((city) => allCities.includes(city)),
+          origin: saved.origin || "",
+          originCountry: saved.originCountry || "",
+          survey: normalizeSurvey(saved.survey),
+        };
+        if (!activeTrip.cities.length) activeTrip.cities = [...allCities];
+        selectedCities = [...activeTrip.cities];
+        originMeta = { label: activeTrip.origin, country: activeTrip.originCountry };
+        showView("guide");
+        applyTripToGuide();
+        switchCityWithWeather(activeTrip.cities[0]);
+        return;
+      }
+
+      selectedCities = saved?.cities?.length
+        ? saved.cities.filter((city) => allCities.includes(city))
+        : [];
+      if (tripOriginInput && saved?.origin) tripOriginInput.value = saved.origin;
+      originMeta = { label: saved?.origin || "", country: saved?.originCountry || "" };
+      applySurveyToForm(saved?.survey);
+      updateLandingSelectionUI();
+      showView("landing");
+    };
 
     const tabs = document.querySelectorAll(".guide-tabs .tab");
     const sections = document.querySelectorAll(".guide-section");
@@ -1360,10 +2313,37 @@
       return snapshot;
     };
 
+    const syncHotelDateEmptyState = (input) => {
+      if (!input || input.type !== "date") return;
+      input.classList.toggle("is-empty", !input.value);
+    };
+
+    const syncHotelDateBounds = (city) => {
+      const checkIn = document.getElementById(`checkIn-${city}`);
+      const checkOut = document.getElementById(`checkOut-${city}`);
+      if (!checkIn || !checkOut) return;
+
+      syncHotelDateEmptyState(checkIn);
+      syncHotelDateEmptyState(checkOut);
+
+      if (checkIn.value) {
+        checkOut.min = checkIn.value;
+        if (checkOut.value && checkOut.value < checkIn.value) {
+          checkOut.value = checkIn.value;
+        }
+      } else {
+        checkOut.removeAttribute("min");
+      }
+    };
+
     const applySnapshot = (city, snapshot) => {
       cityFields(city).forEach((field) => {
         field.value = snapshot?.[field.dataset.field] || "";
+        if (field.type === "date") {
+          syncHotelDateEmptyState(field);
+        }
       });
+      syncHotelDateBounds(city);
     };
 
     const formatEuro = (value) => {
@@ -1432,7 +2412,11 @@
       const data = getStore();
       delete data[city];
       setStore(data);
-      cityFields(city).forEach((field) => (field.value = ""));
+      cityFields(city).forEach((field) => {
+        field.value = "";
+        if (field.type === "date") syncHotelDateEmptyState(field);
+      });
+      syncHotelDateBounds(city);
       const converter = document.getElementById(`convert-${city}`);
       const converted = document.getElementById(`converted-${city}`);
       if (converter) converter.value = "";
@@ -1453,6 +2437,8 @@
     };
 
     const switchCity = (city) => {
+      if (!activeTrip.cities.includes(city)) return;
+
       tabs.forEach((tab) => {
         const isActive = tab.dataset.city === city;
         tab.classList.toggle("active", isActive);
@@ -1494,7 +2480,13 @@
       });
 
       planFields.forEach((field) => {
-        field.addEventListener("input", () => savePlan(field.dataset.city));
+        field.addEventListener("input", () => {
+          const city = field.dataset.city;
+          savePlan(city);
+          if (field.dataset.field === "hotelName" || field.dataset.field === "hotelAddress") {
+            updateHotelMap(city);
+          }
+        });
       });
 
       converterInputs.forEach((input) => {
@@ -1507,7 +2499,6 @@
     const renderContent = () => {
       Object.entries(cityData).forEach(([city, cityInfo]) => {
         document.getElementById(`currency-${city}`).textContent = cityInfo.currency;
-        document.getElementById(`weather-${city}`).textContent = cityInfo.weather;
         const rateNode = document.getElementById(`rate-${city}`);
         const convertedNode = document.getElementById(`converted-${city}`);
         if (rateNode) {
@@ -1543,6 +2534,136 @@
       krakow: "Krakow, Poland",
       prague: "Prague, Czech Republic",
       vienna: "Vienna, Austria",
+    };
+
+    const mapsSearchUrl = (query) =>
+      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+
+    const renderTransportHubs = () => {
+      Object.entries(cityData).forEach(([city, cityInfo]) => {
+        const container = document.getElementById(`transport-${city}`);
+        const transport = cityInfo.transport;
+        if (!container || !transport) return;
+
+        const hubBlock = (typeLabel, hub) => {
+          const block = document.createElement("div");
+          block.className = "transport-hub";
+          block.innerHTML = `
+            <div class="transport-hub-type">${typeLabel}</div>
+            <p class="transport-hub-name">${hub.name}</p>
+            <a class="sight-pick-maps" href="${mapsSearchUrl(hub.mapsQuery)}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+          `;
+          return block;
+        };
+
+        const kicker = document.createElement("div");
+        kicker.className = "guide-kicker";
+        kicker.textContent = "Arrival & connections";
+        container.appendChild(kicker);
+        container.appendChild(hubBlock("Main airport", transport.airport));
+        container.appendChild(hubBlock("Main train station", transport.station));
+      });
+    };
+
+    const formatPhotonAddress = (props) => {
+      const streetLine = [props.housenumber, props.street].filter(Boolean).join(" ");
+      const locality = [props.postcode, props.city || props.district, props.country].filter(Boolean).join(", ");
+      return [streetLine, locality].filter(Boolean).join(", ");
+    };
+
+    const hotelSuggestTimers = {};
+
+    const clearHotelSuggestions = (city) => {
+      const list = document.getElementById(`hotelSuggest-${city}`);
+      if (list) list.innerHTML = "";
+    };
+
+    const applyHotelSuggestion = (city, name, address) => {
+      const nameField = document.getElementById(`hotelName-${city}`);
+      const addressField = document.getElementById(`hotelAddress-${city}`);
+      if (nameField) nameField.value = name;
+      if (addressField) addressField.value = address;
+      clearHotelSuggestions(city);
+      updateHotelMap(city);
+      savePlan(city);
+    };
+
+    const fetchHotelSuggestions = async (city, query) => {
+      const list = document.getElementById(`hotelSuggest-${city}`);
+      if (!list) return;
+
+      const cityLabel = cityMapDefaults[city] || city;
+      const url = `https://photon.komoot.io/api/?q=${encodeURIComponent(`${query} hotel ${cityLabel}`)}&limit=6&lang=en`;
+
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        const allFeatures = data.features || [];
+        const preferred = allFeatures.filter((feature) => {
+          const props = feature.properties || {};
+          const osmValue = props.osm_value || "";
+          return osmValue === "hotel" || /hotel/i.test(props.name || "");
+        });
+        const features = preferred.length ? preferred : allFeatures;
+
+        list.innerHTML = "";
+        if (!features.length) return;
+
+        features.slice(0, 5).forEach((feature) => {
+          const props = feature.properties || {};
+          const name = props.name || query;
+          const address = formatPhotonAddress(props);
+          const li = document.createElement("li");
+          const button = document.createElement("button");
+          button.type = "button";
+          button.innerHTML = `<span class="hotel-suggest-name">${name}</span>${address ? `<span class="hotel-suggest-addr">${address}</span>` : ""}`;
+          button.addEventListener("click", () => applyHotelSuggestion(city, name, address));
+          li.appendChild(button);
+          list.appendChild(li);
+        });
+      } catch (error) {
+        list.innerHTML = "";
+      }
+    };
+
+    const setupHotelDates = () => {
+      Object.keys(cityData).forEach((city) => {
+        const checkIn = document.getElementById(`checkIn-${city}`);
+        const checkOut = document.getElementById(`checkOut-${city}`);
+        if (!checkIn || !checkOut) return;
+
+        checkIn.addEventListener("change", () => syncHotelDateBounds(city));
+        checkOut.addEventListener("change", () => syncHotelDateBounds(city));
+        checkIn.addEventListener("input", () => syncHotelDateBounds(city));
+        checkOut.addEventListener("input", () => syncHotelDateBounds(city));
+        syncHotelDateBounds(city);
+      });
+    };
+
+    const setupHotelAutocomplete = () => {
+      document.querySelectorAll(".hotel-name-field").forEach((input) => {
+        const city = input.dataset.city;
+
+        input.addEventListener("input", () => {
+          const query = input.value.trim();
+          clearTimeout(hotelSuggestTimers[city]);
+          if (query.length < 3) {
+            clearHotelSuggestions(city);
+            return;
+          }
+          hotelSuggestTimers[city] = setTimeout(() => fetchHotelSuggestions(city, query), 320);
+        });
+
+        input.addEventListener("blur", () => {
+          setTimeout(() => clearHotelSuggestions(city), 180);
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (event.target.closest(".hotel-field-wrap")) return;
+        Object.keys(cityData).forEach(clearHotelSuggestions);
+      });
     };
 
     const mapsEmbedUrl = (query) =>
@@ -1660,13 +2781,15 @@
     };
 
     renderContent();
+    renderTransportHubs();
+    setupHotelDates();
+    setupHotelAutocomplete();
+    setupLanding();
     hydrateAll();
     Object.keys(cityData).forEach(updateHotelMap);
-    // setupTabs() is replaced below — don't call it here
     setupActions();
     setupTabsWithWeather();
-    // Fetch for initial active city (budapest)
-    fetchWeather("budapest");
+    initTrip();
   </script>
 </body>
 </html>
