@@ -382,6 +382,23 @@
       color: var(--color-text-success);
     }
 
+    .hotel-map-wrap {
+      margin-top: 1rem;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 16 / 10;
+      background: var(--color-background-secondary);
+    }
+
+    .hotel-map {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 180px;
+      border: 0;
+    }
+
     .guide-sight-list {
       margin: 0.2rem 0 0 1rem;
       color: var(--color-text-secondary);
@@ -744,6 +761,9 @@
                   <button class="guide-btn" data-action="clear" data-city="budapest" type="button">Clear</button>
                 </div>
                 <p class="guide-status" id="status-budapest">No saved draft</p>
+                <div class="hotel-map-wrap">
+                  <iframe class="hotel-map" id="hotelMap-budapest" title="Hotel location — Budapest" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                </div>
               </div>
 
               <div class="guide-card weather-card">
@@ -868,6 +888,9 @@
                   <button class="guide-btn" data-action="clear" data-city="krakow" type="button">Clear</button>
                 </div>
                 <p class="guide-status" id="status-krakow">No saved draft</p>
+                <div class="hotel-map-wrap">
+                  <iframe class="hotel-map" id="hotelMap-krakow" title="Hotel location — Krakow" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                </div>
               </div>
 
               <div class="guide-card weather-card">
@@ -933,6 +956,44 @@
                 </table>
               </div>
             </div>
+
+            <div class="guide-card">
+              <div class="guide-kicker">Food & drink</div>
+              <h3>Local cuisine</h3>
+              <p class="guide-meta guide-food-lede">Małopolska cooking leans sour and savory: rye starters, forest mushrooms, cabbage, and smoked highland cheese—Rynek stalls and Kazimierz cellars are made for grazing.</p>
+              <div class="food-picks" aria-label="Kraków food and drink picks">
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: pierogi">Photo</div>
+                  <div class="food-pick-name">Pierogi</div>
+                  <p class="food-pick-desc">Filled dumplings—ruskie potato-cheese, sauerkraut-mushroom, or sweet bilberry for dessert.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: żurek">Photo</div>
+                  <div class="food-pick-name">Żurek</div>
+                  <p class="food-pick-desc">Sour rye soup with white sausage and egg—often ladled into an edible bread bowl.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: bigos">Photo</div>
+                  <div class="food-pick-name">Bigos</div>
+                  <p class="food-pick-desc">Hunter’s stew of sauerkraut, fresh cabbage, meats, and prunes—better after a day of reheating.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: obwarzanek">Photo</div>
+                  <div class="food-pick-name">Obwarzanek</div>
+                  <p class="food-pick-desc">Chewy braided ring, boiled then baked—sprinkled with poppy, sesame, or salt; Kraków’s street signature.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: zapiekanka">Photo</div>
+                  <div class="food-pick-name">Zapiekanka</div>
+                  <p class="food-pick-desc">Halved baguette toasted with mushrooms, cheese, and ketchup—late-night fuel from Plac Nowy kiosks.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: oscypek">Photo</div>
+                  <div class="food-pick-name">Oscypek</div>
+                  <p class="food-pick-desc">Smoked sheep’s-milk cheese from the Tatras—grilled and served with cranberry jam at markets.</p>
+                </article>
+              </div>
+            </div>
           </section>
 
           <section class="guide-section" id="prague" data-city="prague" aria-hidden="true">
@@ -954,6 +1015,9 @@
                   <button class="guide-btn" data-action="clear" data-city="prague" type="button">Clear</button>
                 </div>
                 <p class="guide-status" id="status-prague">No saved draft</p>
+                <div class="hotel-map-wrap">
+                  <iframe class="hotel-map" id="hotelMap-prague" title="Hotel location — Prague" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                </div>
               </div>
 
               <div class="guide-card weather-card">
@@ -1019,6 +1083,44 @@
                 </table>
               </div>
             </div>
+
+            <div class="guide-card">
+              <div class="guide-kicker">Food & drink</div>
+              <h3>Local cuisine</h3>
+              <p class="guide-meta guide-food-lede">Bohemian cooking is built on knedlíky (dumplings), slow meats, and caraway-scented sauces—pair plates with tank-drawn pale lager from Czech breweries.</p>
+              <div class="food-picks" aria-label="Prague food and drink picks">
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: svíčková">Photo</div>
+                  <div class="food-pick-name">Svíčková</div>
+                  <p class="food-pick-desc">Marinated beef in creamy root-vegetable sauce, cranberry, and bread dumplings—a Sunday-lunch icon.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: vepřo knedlo zelo">Photo</div>
+                  <div class="food-pick-name">Vepřo knedlo zelo</div>
+                  <p class="food-pick-desc">Roast pork, bread dumplings, and stewed sauerkraut—the Czech comfort trinity on every pub menu.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: guláš">Photo</div>
+                  <div class="food-pick-name">Guláš</div>
+                  <p class="food-pick-desc">Paprika-rich beef stew, thicker than Hungarian soup—sopped up with knedlíky or rye bread.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: smažený sýr">Photo</div>
+                  <div class="food-pick-name">Smažený sýr</div>
+                  <p class="food-pick-desc">Breaded fried Edam or Hermelín with tartar sauce and chips—beer-hall guilty pleasure.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: trdelník">Photo</div>
+                  <div class="food-pick-name">Trdelník</div>
+                  <p class="food-pick-desc">Sweet dough wrapped on a spit, grilled, rolled in sugar and nuts—tourist lanes, still a warm treat.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: pivo">Photo</div>
+                  <div class="food-pick-name">České pivo</div>
+                  <p class="food-pick-desc">Pale lagers (10°–12°) from tank or tap—Pilsner style born here; ask for “pivo, prosím.”</p>
+                </article>
+              </div>
+            </div>
           </section>
 
           <section class="guide-section" id="vienna" data-city="vienna" aria-hidden="true">
@@ -1040,6 +1142,9 @@
                   <button class="guide-btn" data-action="clear" data-city="vienna" type="button">Clear</button>
                 </div>
                 <p class="guide-status" id="status-vienna">No saved draft</p>
+                <div class="hotel-map-wrap">
+                  <iframe class="hotel-map" id="hotelMap-vienna" title="Hotel location — Vienna" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                </div>
               </div>
 
               <div class="guide-card weather-card">
@@ -1103,6 +1208,44 @@
                   </thead>
                   <tbody id="sights-vienna"></tbody>
                 </table>
+              </div>
+            </div>
+
+            <div class="guide-card">
+              <div class="guide-kicker">Food & drink</div>
+              <h3>Local cuisine</h3>
+              <p class="guide-meta guide-food-lede">Viennese cooking pairs Habsburg roasts and clarified-butter classics with Kaffeehaus ritual—expect jewel-box cakes, whipped cream, and precise service.</p>
+              <div class="food-picks" aria-label="Vienna food and drink picks">
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Wiener Schnitzel">Photo</div>
+                  <div class="food-pick-name">Wiener Schnitzel</div>
+                  <p class="food-pick-desc">Veal pounded thin, breaded, fried in butter—lemon wedge, potato salad or parsley potatoes on the side.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Tafelspitz">Photo</div>
+                  <div class="food-pick-name">Tafelspitz</div>
+                  <p class="food-pick-desc">Boiled beef brisket at the simmer—served with minced apple-horseradish, spinach, and roesti.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Sachertorte">Photo</div>
+                  <div class="food-pick-name">Sachertorte</div>
+                  <p class="food-pick-desc">Dense chocolate cake, thin apricot jam, dark glaze—invented here; debate Hotel Sacher vs Demel.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Apfelstrudel">Photo</div>
+                  <div class="food-pick-name">Apfelstrudel</div>
+                  <p class="food-pick-desc">Paper-thin pastry wrapped around spiced apples, raisins, and breadcrumbs—vanilla sauce optional.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Kaiserschmarrn">Photo</div>
+                  <div class="food-pick-name">Kaiserschmarrn</div>
+                  <p class="food-pick-desc">Shredded fluffy pancake with rum-soaked raisins, icing sugar, and plum compote—coffee-house staple.</p>
+                </article>
+                <article class="food-pick">
+                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Melange">Photo</div>
+                  <div class="food-pick-name">Melange</div>
+                  <p class="food-pick-desc">Espresso lengthened with steamed milk, like a cappuccino—order with a glass of water and linger.</p>
+                </article>
               </div>
             </div>
           </section>
@@ -1304,6 +1447,7 @@
           applySnapshot(city, data[city]);
           const savedAt = data[city].savedAt ? new Date(data[city].savedAt).toLocaleDateString() : "";
           setPlanStatus(city, savedAt ? `Draft restored: ${savedAt}.` : "Draft restored.", true);
+          updateHotelMap(city);
         }
       });
     };
@@ -1336,12 +1480,15 @@
 
           if (action === "save") {
             savePlan(city);
+            updateHotelMap(city);
           }
           if (action === "load") {
             loadPlan(city);
+            updateHotelMap(city);
           }
           if (action === "clear") {
             clearPlan(city);
+            updateHotelMap(city);
           }
         });
       });
@@ -1389,6 +1536,34 @@
       krakow:   { lat: 50.0647, lon: 19.9450, tz: "Europe/Warsaw" },
       prague:   { lat: 50.0755, lon: 14.4378, tz: "Europe/Prague" },
       vienna:   { lat: 48.2082, lon: 16.3738, tz: "Europe/Vienna" },
+    };
+
+    const cityMapDefaults = {
+      budapest: "Budapest, Hungary",
+      krakow: "Krakow, Poland",
+      prague: "Prague, Czech Republic",
+      vienna: "Vienna, Austria",
+    };
+
+    const mapsEmbedUrl = (query) =>
+      `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
+
+    const hotelMapQuery = (city) => {
+      const address = document.getElementById(`hotelAddress-${city}`)?.value.trim();
+      const hotelName = document.getElementById(`hotelName-${city}`)?.value.trim();
+      if (address) {
+        return hotelName ? `${hotelName}, ${address}` : address;
+      }
+      return cityMapDefaults[city] || city;
+    };
+
+    const updateHotelMap = (city) => {
+      const iframe = document.getElementById(`hotelMap-${city}`);
+      if (!iframe) return;
+      const nextSrc = mapsEmbedUrl(hotelMapQuery(city));
+      if (iframe.getAttribute("src") !== nextSrc) {
+        iframe.setAttribute("src", nextSrc);
+      }
     };
 
     const weatherCache = {};
@@ -1486,6 +1661,7 @@
 
     renderContent();
     hydrateAll();
+    Object.keys(cityData).forEach(updateHotelMap);
     // setupTabs() is replaced below — don't call it here
     setupActions();
     setupTabsWithWeather();
