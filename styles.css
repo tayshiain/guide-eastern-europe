@@ -397,9 +397,10 @@ body {
 
 .hotel-dates {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0.65rem;
   margin-bottom: 0.6rem;
+  min-width: 0;
 }
 
 .hotel-dates > div {
@@ -412,6 +413,11 @@ body {
 
 .hotel-dates .guide-field {
   margin-bottom: 0;
+}
+
+.hotel-dates .guide-field[type="date"] {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .guide-field[type="date"] {
