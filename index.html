@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div class="guide-wrap">
@@ -74,29 +74,23 @@
             </div>
           </fieldset>
 
-          <div class="survey-row">
-            <div class="survey-field">
-              <label class="guide-label" for="trip-month">When are you travelling?</label>
-              <select class="guide-field" id="trip-month" name="travelMonth">
-                <option value="">Select month</option>
-                <option value="january">January</option>
-                <option value="february">February</option>
-                <option value="march">March</option>
-                <option value="april">April</option>
-                <option value="may">May</option>
-                <option value="june">June</option>
-                <option value="july">July</option>
-                <option value="august">August</option>
-                <option value="september">September</option>
-                <option value="october">October</option>
-                <option value="november">November</option>
-                <option value="december">December</option>
-              </select>
-            </div>
-            <div class="survey-field">
-              <label class="guide-label" for="trip-days">How many days?</label>
-              <input class="guide-field" id="trip-days" name="tripDays" type="number" min="1" max="60" step="1" placeholder="e.g. 10" inputmode="numeric">
-            </div>
+          <div class="survey-field">
+            <label class="guide-label" for="trip-month">When are you travelling?</label>
+            <select class="guide-field" id="trip-month" name="travelMonth">
+              <option value="">Select month</option>
+              <option value="january">January</option>
+              <option value="february">February</option>
+              <option value="march">March</option>
+              <option value="april">April</option>
+              <option value="may">May</option>
+              <option value="june">June</option>
+              <option value="july">July</option>
+              <option value="august">August</option>
+              <option value="september">September</option>
+              <option value="october">October</option>
+              <option value="november">November</option>
+              <option value="december">December</option>
+            </select>
           </div>
 
           <fieldset class="survey-field">
@@ -698,10 +692,10 @@
     </div>
   </div>
 
-  <script src="data.js"></script>
-  <script src="weather.js"></script>
-  <script src="hotel.js"></script>
-  <script src="landing.js"></script>
-  <script src="guide.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/hotel.js"></script>
+  <script src="js/landing.js"></script>
+  <script src="js/guide.js"></script>
 </body>
 </html>
