@@ -303,7 +303,7 @@ const initTrip = () => {
 
   selectedCities = saved?.cities?.length
     ? saved.cities.filter((city) => allCities.includes(city))
-    : [];
+    : [...allCities];
   if (tripOriginInput && saved?.origin) tripOriginInput.value = saved.origin;
   originMeta = { label: saved?.origin || "", country: saved?.originCountry || "" };
   applySurveyToForm(saved?.survey);
