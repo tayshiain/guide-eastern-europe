@@ -206,6 +206,10 @@ const renderContent = () => {
     if (convertedNode) {
       convertedNode.innerHTML = "<strong>€—</strong>";
     }
+    const climateNode = document.getElementById(`climateNote-${city}`);
+    if (climateNode && cityInfo.climateNotes) {
+      climateNode.innerHTML = `🌦️ ${cityInfo.climateNotes}`;
+    }
     const list = document.getElementById(`sights-${city}`);
     cityInfo.sights.forEach(([place, price]) => {
       const row = document.createElement("tr");
@@ -219,10 +223,85 @@ const renderContent = () => {
     });
   });
 };
+
+const renderCurrencyExtras = () => {
+  Object.entries(cityData).forEach(([city, cityInfo]) => {
+    const extra = document.getElementById(`currencyExtra-${city}`);
+    if (!extra) return;
+
+    const paymentNote = cityInfo.cardPayment
+      ? `<div class="currency-payment-note">💳 ${cityInfo.cardPayment}</div>`
+      : "";
+
+    if (cityInfo.currencyCode === "EUR") {
+      extra.innerHTML = `
+        ${paymentNote}
+        <div class="currency-fx">
+          <div class="currency-fx-title">📈 Exchange trend</div>
+          <p class="currency-fx-note">🇪🇺 Vienna uses the Euro — no exchange needed if you're travelling from the Eurozone.</p>
+        </div>
+      `;
+      return;
+    }
+
+    extra.innerHTML = `
+      ${paymentNote}
+      <div class="currency-fx">
+        <div class="currency-fx-title">📈 30-day trend vs €</div>
+        <div class="currency-fx-body" id="fxBody-${city}">
+          <p class="currency-fx-loading">Loading exchange trend…</p>
+        </div>
+      </div>
+    `;
+
+    fetchFxSeries(cityInfo.currencyCode)
+      .then((series) => {
+        const body = document.getElementById(`fxBody-${city}`);
+        if (!body || !series?.rates?.length) throw new Error("No FX data");
+
+        const points = buildSparklinePoints(series.rates);
+        const { last, changePct, up } = summarizeFxTrend(series.rates);
+        const arrow = up ? "📈" : "📉";
+        const trendClass = up ? "up" : "down";
+        const magnitude = Math.abs(changePct).toFixed(1);
+        const changeText = up
+          ? `buys ${magnitude}% more than 30 days ago`
+          : `buys ${magnitude}% less than 30 days ago`;
+
+        body.innerHTML = `
+          <svg class="currency-fx-chart" viewBox="0 0 220 54" preserveAspectRatio="none" aria-hidden="true">
+            <polyline points="${points}" fill="none" stroke-width="2" />
+          </svg>
+          <p class="currency-fx-summary">
+            1 € = <strong>${last.toFixed(2)} ${cityInfo.currencyCode}</strong> today ·
+            <span class="currency-fx-change ${trendClass}">${arrow} Your € ${changeText}</span>
+          </p>
+        `;
+      })
+      .catch(() => {
+        const body = document.getElementById(`fxBody-${city}`);
+        if (body) {
+          body.innerHTML = `<p class="currency-fx-note">Exchange trend unavailable right now.</p>`;
+        }
+      });
+  });
+};
 const mapsSearchUrl = (query) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
 const renderTransportHubs = () => {
+  const optionRow = (label, primary, meta) => {
+    const metaHtml = meta
+      ? `<span class="transport-option-meta">${meta}</span>`
+      : "";
+    return `
+      <div class="transport-option">
+        <span class="transport-option-label">${label}</span>
+        <span class="transport-option-detail">${primary}</span>
+        ${metaHtml}
+      </div>`;
+  };
+
   Object.entries(cityData).forEach(([city, cityInfo]) => {
     const container = document.getElementById(`transport-${city}`);
     const transport = cityInfo.transport;
@@ -231,10 +310,24 @@ const renderTransportHubs = () => {
     const hubBlock = (typeLabel, hub) => {
       const block = document.createElement("div");
       block.className = "transport-hub";
+      const transitMeta = hub.transit
+        ? `${hub.transit.duration} · ${hub.transit.cost}`
+        : "";
+      const taxiMeta = hub.taxi
+        ? `${hub.taxi.duration} · ${hub.taxi.cost}`
+        : "";
+      const optionsHtml =
+        hub.transit || hub.taxi
+          ? `<div class="transport-hub-options">
+              ${hub.transit ? optionRow("🚌 Public transport", hub.transit.option, transitMeta) : ""}
+              ${hub.taxi ? optionRow("🚕 Taxi", "Metered / fixed fare", taxiMeta) : ""}
+            </div>`
+          : "";
       block.innerHTML = `
         <div class="transport-hub-type">${typeLabel}</div>
         <p class="transport-hub-name">${hub.name}</p>
         <a class="sight-pick-maps" href="${mapsSearchUrl(hub.mapsQuery)}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+        ${optionsHtml}
       `;
       return block;
     };
@@ -243,8 +336,20 @@ const renderTransportHubs = () => {
     kicker.className = "guide-kicker";
     kicker.textContent = "Arrival & connections";
     container.appendChild(kicker);
-    container.appendChild(hubBlock("Main airport", transport.airport));
-    container.appendChild(hubBlock("Main train station", transport.station));
+    container.appendChild(hubBlock("✈️ Main airport", transport.airport));
+    container.appendChild(hubBlock("🚆 Main train station", transport.station));
+
+    if (cityInfo.transportTips?.length) {
+      const tipsBlock = document.createElement("div");
+      tipsBlock.className = "transport-tips";
+      tipsBlock.innerHTML = `
+        <div class="transport-tips-title">🧭 Transport tips</div>
+        <ul class="transport-tips-list">
+          ${cityInfo.transportTips.map((tip) => `<li>${tip}</li>`).join("")}
+        </ul>
+      `;
+      container.appendChild(tipsBlock);
+    }
   });
 };
 // Fetch weather for the active city on load, and on every tab switch
@@ -263,6 +368,7 @@ const setupTabsWithWeather = () => {
 
 renderContent();
 renderTransportHubs();
+renderCurrencyExtras();
 setupHotelDates();
 setupHotelAutocomplete();
 setupLanding();
