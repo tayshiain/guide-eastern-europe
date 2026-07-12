@@ -1,701 +1,1880 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eastern Europe Guide</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="guide-wrap">
-    <div class="guide-shell">
-      <section id="landing-view" class="landing-view app-view" aria-label="Trip setup">
-        <header class="landing-hero">
-          <h1 class="landing-brand">S'évader</h1>
-          <p class="landing-tagline">Travel itinerary app</p>
-          <p class="landing-lead"><strong>S'évader</strong> is your calm pocket guide to travelling in Eastern Europe: hotel notes, live weather, currency, top sights, and local food picks.</p>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eastern Europe Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="guide-wrap">
+      <div class="guide-shell">
+        <section
+          id="landing-view"
+          class="landing-view app-view"
+          aria-label="Trip setup"
+        >
+          <header class="brand-hero brand-hero--landing">
+            <div class="brand-hero-glow" aria-hidden="true"></div>
+            <span class="brand-compass" aria-hidden="true">
+              <svg
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M50 2 L58 42 L98 50 L58 58 L50 98 L42 58 L2 50 L42 42 Z"
+                  fill="url(#starGradLanding)"
+                />
+                <circle cx="50" cy="50" r="4.5" fill="#fff" opacity="0.85" />
+                <defs>
+                  <linearGradient
+                    id="starGradLanding"
+                    x1="2"
+                    y1="2"
+                    x2="98"
+                    y2="98"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0" stop-color="#f3d38a" />
+                    <stop offset="0.5" stop-color="#d4a843" />
+                    <stop offset="1" stop-color="#b8863a" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <h1 class="brand-wordmark">S'évader</h1>
+            <p class="brand-tagline">Travel pocket guide</p>
+          </header>
 
-        <p class="landing-section-title">Which cities are you visiting?</p>
-        <div class="landing-city-grid" id="landing-city-grid" role="group" aria-label="Select cities">
-          <button type="button" class="landing-city-card" data-city="budapest" aria-pressed="false">
-            <span class="landing-city-name">Budapest</span>
-            <span class="landing-city-country">Hungary</span>
-          </button>
-          <button type="button" class="landing-city-card" data-city="krakow" aria-pressed="false">
-            <span class="landing-city-name">Krakow</span>
-            <span class="landing-city-country">Poland</span>
-          </button>
-          <button type="button" class="landing-city-card" data-city="prague" aria-pressed="false">
-            <span class="landing-city-name">Prague</span>
-            <span class="landing-city-country">Czechia</span>
-          </button>
-          <button type="button" class="landing-city-card" data-city="vienna" aria-pressed="false">
-            <span class="landing-city-name">Vienna</span>
-            <span class="landing-city-country">Austria</span>
-          </button>
-        </div>
+          <p class="landing-lead">
+            <strong>S'évader</strong> is your calm pocket guide to travelling in
+            Eastern Europe: hotel notes, live weather, currency, top sights, and
+            local food picks.
+          </p>
 
-        <form class="landing-survey" id="trip-survey" aria-label="Trip preferences survey" novalidate>
-          <h2 class="landing-survey-heading">Tell us about your trip</h2>
-
-          <div class="survey-field">
-            <label class="guide-label" for="trip-origin">Where are you coming from?</label>
-            <div class="survey-origin-wrap">
-              <input class="guide-field" id="trip-origin" name="origin" type="text" placeholder="Your home city" autocomplete="off">
-              <ul class="hotel-suggestions" id="origin-suggest" role="listbox" aria-label="City suggestions"></ul>
-            </div>
+          <p class="landing-section-title">Which cities are you visiting?</p>
+          <div
+            class="landing-city-grid"
+            id="landing-city-grid"
+            role="group"
+            aria-label="Select cities"
+          >
+            <button
+              type="button"
+              class="landing-city-card"
+              data-city="budapest"
+              aria-pressed="false"
+            >
+              <span class="landing-city-name">Budapest</span>
+              <span class="landing-city-country">Hungary</span>
+            </button>
+            <button
+              type="button"
+              class="landing-city-card"
+              data-city="krakow"
+              aria-pressed="false"
+            >
+              <span class="landing-city-name">Krakow</span>
+              <span class="landing-city-country">Poland</span>
+            </button>
+            <button
+              type="button"
+              class="landing-city-card"
+              data-city="prague"
+              aria-pressed="false"
+            >
+              <span class="landing-city-name">Prague</span>
+              <span class="landing-city-country">Czechia</span>
+            </button>
+            <button
+              type="button"
+              class="landing-city-card"
+              data-city="vienna"
+              aria-pressed="false"
+            >
+              <span class="landing-city-name">Vienna</span>
+              <span class="landing-city-country">Austria</span>
+            </button>
           </div>
 
-          <fieldset class="survey-field">
-            <legend class="guide-label">What would you like to see?</legend>
-            <div class="survey-chip-grid" id="survey-interests" role="group" aria-label="Trip interests">
-              <button type="button" class="survey-chip" data-survey="interest" data-value="mountains" aria-pressed="false">Mountains</button>
-              <button type="button" class="survey-chip" data-survey="interest" data-value="beach" aria-pressed="false">Beach</button>
-              <button type="button" class="survey-chip" data-survey="interest" data-value="cities" aria-pressed="false">Cities</button>
-              <button type="button" class="survey-chip" data-survey="interest" data-value="history" aria-pressed="false">History</button>
-              <button type="button" class="survey-chip" data-survey="interest" data-value="food" aria-pressed="false">Food &amp; wine</button>
-              <button type="button" class="survey-chip" data-survey="interest" data-value="nightlife" aria-pressed="false">Nightlife</button>
-              <button type="button" class="survey-chip" data-survey="interest" data-value="nature" aria-pressed="false">Nature</button>
-            </div>
-            <p class="survey-hint">Pick as many as you like.</p>
-          </fieldset>
+          <form
+            class="landing-survey"
+            id="trip-survey"
+            aria-label="Trip preferences survey"
+            novalidate
+          >
+            <h2 class="landing-survey-heading">Tell us about your trip</h2>
 
-          <fieldset class="survey-field">
-            <legend class="guide-label">Who are you travelling with?</legend>
-            <div class="survey-chip-grid" id="survey-companions" role="radiogroup" aria-label="Travel companions">
-              <button type="button" class="survey-chip" data-survey="companions" data-value="solo" aria-pressed="false">Solo</button>
-              <button type="button" class="survey-chip" data-survey="companions" data-value="partner" aria-pressed="false">Partner</button>
-              <button type="button" class="survey-chip" data-survey="companions" data-value="friends" aria-pressed="false">Friends</button>
-              <button type="button" class="survey-chip" data-survey="companions" data-value="family" aria-pressed="false">Family</button>
+            <div class="survey-field">
+              <label class="guide-label" for="trip-origin"
+                >Where are you coming from?</label
+              >
+              <div class="survey-origin-wrap">
+                <input
+                  class="guide-field"
+                  id="trip-origin"
+                  name="origin"
+                  type="text"
+                  placeholder="Your home city"
+                  autocomplete="off"
+                />
+                <ul
+                  class="hotel-suggestions"
+                  id="origin-suggest"
+                  role="listbox"
+                  aria-label="City suggestions"
+                ></ul>
+              </div>
             </div>
-          </fieldset>
 
-          <div class="survey-field">
-            <label class="guide-label" for="trip-month">When are you travelling?</label>
-            <select class="guide-field" id="trip-month" name="travelMonth">
-              <option value="">Select month</option>
-              <option value="january">January</option>
-              <option value="february">February</option>
-              <option value="march">March</option>
-              <option value="april">April</option>
-              <option value="may">May</option>
-              <option value="june">June</option>
-              <option value="july">July</option>
-              <option value="august">August</option>
-              <option value="september">September</option>
-              <option value="october">October</option>
-              <option value="november">November</option>
-              <option value="december">December</option>
-            </select>
+            <fieldset class="survey-field">
+              <legend class="guide-label">What would you like to see?</legend>
+              <div
+                class="survey-chip-grid"
+                id="survey-interests"
+                role="group"
+                aria-label="Trip interests"
+              >
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="interest"
+                  data-value="mountains"
+                  aria-pressed="false"
+                >
+                  Mountains
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="interest"
+                  data-value="beach"
+                  aria-pressed="false"
+                >
+                  Beach
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="interest"
+                  data-value="cities"
+                  aria-pressed="false"
+                >
+                  Cities
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="interest"
+                  data-value="history"
+                  aria-pressed="false"
+                >
+                  History
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="interest"
+                  data-value="food"
+                  aria-pressed="false"
+                >
+                  Food &amp; wine
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="interest"
+                  data-value="nightlife"
+                  aria-pressed="false"
+                >
+                  Nightlife
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="interest"
+                  data-value="nature"
+                  aria-pressed="false"
+                >
+                  Nature
+                </button>
+              </div>
+              <p class="survey-hint">Pick as many as you like.</p>
+            </fieldset>
+
+            <fieldset class="survey-field">
+              <legend class="guide-label">Who are you travelling with?</legend>
+              <div
+                class="survey-chip-grid"
+                id="survey-companions"
+                role="radiogroup"
+                aria-label="Travel companions"
+              >
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="companions"
+                  data-value="solo"
+                  aria-pressed="false"
+                >
+                  Solo
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="companions"
+                  data-value="partner"
+                  aria-pressed="false"
+                >
+                  Partner
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="companions"
+                  data-value="friends"
+                  aria-pressed="false"
+                >
+                  Friends
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="companions"
+                  data-value="family"
+                  aria-pressed="false"
+                >
+                  Family
+                </button>
+              </div>
+            </fieldset>
+
+            <div class="survey-field">
+              <label class="guide-label" for="trip-month"
+                >When are you travelling?</label
+              >
+              <select class="guide-field" id="trip-month" name="travelMonth">
+                <option value="">Select month</option>
+                <option value="january">January</option>
+                <option value="february">February</option>
+                <option value="march">March</option>
+                <option value="april">April</option>
+                <option value="may">May</option>
+                <option value="june">June</option>
+                <option value="july">July</option>
+                <option value="august">August</option>
+                <option value="september">September</option>
+                <option value="october">October</option>
+                <option value="november">November</option>
+                <option value="december">December</option>
+              </select>
+            </div>
+
+            <fieldset class="survey-field">
+              <legend class="guide-label">What's your budget?</legend>
+              <div
+                class="survey-chip-grid"
+                id="survey-budget"
+                role="radiogroup"
+                aria-label="Trip budget"
+              >
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="budget"
+                  data-value="budget"
+                  aria-pressed="false"
+                >
+                  Budget
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="budget"
+                  data-value="moderate"
+                  aria-pressed="false"
+                >
+                  Moderate
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="budget"
+                  data-value="comfortable"
+                  aria-pressed="false"
+                >
+                  Comfortable
+                </button>
+                <button
+                  type="button"
+                  class="survey-chip"
+                  data-survey="budget"
+                  data-value="luxury"
+                  aria-pressed="false"
+                >
+                  Luxury
+                </button>
+              </div>
+            </fieldset>
+          </form>
+
+          <div class="landing-cta-wrap">
+            <button
+              type="button"
+              class="landing-btn-primary"
+              id="landing-start"
+              disabled
+            >
+              Start planning
+            </button>
+            <p class="landing-hint" id="landing-hint">
+              Select at least one city
+            </p>
           </div>
+        </section>
 
-          <fieldset class="survey-field">
-            <legend class="guide-label">What's your budget?</legend>
-            <div class="survey-chip-grid" id="survey-budget" role="radiogroup" aria-label="Trip budget">
-              <button type="button" class="survey-chip" data-survey="budget" data-value="budget" aria-pressed="false">Budget</button>
-              <button type="button" class="survey-chip" data-survey="budget" data-value="moderate" aria-pressed="false">Moderate</button>
-              <button type="button" class="survey-chip" data-survey="budget" data-value="comfortable" aria-pressed="false">Comfortable</button>
-              <button type="button" class="survey-chip" data-survey="budget" data-value="luxury" aria-pressed="false">Luxury</button>
-            </div>
-          </fieldset>
-        </form>
+        <section
+          id="guide-view"
+          class="guide-view app-view hidden"
+          aria-label="Trip guide"
+        >
+          <a
+            class="topbar brand-hero brand-hero--compact"
+            id="guide-topbar"
+            href="about.html"
+            aria-label="About S'évader"
+          >
+            <div class="brand-hero-glow" aria-hidden="true"></div>
+            <span class="brand-compass" aria-hidden="true">
+              <svg
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M50 2 L58 42 L98 50 L58 58 L50 98 L42 58 L2 50 L42 42 Z"
+                  fill="url(#starGradTopbar)"
+                />
+                <circle cx="50" cy="50" r="4.5" fill="#fff" opacity="0.85" />
+                <defs>
+                  <linearGradient
+                    id="starGradTopbar"
+                    x1="2"
+                    y1="2"
+                    x2="98"
+                    y2="98"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0" stop-color="#f3d38a" />
+                    <stop offset="0.5" stop-color="#d4a843" />
+                    <stop offset="1" stop-color="#b8863a" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <span class="brand-wordmark">S'évader</span>
+            <span class="brand-tagline">Your pocket guide to travel</span>
+          </a>
 
-        <div class="landing-cta-wrap">
-          <button type="button" class="landing-btn-primary" id="landing-start" disabled>Start planning</button>
-          <p class="landing-hint" id="landing-hint">Select at least one city</p>
-        </div>
-      </section>
-
-      <section id="guide-view" class="guide-view app-view hidden" aria-label="Trip guide">
-      <div class="topbar">
-        <button class="menu-btn" type="button" aria-hidden="true" tabindex="-1">☰ Menu</button>
-        <div>
-          <div class="topbar-title">your guide to Eastern Europe</div>
-          <p class="topbar-trip" id="topbar-trip"></p>
-        </div>
-      </div>
-
-      <div class="content">
-        <!-- <section class="guide-title-card">
+          <div class="content">
+            <!-- <section class="guide-title-card">
           <h1>Trip Guide • Budapest, Krakow, Prague, Vienna</h1>
           <p>Mobile-first itinerary notes with planning blocks, entrance fee lists, weather snapshot for August 2026, and local currency per city.</p>
         </section> -->
 
-        <nav class="guide-tabs" role="tablist" aria-label="City tabs">
-          <div class="tab active" role="tab" aria-selected="true" id="tab-budapest" data-city="budapest">Budapest</div>
-          <div class="tab" role="tab" aria-selected="false" id="tab-krakow" data-city="krakow">Krakow</div>
-          <div class="tab" role="tab" aria-selected="false" id="tab-prague" data-city="prague">Prague</div>
-          <div class="tab" role="tab" aria-selected="false" id="tab-vienna" data-city="vienna">Vienna</div>
-        </nav>
+            <div class="guide-tabs-row">
+              <button
+                type="button"
+                class="guide-footer-change"
+                id="change-cities"
+              >
+                Change cities
+              </button>
+            </div>
 
-        <main class="guide-panel">
-          <section class="guide-section" id="budapest" data-city="budapest" aria-hidden="false">
-            <div class="guide-grid">
-              <div class="guide-card">
-                <div class="guide-kicker">Hotel</div>
-                <label class="guide-label" for="hotelName-budapest">Hotel name</label>
-                <div class="hotel-field-wrap">
-                  <input class="guide-field plan-field hotel-name-field" id="hotelName-budapest" data-city="budapest" data-field="hotelName" type="text" placeholder="Danubia Hotel Budapest" autocomplete="off">
-                  <ul class="hotel-suggestions" id="hotelSuggest-budapest" role="listbox" aria-label="Hotel suggestions"></ul>
-                </div>
+            <nav class="guide-tabs" role="tablist" aria-label="City tabs">
+              <div
+                class="tab active"
+                role="tab"
+                aria-selected="true"
+                id="tab-budapest"
+                data-city="budapest"
+              >
+                Budapest
+              </div>
+              <div
+                class="tab"
+                role="tab"
+                aria-selected="false"
+                id="tab-krakow"
+                data-city="krakow"
+              >
+                Krakow
+              </div>
+              <div
+                class="tab"
+                role="tab"
+                aria-selected="false"
+                id="tab-prague"
+                data-city="prague"
+              >
+                Prague
+              </div>
+              <div
+                class="tab"
+                role="tab"
+                aria-selected="false"
+                id="tab-vienna"
+                data-city="vienna"
+              >
+                Vienna
+              </div>
+            </nav>
 
-                <label class="guide-label" for="hotelAddress-budapest">Hotel address</label>
-                <input class="guide-field plan-field" id="hotelAddress-budapest" data-city="budapest" data-field="hotelAddress" type="text" placeholder="District, street, postal code">
-                <div class="hotel-dates">
-                  <div>
-                    <label class="guide-label" for="checkIn-budapest">Check-in</label>
-                    <input class="guide-field plan-field" id="checkIn-budapest" data-city="budapest" data-field="checkIn" type="date">
+            <main class="guide-panel">
+              <section
+                class="guide-section"
+                id="budapest"
+                data-city="budapest"
+                aria-hidden="false"
+              >
+                <div class="guide-grid">
+                  <div class="guide-card">
+                    <div class="guide-kicker">Hotel</div>
+                    <label class="guide-label" for="hotelName-budapest"
+                      >Hotel name</label
+                    >
+                    <div class="hotel-field-wrap">
+                      <input
+                        class="guide-field plan-field hotel-name-field"
+                        id="hotelName-budapest"
+                        data-city="budapest"
+                        data-field="hotelName"
+                        type="text"
+                        placeholder="Danubia Hotel Budapest"
+                        autocomplete="off"
+                      />
+                      <ul
+                        class="hotel-suggestions"
+                        id="hotelSuggest-budapest"
+                        role="listbox"
+                        aria-label="Hotel suggestions"
+                      ></ul>
+                    </div>
+
+                    <label class="guide-label" for="hotelAddress-budapest"
+                      >Hotel address</label
+                    >
+                    <input
+                      class="guide-field plan-field"
+                      id="hotelAddress-budapest"
+                      data-city="budapest"
+                      data-field="hotelAddress"
+                      type="text"
+                      placeholder="District, street, postal code"
+                    />
+                    <div class="hotel-dates">
+                      <div>
+                        <label class="guide-label" for="checkIn-budapest"
+                          >Check-in</label
+                        >
+                        <input
+                          class="guide-field plan-field"
+                          id="checkIn-budapest"
+                          data-city="budapest"
+                          data-field="checkIn"
+                          type="date"
+                        />
+                      </div>
+                      <div>
+                        <label class="guide-label" for="checkOut-budapest"
+                          >Check-out</label
+                        >
+                        <input
+                          class="guide-field plan-field"
+                          id="checkOut-budapest"
+                          data-city="budapest"
+                          data-field="checkOut"
+                          type="date"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="guide-actions">
+                      <button
+                        class="guide-btn save"
+                        data-action="save"
+                        data-city="budapest"
+                        type="button"
+                      >
+                        Save
+                      </button>
+                      <button
+                        class="guide-btn"
+                        data-action="load"
+                        data-city="budapest"
+                        type="button"
+                      >
+                        Load saved
+                      </button>
+                      <button
+                        class="guide-btn"
+                        data-action="clear"
+                        data-city="budapest"
+                        type="button"
+                      >
+                        Clear
+                      </button>
+                    </div>
+                    <p class="guide-status" id="status-budapest">
+                      No saved draft
+                    </p>
+                    <div class="hotel-map-wrap">
+                      <iframe
+                        class="hotel-map"
+                        id="hotelMap-budapest"
+                        title="Hotel location — Budapest"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                    <div
+                      class="transport-hubs"
+                      id="transport-budapest"
+                      aria-label="Airport and train station"
+                    ></div>
                   </div>
-                  <div>
-                    <label class="guide-label" for="checkOut-budapest">Check-out</label>
-                    <input class="guide-field plan-field" id="checkOut-budapest" data-city="budapest" data-field="checkOut" type="date">
+
+                  <div class="guide-card weather-card">
+                    <div class="guide-kicker">Weather</div>
+                    <h3>Weather overview</h3>
+                    <div id="forecast-budapest" class="weather-loading">
+                      Loading forecast…
+                    </div>
+                    <p
+                      class="weather-climate-note"
+                      id="climateNote-budapest"
+                    ></p>
                   </div>
-                </div>
 
-
-                <div class="guide-actions">
-                  <button class="guide-btn save" data-action="save" data-city="budapest" type="button">Save</button>
-                  <button class="guide-btn" data-action="load" data-city="budapest" type="button">Load saved</button>
-                  <button class="guide-btn" data-action="clear" data-city="budapest" type="button">Clear</button>
-                </div>
-                <p class="guide-status" id="status-budapest">No saved draft</p>
-                <div class="hotel-map-wrap">
-                  <iframe class="hotel-map" id="hotelMap-budapest" title="Hotel location — Budapest" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-                </div>
-                <div class="transport-hubs" id="transport-budapest" aria-label="Airport and train station"></div>
-              </div>
-
-              <div class="guide-card weather-card">
-                <div class="guide-kicker">Weather</div>
-                <h3>Weather overview</h3>
-                <div id="forecast-budapest" class="weather-loading">Loading forecast…</div>
-              </div>
-
-              <div class="guide-card currency-card">
-                <div class="guide-kicker">Currency</div>
-                <h3>Currency</h3>
-                <p class="guide-meta" id="currency-budapest"></p>
-                <div class="guide-converter">
-                  <label class="guide-label" for="convert-budapest">Convert to €</label>
-                  <input class="guide-field guide-convert-input" id="convert-budapest" data-city="budapest" inputmode="decimal" type="number" min="0" step="0.01" placeholder="Amount in HUF">
-                  <p class="guide-convert-result">= <strong id="converted-budapest">€—</strong></p>
-                  <p class="guide-rate-note" id="rate-budapest"></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="guide-card">
-              <div class="guide-kicker">Sights & entrance fees</div>
-              <h3>What to visit</h3>
-              <h4>Top sights</h4>
-              <div class="sight-picks" aria-label="Featured sights in Budapest">
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Hungarian Parliament Building">Photo</div>
-                  <div class="sight-pick-name">Hungarian Parliament</div>
-                  <p class="sight-pick-desc">Neo-Gothic riverside landmark; guided tours show the cupola hall when parliament is not in session.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Hungarian%20Parliament%20Building%2C%20Budapest" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Buda Castle">Photo</div>
-                  <div class="sight-pick-name">Buda Castle</div>
-                  <p class="sight-pick-desc">Castle district palace complex with museums, courtyards, and views over the Danube to Pest.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Buda%20Castle%2C%20Budapest" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Fisherman's Bastion">Photo</div>
-                  <div class="sight-pick-name">Fisherman’s Bastion</div>
-                  <p class="sight-pick-desc">Fairytale terraces and turrets on Castle Hill—classic sunrise or sunset spot over the bridges.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Fisherman%27s%20Bastion%2C%20Budapest" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Danube River Budapest">Photo</div>
-                  <div class="sight-pick-name">Danube River</div>
-                  <p class="sight-pick-desc">Walk the embankments between bridges, or cross on foot for the full Pest↔Buda panorama.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Danube%20River%20Chain%20Bridge%20Budapest" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-              </div>
-              <div class="guide-table-wrap">
-                <table class="guide-forms">
-                  <thead>
-                    <tr>
-                      <th>Sight</th>
-                      <th>Entrance fee</th>
-                    </tr>
-                  </thead>
-                  <tbody id="sights-budapest"></tbody>
-                </table>
-              </div>
-            </div>
-
-            <div class="guide-card">
-              <div class="guide-kicker">Food & drink</div>
-              <h3>Local cuisine</h3>
-              <p class="guide-meta guide-food-lede">Hungarian cuisine is characterized by its bold, hearty flavors and the generous use of Hungarian paprika, sour cream, and onion. It is a rich, meat-heavy cuisine often considered the spiciest in Europe.</p>
-              <div class="food-picks" aria-label="Budapest food and drink picks">
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: gulyás">Photo</div>
-                  <div class="food-pick-name">Gulyás</div>
-                  <p class="food-pick-desc">Paprika beef soup with roots—not the thick “goulash” stew abroad.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: halászlé">Photo</div>
-                  <div class="food-pick-name">Halászlé</div>
-                  <p class="food-pick-desc">Bright, peppery fisherman's soup with carp or catfish; Szeged-style is famous.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: pörkölt">Photo</div>
-                  <div class="food-pick-name">Pörkölt & nokedli</div>
-                  <p class="food-pick-desc">Slow-cooked meat ragù with hand-torn egg dumplings; kin to paprikás csirke.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: lángos">Photo</div>
-                  <div class="food-pick-name">Lángos</div>
-                  <p class="food-pick-desc">Crisp fried dough, garlic rub, then tejföl and grated cheese—market staple.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: kürtőskalács">Photo</div>
-                  <div class="food-pick-name">Kürtőskalács</div>
-                  <p class="food-pick-desc">Chimney cake from embers: caramelized sugar, cinnamon, or crushed nuts.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: fröccs">Photo</div>
-                  <div class="food-pick-name">Fröccs & ruin bars</div>
-                  <p class="food-pick-desc">Wine spritzer culture in the Jewish Quarter—courtyards, DJs, and local craft taps.</p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="guide-section" id="krakow" data-city="krakow" aria-hidden="true">
-            <div class="guide-grid">
-              <div class="guide-card">
-                <div class="guide-kicker">Hotel</div>
-                <label class="guide-label" for="hotelName-krakow">Hotel name</label>
-                <div class="hotel-field-wrap">
-                  <input class="guide-field plan-field hotel-name-field" id="hotelName-krakow" data-city="krakow" data-field="hotelName" type="text" placeholder="The Royal Hotel Krakow" autocomplete="off">
-                  <ul class="hotel-suggestions" id="hotelSuggest-krakow" role="listbox" aria-label="Hotel suggestions"></ul>
-                </div>
-
-                <label class="guide-label" for="hotelAddress-krakow">Hotel address</label>
-                <input class="guide-field plan-field" id="hotelAddress-krakow" data-city="krakow" data-field="hotelAddress" type="text" placeholder="Main square, district, postal code">
-                <div class="hotel-dates">
-                  <div>
-                    <label class="guide-label" for="checkIn-krakow">Check-in</label>
-                    <input class="guide-field plan-field" id="checkIn-krakow" data-city="krakow" data-field="checkIn" type="date">
-                  </div>
-                  <div>
-                    <label class="guide-label" for="checkOut-krakow">Check-out</label>
-                    <input class="guide-field plan-field" id="checkOut-krakow" data-city="krakow" data-field="checkOut" type="date">
-                  </div>
-                </div>
-
-
-                <div class="guide-actions">
-                  <button class="guide-btn save" data-action="save" data-city="krakow" type="button">Save</button>
-                  <button class="guide-btn" data-action="load" data-city="krakow" type="button">Load saved</button>
-                  <button class="guide-btn" data-action="clear" data-city="krakow" type="button">Clear</button>
-                </div>
-                <p class="guide-status" id="status-krakow">No saved draft</p>
-                <div class="hotel-map-wrap">
-                  <iframe class="hotel-map" id="hotelMap-krakow" title="Hotel location — Krakow" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-                </div>
-                <div class="transport-hubs" id="transport-krakow" aria-label="Airport and train station"></div>
-              </div>
-
-              <div class="guide-card weather-card">
-                <div class="guide-kicker">Weather</div>
-                <h3>Weather overview</h3>
-                <div id="forecast-krakow" class="weather-loading">Loading forecast…</div>
-              </div>
-
-              <div class="guide-card currency-card">
-                <div class="guide-kicker">Currency</div>
-                <h3>Currency</h3>
-                <p class="guide-meta" id="currency-krakow"></p>
-                <div class="guide-converter">
-                  <label class="guide-label" for="convert-krakow">Convert to €</label>
-                  <input class="guide-field guide-convert-input" id="convert-krakow" data-city="krakow" inputmode="decimal" type="number" min="0" step="0.01" placeholder="Amount in PLN">
-                  <p class="guide-convert-result">= <strong id="converted-krakow">€—</strong></p>
-                  <p class="guide-rate-note" id="rate-krakow"></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="guide-card">
-              <div class="guide-kicker">Sights & entrance fees</div>
-              <h3>What to visit</h3>
-              <h4>Top sights</h4>
-              <div class="sight-picks" aria-label="Featured sights in Kraków">
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Rynek Główny">Photo</div>
-                  <div class="sight-pick-name">Rynek Główny</div>
-                  <p class="sight-pick-desc">Europe’s largest medieval market square—Sukiennice, cafés, and the rhythm of the Old Town.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Rynek%20G%C5%82%C3%B3wny%2C%20Krak%C3%B3w" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Wawel Royal Castle">Photo</div>
-                  <div class="sight-pick-name">Wawel Royal Castle</div>
-                  <p class="sight-pick-desc">Hilltop cathedral, royal apartments, and courtyards with views over the Vistula.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Wawel%20Royal%20Castle%2C%20Krak%C3%B3w" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: St. Mary's Basilica">Photo</div>
-                  <div class="sight-pick-name">Basilica</div>
-                  <p class="sight-pick-desc">St. Mary’s on Rynek—Gothic interior, Veit Stoss altarpiece, and the hourly hejnał trumpet call.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Mary%27s%20Basilica%20Krak%C3%B3w" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Wieliczka Salt Mine">Photo</div>
-                  <div class="sight-pick-name">Salt mine</div>
-                  <p class="sight-pick-desc">Wieliczka’s underground chapels and timber passages—allow a half day; book timed entry and transport.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Wieliczka%20Salt%20Mine" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-              </div>
-              <div class="guide-table-wrap">
-                <table class="guide-forms">
-                  <thead>
-                    <tr>
-                      <th>Sight</th>
-                      <th>Entrance fee</th>
-                    </tr>
-                  </thead>
-                  <tbody id="sights-krakow"></tbody>
-                </table>
-              </div>
-            </div>
-
-            <div class="guide-card">
-              <div class="guide-kicker">Food & drink</div>
-              <h3>Local cuisine</h3>
-              <p class="guide-meta guide-food-lede">Małopolska cooking leans sour and savory: rye starters, forest mushrooms, cabbage, and smoked highland cheese—Rynek stalls and Kazimierz cellars are made for grazing.</p>
-              <div class="food-picks" aria-label="Kraków food and drink picks">
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: pierogi">Photo</div>
-                  <div class="food-pick-name">Pierogi</div>
-                  <p class="food-pick-desc">Filled dumplings—ruskie potato-cheese, sauerkraut-mushroom, or sweet bilberry for dessert.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: żurek">Photo</div>
-                  <div class="food-pick-name">Żurek</div>
-                  <p class="food-pick-desc">Sour rye soup with white sausage and egg—often ladled into an edible bread bowl.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: bigos">Photo</div>
-                  <div class="food-pick-name">Bigos</div>
-                  <p class="food-pick-desc">Hunter’s stew of sauerkraut, fresh cabbage, meats, and prunes—better after a day of reheating.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: obwarzanek">Photo</div>
-                  <div class="food-pick-name">Obwarzanek</div>
-                  <p class="food-pick-desc">Chewy braided ring, boiled then baked—sprinkled with poppy, sesame, or salt; Kraków’s street signature.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: zapiekanka">Photo</div>
-                  <div class="food-pick-name">Zapiekanka</div>
-                  <p class="food-pick-desc">Halved baguette toasted with mushrooms, cheese, and ketchup—late-night fuel from Plac Nowy kiosks.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: oscypek">Photo</div>
-                  <div class="food-pick-name">Oscypek</div>
-                  <p class="food-pick-desc">Smoked sheep’s-milk cheese from the Tatras—grilled and served with cranberry jam at markets.</p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="guide-section" id="prague" data-city="prague" aria-hidden="true">
-            <div class="guide-grid">
-              <div class="guide-card">
-                <div class="guide-kicker">Hotel</div>
-                <label class="guide-label" for="hotelName-prague">Hotel name</label>
-                <div class="hotel-field-wrap">
-                  <input class="guide-field plan-field hotel-name-field" id="hotelName-prague" data-city="prague" data-field="hotelName" type="text" placeholder="Prague City Hotel" autocomplete="off">
-                  <ul class="hotel-suggestions" id="hotelSuggest-prague" role="listbox" aria-label="Hotel suggestions"></ul>
-                </div>
-
-                <label class="guide-label" for="hotelAddress-prague">Hotel address</label>
-                <input class="guide-field plan-field" id="hotelAddress-prague" data-city="prague" data-field="hotelAddress" type="text" placeholder="Old Town, district, postal code">
-                <div class="hotel-dates">
-                  <div>
-                    <label class="guide-label" for="checkIn-prague">Check-in</label>
-                    <input class="guide-field plan-field" id="checkIn-prague" data-city="prague" data-field="checkIn" type="date">
-                  </div>
-                  <div>
-                    <label class="guide-label" for="checkOut-prague">Check-out</label>
-                    <input class="guide-field plan-field" id="checkOut-prague" data-city="prague" data-field="checkOut" type="date">
+                  <div class="guide-card currency-card">
+                    <div class="guide-kicker">Currency</div>
+                    <h3>Currency</h3>
+                    <p class="guide-meta" id="currency-budapest"></p>
+                    <div class="guide-converter">
+                      <label class="guide-label" for="convert-budapest"
+                        >Convert to €</label
+                      >
+                      <input
+                        class="guide-field guide-convert-input"
+                        id="convert-budapest"
+                        data-city="budapest"
+                        inputmode="decimal"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        placeholder="Amount in HUF"
+                      />
+                      <p class="guide-convert-result">
+                        = <strong id="converted-budapest">€—</strong>
+                      </p>
+                      <p class="guide-rate-note" id="rate-budapest"></p>
+                    </div>
+                    <div
+                      class="currency-extra"
+                      id="currencyExtra-budapest"
+                    ></div>
                   </div>
                 </div>
 
-
-                <div class="guide-actions">
-                  <button class="guide-btn save" data-action="save" data-city="prague" type="button">Save</button>
-                  <button class="guide-btn" data-action="load" data-city="prague" type="button">Load saved</button>
-                  <button class="guide-btn" data-action="clear" data-city="prague" type="button">Clear</button>
-                </div>
-                <p class="guide-status" id="status-prague">No saved draft</p>
-                <div class="hotel-map-wrap">
-                  <iframe class="hotel-map" id="hotelMap-prague" title="Hotel location — Prague" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-                </div>
-                <div class="transport-hubs" id="transport-prague" aria-label="Airport and train station"></div>
-              </div>
-
-              <div class="guide-card weather-card">
-                <div class="guide-kicker">Weather</div>
-                <h3>Weather overview</h3>
-                <div id="forecast-prague" class="weather-loading">Loading forecast…</div>
-              </div>
-
-              <div class="guide-card currency-card">
-                <div class="guide-kicker">Currency</div>
-                <h3>Currency</h3>
-                <p class="guide-meta" id="currency-prague"></p>
-                <div class="guide-converter">
-                  <label class="guide-label" for="convert-prague">Convert to €</label>
-                  <input class="guide-field guide-convert-input" id="convert-prague" data-city="prague" inputmode="decimal" type="number" min="0" step="0.01" placeholder="Amount in CZK">
-                  <p class="guide-convert-result">= <strong id="converted-prague">€—</strong></p>
-                  <p class="guide-rate-note" id="rate-prague"></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="guide-card">
-              <div class="guide-kicker">Sights & entrance fees</div>
-              <h3>What to visit</h3>
-              <h4>Top sights</h4>
-              <div class="sight-picks" aria-label="Featured sights in Prague">
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Prague Castle">Photo</div>
-                  <div class="sight-pick-name">Prague Castle</div>
-                  <p class="sight-pick-desc">Hradčany complex—St. Vitus Cathedral, Golden Lane, and terraces over red roofs and the river.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Prague%20Castle%2C%20Prague" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Prague Astronomical Clock">Photo</div>
-                  <div class="sight-pick-name">Astronomical Clock</div>
-                  <p class="sight-pick-desc">Medieval orloj on the Old Town Hall—crowds gather on the hour for apostles in the windows.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Prague%20Astronomical%20Clock%20Old%20Town%20Hall" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Charles Bridge">Photo</div>
-                  <div class="sight-pick-name">Prague bridge</div>
-                  <p class="sight-pick-desc">Charles Bridge—baroque statues, buskers, and sunrise views between Old Town and Malá Strana.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Charles%20Bridge%2C%20Prague" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Old Town Square">Photo</div>
-                  <div class="sight-pick-name">Old Town Square</div>
-                  <p class="sight-pick-desc">Staroměstské náměstí—Týn Church spires, cafés, and the hub between the clock and Jewish Quarter walks.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Square%20Prague" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-              </div>
-              <div class="guide-table-wrap">
-                <table class="guide-forms">
-                  <thead>
-                    <tr>
-                      <th>Sight</th>
-                      <th>Entrance fee</th>
-                    </tr>
-                  </thead>
-                  <tbody id="sights-prague"></tbody>
-                </table>
-              </div>
-            </div>
-
-            <div class="guide-card">
-              <div class="guide-kicker">Food & drink</div>
-              <h3>Local cuisine</h3>
-              <p class="guide-meta guide-food-lede">Bohemian cooking is built on knedlíky (dumplings), slow meats, and caraway-scented sauces—pair plates with tank-drawn pale lager from Czech breweries.</p>
-              <div class="food-picks" aria-label="Prague food and drink picks">
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: svíčková">Photo</div>
-                  <div class="food-pick-name">Svíčková</div>
-                  <p class="food-pick-desc">Marinated beef in creamy root-vegetable sauce, cranberry, and bread dumplings—a Sunday-lunch icon.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: vepřo knedlo zelo">Photo</div>
-                  <div class="food-pick-name">Vepřo knedlo zelo</div>
-                  <p class="food-pick-desc">Roast pork, bread dumplings, and stewed sauerkraut—the Czech comfort trinity on every pub menu.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: guláš">Photo</div>
-                  <div class="food-pick-name">Guláš</div>
-                  <p class="food-pick-desc">Paprika-rich beef stew, thicker than Hungarian soup—sopped up with knedlíky or rye bread.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: smažený sýr">Photo</div>
-                  <div class="food-pick-name">Smažený sýr</div>
-                  <p class="food-pick-desc">Breaded fried Edam or Hermelín with tartar sauce and chips—beer-hall guilty pleasure.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: trdelník">Photo</div>
-                  <div class="food-pick-name">Trdelník</div>
-                  <p class="food-pick-desc">Sweet dough wrapped on a spit, grilled, rolled in sugar and nuts—tourist lanes, still a warm treat.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: pivo">Photo</div>
-                  <div class="food-pick-name">České pivo</div>
-                  <p class="food-pick-desc">Pale lagers (10°–12°) from tank or tap—Pilsner style born here; ask for “pivo, prosím.”</p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="guide-section" id="vienna" data-city="vienna" aria-hidden="true">
-            <div class="guide-grid">
-              <div class="guide-card">
-                <div class="guide-kicker">Hotel</div>
-                <label class="guide-label" for="hotelName-vienna">Hotel name</label>
-                <div class="hotel-field-wrap">
-                  <input class="guide-field plan-field hotel-name-field" id="hotelName-vienna" data-city="vienna" data-field="hotelName" type="text" placeholder="Vienna Central Residence" autocomplete="off">
-                  <ul class="hotel-suggestions" id="hotelSuggest-vienna" role="listbox" aria-label="Hotel suggestions"></ul>
-                </div>
-
-                <label class="guide-label" for="hotelAddress-vienna">Hotel address</label>
-                <input class="guide-field plan-field" id="hotelAddress-vienna" data-city="vienna" data-field="hotelAddress" type="text" placeholder="Innere Stadt, district, postal code">
-                <div class="hotel-dates">
-                  <div>
-                    <label class="guide-label" for="checkIn-vienna">Check-in</label>
-                    <input class="guide-field plan-field" id="checkIn-vienna" data-city="vienna" data-field="checkIn" type="date">
+                <div class="guide-card">
+                  <div class="guide-kicker">Sights & entrance fees</div>
+                  <h3>What to visit</h3>
+                  <h4>Top sights</h4>
+                  <div
+                    class="sight-picks"
+                    aria-label="Featured sights in Budapest"
+                  >
+                    <article class="sight-pick">
+                      <img
+                        class="sight-pick-img"
+                        src="images/budapest-fishermans-bastion.jpg"
+                        alt="Fisherman's Bastion, Budapest"
+                      />
+                      <div class="sight-pick-name">Fisherman’s Bastion</div>
+                      <p class="sight-pick-desc">
+                        Fairytale terraces and turrets on Castle Hill—classic
+                        sunrise or sunset spot over the bridges.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Fisherman%27s%20Bastion%2C%20Budapest"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <img
+                        class="sight-pick-img"
+                        src="images/budapest-buda-castle.jpg"
+                        alt="Buda Castle, Budapest"
+                      />
+                      <div class="sight-pick-name">Buda Castle</div>
+                      <p class="sight-pick-desc">
+                        Castle district palace complex with museums, courtyards,
+                        and views over the Danube to Pest.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Buda%20Castle%2C%20Budapest"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <img
+                        class="sight-pick-img"
+                        src="images/budapest-hungarian-parliament.jpg"
+                        alt="Hungarian Parliament Building, Budapest"
+                      />
+                      <div class="sight-pick-name">Hungarian Parliament</div>
+                      <p class="sight-pick-desc">
+                        Neo-Gothic riverside landmark; guided tours show the
+                        cupola hall when parliament is not in session.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Hungarian%20Parliament%20Building%2C%20Budapest"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <img
+                        class="sight-pick-img"
+                        src="images/budapest-danube-river.jpg"
+                        alt="Danube River, Budapest"
+                      />
+                      <div class="sight-pick-name">Danube River</div>
+                      <p class="sight-pick-desc">
+                        Walk the embankments between bridges, or cross on foot
+                        for the full Pest↔Buda panorama.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Danube%20River%20Chain%20Bridge%20Budapest"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
                   </div>
-                  <div>
-                    <label class="guide-label" for="checkOut-vienna">Check-out</label>
-                    <input class="guide-field plan-field" id="checkOut-vienna" data-city="vienna" data-field="checkOut" type="date">
+                  <div class="guide-table-wrap">
+                    <table class="guide-forms">
+                      <thead>
+                        <tr>
+                          <th>Sight</th>
+                          <th>Entrance fee</th>
+                        </tr>
+                      </thead>
+                      <tbody id="sights-budapest"></tbody>
+                    </table>
                   </div>
                 </div>
 
-
-                <div class="guide-actions">
-                  <button class="guide-btn save" data-action="save" data-city="vienna" type="button">Save</button>
-                  <button class="guide-btn" data-action="load" data-city="vienna" type="button">Load saved</button>
-                  <button class="guide-btn" data-action="clear" data-city="vienna" type="button">Clear</button>
+                <div class="guide-card">
+                  <div class="guide-kicker">Food & drink</div>
+                  <h3>Local cuisine</h3>
+                  <p class="guide-meta guide-food-lede">
+                    Hungarian cuisine is characterized by its bold, hearty
+                    flavors and the generous use of Hungarian paprika, sour
+                    cream, and onion. It is a rich, meat-heavy cuisine often
+                    considered the spiciest in Europe.
+                  </p>
+                  <div
+                    class="food-picks"
+                    aria-label="Budapest food and drink picks"
+                  >
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/budapest-gulas.jpg"
+                        alt="Gulyás — paprika beef soup, Budapest"
+                      />
+                      <div class="food-pick-name">Gulyás</div>
+                      <p class="food-pick-desc">
+                        Paprika beef soup with roots—not the thick “goulash”
+                        stew abroad.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/budapest-halaszle.jpg"
+                        alt="Halászlé — fisherman's soup, Budapest"
+                      />
+                      <div class="food-pick-name">Halászlé</div>
+                      <p class="food-pick-desc">
+                        Bright, peppery fisherman's soup with carp or catfish;
+                        Szeged-style is famous.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/budapest-porkolt.jpg"
+                        alt="Pörkölt & nokedli — meat ragù with dumplings, Budapest"
+                      />
+                      <div class="food-pick-name">Pörkölt & nokedli</div>
+                      <p class="food-pick-desc">
+                        Slow-cooked meat ragù with hand-torn egg dumplings; kin
+                        to paprikás csirke.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/budapest-langos.jpg"
+                        alt="Lángos — fried dough with garlic and cheese, Budapest"
+                      />
+                      <div class="food-pick-name">Lángos</div>
+                      <p class="food-pick-desc">
+                        Crisp fried dough, garlic rub, then tejföl and grated
+                        cheese—market staple.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/budapest-kurtoskalacs.jpg"
+                        alt="Kürtőskalács — chimney cake, Budapest"
+                      />
+                      <div class="food-pick-name">Kürtőskalács</div>
+                      <p class="food-pick-desc">
+                        Chimney cake from embers: caramelized sugar, cinnamon,
+                        or crushed nuts.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/budapest-froccs.jpg"
+                        alt="Fröccs & ruin bars — wine spritzer culture, Budapest"
+                      />
+                      <div class="food-pick-name">Fröccs & ruin bars</div>
+                      <p class="food-pick-desc">
+                        Wine spritzer culture in the Jewish Quarter—courtyards,
+                        DJs, and local craft taps.
+                      </p>
+                    </article>
+                  </div>
                 </div>
-                <p class="guide-status" id="status-vienna">No saved draft</p>
-                <div class="hotel-map-wrap">
-                  <iframe class="hotel-map" id="hotelMap-vienna" title="Hotel location — Vienna" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+
+                <div class="guide-card">
+                  <div class="guide-kicker">Ruin Bars</div>
+                  <h3>Budapest ruin bars</h3>
+                  <p class="guide-meta guide-food-lede">
+                    A ruin bar (or ruin pub) is a unique type of nightlife venue
+                    built inside abandoned, decaying buildings, factories, or
+                    apartment complexes. Originating in Budapest, Hungary, they
+                    are known for their eclectic, "controlled chaos" aesthetic.
+                  </p>
+                  <div class="food-picks" aria-label="Budapest ruin bar picks">
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/budapest-szimpla-kert.jpg"
+                        alt="Szimpla Kert — original ruin bar, Budapest"
+                      />
+                      <div class="food-pick-name">Szimpla Kert</div>
+                      <p class="food-pick-desc">
+                        The original and most famous ruin bar—plants, bikes
+                        hanging from ceilings, Sunday farmers’ market, and live
+                        music spilling into the courtyard.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/budapest-mazel-tov.jpg"
+                        alt="Mazel Tov — polished ruin bar with garden, Budapest"
+                      />
+                      <div class="food-pick-name">Mazel Tov</div>
+                      <p class="food-pick-desc">
+                        A more polished take on the ruin aesthetic—glass-roofed
+                        garden courtyard, Middle Eastern small plates, and craft
+                        cocktails alongside the usual fröccs.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/budapest-elleszto.jpg"
+                        alt="Éllesztő — craft beer garden, Budapest"
+                      />
+                      <div class="food-pick-name">Éllesztő</div>
+                      <p class="food-pick-desc">
+                        Craft-beer garden in a converted factory in the Ninth
+                        District with rotating taps, food trucks. Their sister
+                        bar, Élesztő Terasz, is a casual rooftop location on the
+                        Buda side.
+                      </p>
+                    </article>
+                  </div>
                 </div>
-                <div class="transport-hubs" id="transport-vienna" aria-label="Airport and train station"></div>
-              </div>
+              </section>
 
-              <div class="guide-card weather-card">
-                <div class="guide-kicker">Weather</div>
-                <h3>Weather overview</h3>
-                <div id="forecast-vienna" class="weather-loading">Loading forecast…</div>
-              </div>
+              <section
+                class="guide-section"
+                id="krakow"
+                data-city="krakow"
+                aria-hidden="true"
+              >
+                <div class="guide-grid">
+                  <div class="guide-card">
+                    <div class="guide-kicker">Hotel</div>
+                    <label class="guide-label" for="hotelName-krakow"
+                      >Hotel name</label
+                    >
+                    <div class="hotel-field-wrap">
+                      <input
+                        class="guide-field plan-field hotel-name-field"
+                        id="hotelName-krakow"
+                        data-city="krakow"
+                        data-field="hotelName"
+                        type="text"
+                        placeholder="The Royal Hotel Krakow"
+                        autocomplete="off"
+                      />
+                      <ul
+                        class="hotel-suggestions"
+                        id="hotelSuggest-krakow"
+                        role="listbox"
+                        aria-label="Hotel suggestions"
+                      ></ul>
+                    </div>
 
-              <div class="guide-card currency-card">
-                <div class="guide-kicker">Currency</div>
-                <h3>Currency</h3>
-                <p class="guide-meta" id="currency-vienna"></p>
-                <div class="guide-converter">
-                  <label class="guide-label" for="convert-vienna">Convert to €</label>
-                  <input class="guide-field guide-convert-input" id="convert-vienna" data-city="vienna" inputmode="decimal" type="number" min="0" step="0.01" placeholder="Amount in EUR">
-                  <p class="guide-convert-result">= <strong id="converted-vienna">€—</strong></p>
-                  <p class="guide-rate-note" id="rate-vienna"></p>
+                    <label class="guide-label" for="hotelAddress-krakow"
+                      >Hotel address</label
+                    >
+                    <input
+                      class="guide-field plan-field"
+                      id="hotelAddress-krakow"
+                      data-city="krakow"
+                      data-field="hotelAddress"
+                      type="text"
+                      placeholder="Main square, district, postal code"
+                    />
+                    <div class="hotel-dates">
+                      <div>
+                        <label class="guide-label" for="checkIn-krakow"
+                          >Check-in</label
+                        >
+                        <input
+                          class="guide-field plan-field"
+                          id="checkIn-krakow"
+                          data-city="krakow"
+                          data-field="checkIn"
+                          type="date"
+                        />
+                      </div>
+                      <div>
+                        <label class="guide-label" for="checkOut-krakow"
+                          >Check-out</label
+                        >
+                        <input
+                          class="guide-field plan-field"
+                          id="checkOut-krakow"
+                          data-city="krakow"
+                          data-field="checkOut"
+                          type="date"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="guide-actions">
+                      <button
+                        class="guide-btn save"
+                        data-action="save"
+                        data-city="krakow"
+                        type="button"
+                      >
+                        Save
+                      </button>
+                      <button
+                        class="guide-btn"
+                        data-action="load"
+                        data-city="krakow"
+                        type="button"
+                      >
+                        Load saved
+                      </button>
+                      <button
+                        class="guide-btn"
+                        data-action="clear"
+                        data-city="krakow"
+                        type="button"
+                      >
+                        Clear
+                      </button>
+                    </div>
+                    <p class="guide-status" id="status-krakow">
+                      No saved draft
+                    </p>
+                    <div class="hotel-map-wrap">
+                      <iframe
+                        class="hotel-map"
+                        id="hotelMap-krakow"
+                        title="Hotel location — Krakow"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                    <div
+                      class="transport-hubs"
+                      id="transport-krakow"
+                      aria-label="Airport and train station"
+                    ></div>
+                  </div>
+
+                  <div class="guide-card weather-card">
+                    <div class="guide-kicker">Weather</div>
+                    <h3>Weather overview</h3>
+                    <div id="forecast-krakow" class="weather-loading">
+                      Loading forecast…
+                    </div>
+                    <p class="weather-climate-note" id="climateNote-krakow"></p>
+                  </div>
+
+                  <div class="guide-card currency-card">
+                    <div class="guide-kicker">Currency</div>
+                    <h3>Currency</h3>
+                    <p class="guide-meta" id="currency-krakow"></p>
+                    <div class="guide-converter">
+                      <label class="guide-label" for="convert-krakow"
+                        >Convert to €</label
+                      >
+                      <input
+                        class="guide-field guide-convert-input"
+                        id="convert-krakow"
+                        data-city="krakow"
+                        inputmode="decimal"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        placeholder="Amount in PLN"
+                      />
+                      <p class="guide-convert-result">
+                        = <strong id="converted-krakow">€—</strong>
+                      </p>
+                      <p class="guide-rate-note" id="rate-krakow"></p>
+                    </div>
+                    <div class="currency-extra" id="currencyExtra-krakow"></div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <div class="guide-card">
-              <div class="guide-kicker">Sights & entrance fees</div>
-              <h3>What to visit</h3>
-              <h4>Top sights</h4>
-              <div class="sight-picks" aria-label="Featured sights in Vienna">
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Schönbrunn Palace">Photo</div>
-                  <div class="sight-pick-name">Schönbrunn Palace</div>
-                  <p class="sight-pick-desc">Habsburg summer residence—palace tour, formal gardens, Gloriette viewpoint, and zoo nearby.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Sch%C3%B6nbrunn%20Palace%2C%20Vienna" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Vienna State Opera">Photo</div>
-                  <div class="sight-pick-name">Vienna State Opera</div>
-                  <p class="sight-pick-desc">Renaissance Revival house on the Ring—standing-room tickets or a guided backstage visit by day.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Vienna%20State%20Opera" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: St. Stephen's Cathedral">Photo</div>
-                  <div class="sight-pick-name">St. Stephen’s Cathedral</div>
-                  <p class="sight-pick-desc">Stephansdom—tiled roof, south-tower climb, and the heart of the pedestrian Innere Stadt.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Stephen%27s%20Cathedral%2C%20Vienna" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-                <article class="sight-pick">
-                  <div class="sight-pick-img sight-pick-img--placeholder" role="img" aria-label="Photo placeholder: Kunsthistorisches Museum">Photo</div>
-                  <div class="sight-pick-name">Kunsthistorisches Museum</div>
-                  <p class="sight-pick-desc">Ring palace of fine art—Bruegel, Velázquez, Egyptian antiquities, and the grand café under the dome.</p>
-                  <a class="sight-pick-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Kunsthistorisches%20Museum%2C%20Vienna" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                </article>
-              </div>
-              <div class="guide-table-wrap">
-                <table class="guide-forms">
-                  <thead>
-                    <tr>
-                      <th>Sight</th>
-                      <th>Entrance fee</th>
-                    </tr>
-                  </thead>
-                  <tbody id="sights-vienna"></tbody>
-                </table>
-              </div>
-            </div>
+                <div class="guide-card">
+                  <div class="guide-kicker">Sights & entrance fees</div>
+                  <h3>What to visit</h3>
+                  <h4>Top sights</h4>
+                  <div
+                    class="sight-picks"
+                    aria-label="Featured sights in Kraków"
+                  >
+                    <article class="sight-pick">
+                      <div
+                        class="sight-pick-img sight-pick-img--placeholder"
+                        role="img"
+                        aria-label="Photo placeholder: Rynek Główny"
+                      >
+                        Photo
+                      </div>
+                      <div class="sight-pick-name">Rynek Główny</div>
+                      <p class="sight-pick-desc">
+                        Europe’s largest medieval market square—Sukiennice,
+                        cafés, and the rhythm of the Old Town.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Rynek%20G%C5%82%C3%B3wny%2C%20Krak%C3%B3w"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <div
+                        class="sight-pick-img sight-pick-img--placeholder"
+                        role="img"
+                        aria-label="Photo placeholder: Wawel Royal Castle"
+                      >
+                        Photo
+                      </div>
+                      <div class="sight-pick-name">Wawel Royal Castle</div>
+                      <p class="sight-pick-desc">
+                        Hilltop cathedral, royal apartments, and courtyards with
+                        views over the Vistula.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Wawel%20Royal%20Castle%2C%20Krak%C3%B3w"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <div
+                        class="sight-pick-img sight-pick-img--placeholder"
+                        role="img"
+                        aria-label="Photo placeholder: St. Mary's Basilica"
+                      >
+                        Photo
+                      </div>
+                      <div class="sight-pick-name">Basilica</div>
+                      <p class="sight-pick-desc">
+                        St. Mary’s on Rynek—Gothic interior, Veit Stoss
+                        altarpiece, and the hourly hejnał trumpet call.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Mary%27s%20Basilica%20Krak%C3%B3w"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <div
+                        class="sight-pick-img sight-pick-img--placeholder"
+                        role="img"
+                        aria-label="Photo placeholder: Wieliczka Salt Mine"
+                      >
+                        Photo
+                      </div>
+                      <div class="sight-pick-name">Salt mine</div>
+                      <p class="sight-pick-desc">
+                        Wieliczka’s underground chapels and timber
+                        passages—allow a half day; book timed entry and
+                        transport.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Wieliczka%20Salt%20Mine"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                  </div>
+                  <div class="guide-table-wrap">
+                    <table class="guide-forms">
+                      <thead>
+                        <tr>
+                          <th>Sight</th>
+                          <th>Entrance fee</th>
+                        </tr>
+                      </thead>
+                      <tbody id="sights-krakow"></tbody>
+                    </table>
+                  </div>
+                </div>
 
-            <div class="guide-card">
-              <div class="guide-kicker">Food & drink</div>
-              <h3>Local cuisine</h3>
-              <p class="guide-meta guide-food-lede">Viennese cooking pairs Habsburg roasts and clarified-butter classics with Kaffeehaus ritual—expect jewel-box cakes, whipped cream, and precise service.</p>
-              <div class="food-picks" aria-label="Vienna food and drink picks">
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Wiener Schnitzel">Photo</div>
-                  <div class="food-pick-name">Wiener Schnitzel</div>
-                  <p class="food-pick-desc">Veal pounded thin, breaded, fried in butter—lemon wedge, potato salad or parsley potatoes on the side.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Tafelspitz">Photo</div>
-                  <div class="food-pick-name">Tafelspitz</div>
-                  <p class="food-pick-desc">Boiled beef brisket at the simmer—served with minced apple-horseradish, spinach, and roesti.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Sachertorte">Photo</div>
-                  <div class="food-pick-name">Sachertorte</div>
-                  <p class="food-pick-desc">Dense chocolate cake, thin apricot jam, dark glaze—invented here; debate Hotel Sacher vs Demel.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Apfelstrudel">Photo</div>
-                  <div class="food-pick-name">Apfelstrudel</div>
-                  <p class="food-pick-desc">Paper-thin pastry wrapped around spiced apples, raisins, and breadcrumbs—vanilla sauce optional.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Kaiserschmarrn">Photo</div>
-                  <div class="food-pick-name">Kaiserschmarrn</div>
-                  <p class="food-pick-desc">Shredded fluffy pancake with rum-soaked raisins, icing sugar, and plum compote—coffee-house staple.</p>
-                </article>
-                <article class="food-pick">
-                  <div class="food-pick-img food-pick-img--placeholder" role="img" aria-label="Photo placeholder: Melange">Photo</div>
-                  <div class="food-pick-name">Melange</div>
-                  <p class="food-pick-desc">Espresso lengthened with steamed milk, like a cappuccino—order with a glass of water and linger.</p>
-                </article>
-              </div>
-            </div>
-          </section>
-        </main>
+                <div class="guide-card">
+                  <div class="guide-kicker">Food & drink</div>
+                  <h3>Local cuisine</h3>
+                  <p class="guide-meta guide-food-lede">
+                    Małopolska cooking leans sour and savory: rye starters,
+                    forest mushrooms, cabbage, and smoked highland cheese—Rynek
+                    stalls and Kazimierz cellars are made for grazing.
+                  </p>
+                  <div
+                    class="food-picks"
+                    aria-label="Kraków food and drink picks"
+                  >
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/krakow-pierogi.jpg"
+                        alt="Pierogi — filled dumplings, Kraków"
+                      />
+                      <div class="food-pick-name">Pierogi</div>
+                      <p class="food-pick-desc">
+                        Filled dumplings—ruskie potato-cheese,
+                        sauerkraut-mushroom, or sweet bilberry for dessert.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/krakow-zurek.jpg"
+                        alt="Żurek — sour rye soup with sausage, Kraków"
+                      />
+                      <div class="food-pick-name">Żurek</div>
+                      <p class="food-pick-desc">
+                        Sour rye soup with white sausage and egg—often ladled
+                        into an edible bread bowl.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/krakow-bigos.jpg"
+                        alt="Bigos — hunter's stew, Kraków"
+                      />
+                      <div class="food-pick-name">Bigos</div>
+                      <p class="food-pick-desc">
+                        Hunter’s stew of sauerkraut, fresh cabbage, meats, and
+                        prunes—better after a day of reheating.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/krakow-obwarzanek.jpg"
+                        alt="Obwarzanek — chewy braided ring, Kraków"
+                      />
+                      <div class="food-pick-name">Obwarzanek</div>
+                      <p class="food-pick-desc">
+                        Chewy braided ring, boiled then baked—sprinkled with
+                        poppy, sesame, or salt; Kraków’s street signature.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/krakow-zapiekanka.jpg"
+                        alt="Zapiekanka — toasted baguette with mushrooms and cheese, Kraków"
+                      />
+                      <div class="food-pick-name">Zapiekanka</div>
+                      <p class="food-pick-desc">
+                        Halved baguette toasted with mushrooms, cheese, and
+                        ketchup—late-night fuel from Plac Nowy kiosks.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/krakow-oscypek.jpg"
+                        alt="Oscypek — smoked sheep's-milk cheese, Kraków"
+                      />
+                      <div class="food-pick-name">Oscypek</div>
+                      <p class="food-pick-desc">
+                        Smoked sheep’s-milk cheese from the Tatras—grilled and
+                        served with cranberry jam at markets.
+                      </p>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section
+                class="guide-section"
+                id="prague"
+                data-city="prague"
+                aria-hidden="true"
+              >
+                <div class="guide-grid">
+                  <div class="guide-card">
+                    <div class="guide-kicker">Hotel</div>
+                    <label class="guide-label" for="hotelName-prague"
+                      >Hotel name</label
+                    >
+                    <div class="hotel-field-wrap">
+                      <input
+                        class="guide-field plan-field hotel-name-field"
+                        id="hotelName-prague"
+                        data-city="prague"
+                        data-field="hotelName"
+                        type="text"
+                        placeholder="Prague City Hotel"
+                        autocomplete="off"
+                      />
+                      <ul
+                        class="hotel-suggestions"
+                        id="hotelSuggest-prague"
+                        role="listbox"
+                        aria-label="Hotel suggestions"
+                      ></ul>
+                    </div>
+
+                    <label class="guide-label" for="hotelAddress-prague"
+                      >Hotel address</label
+                    >
+                    <input
+                      class="guide-field plan-field"
+                      id="hotelAddress-prague"
+                      data-city="prague"
+                      data-field="hotelAddress"
+                      type="text"
+                      placeholder="Old Town, district, postal code"
+                    />
+                    <div class="hotel-dates">
+                      <div>
+                        <label class="guide-label" for="checkIn-prague"
+                          >Check-in</label
+                        >
+                        <input
+                          class="guide-field plan-field"
+                          id="checkIn-prague"
+                          data-city="prague"
+                          data-field="checkIn"
+                          type="date"
+                        />
+                      </div>
+                      <div>
+                        <label class="guide-label" for="checkOut-prague"
+                          >Check-out</label
+                        >
+                        <input
+                          class="guide-field plan-field"
+                          id="checkOut-prague"
+                          data-city="prague"
+                          data-field="checkOut"
+                          type="date"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="guide-actions">
+                      <button
+                        class="guide-btn save"
+                        data-action="save"
+                        data-city="prague"
+                        type="button"
+                      >
+                        Save
+                      </button>
+                      <button
+                        class="guide-btn"
+                        data-action="load"
+                        data-city="prague"
+                        type="button"
+                      >
+                        Load saved
+                      </button>
+                      <button
+                        class="guide-btn"
+                        data-action="clear"
+                        data-city="prague"
+                        type="button"
+                      >
+                        Clear
+                      </button>
+                    </div>
+                    <p class="guide-status" id="status-prague">
+                      No saved draft
+                    </p>
+                    <div class="hotel-map-wrap">
+                      <iframe
+                        class="hotel-map"
+                        id="hotelMap-prague"
+                        title="Hotel location — Prague"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                    <div
+                      class="transport-hubs"
+                      id="transport-prague"
+                      aria-label="Airport and train station"
+                    ></div>
+                  </div>
+
+                  <div class="guide-card weather-card">
+                    <div class="guide-kicker">Weather</div>
+                    <h3>Weather overview</h3>
+                    <div id="forecast-prague" class="weather-loading">
+                      Loading forecast…
+                    </div>
+                    <p class="weather-climate-note" id="climateNote-prague"></p>
+                  </div>
+
+                  <div class="guide-card currency-card">
+                    <div class="guide-kicker">Currency</div>
+                    <h3>Currency</h3>
+                    <p class="guide-meta" id="currency-prague"></p>
+                    <div class="guide-converter">
+                      <label class="guide-label" for="convert-prague"
+                        >Convert to €</label
+                      >
+                      <input
+                        class="guide-field guide-convert-input"
+                        id="convert-prague"
+                        data-city="prague"
+                        inputmode="decimal"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        placeholder="Amount in CZK"
+                      />
+                      <p class="guide-convert-result">
+                        = <strong id="converted-prague">€—</strong>
+                      </p>
+                      <p class="guide-rate-note" id="rate-prague"></p>
+                    </div>
+                    <div class="currency-extra" id="currencyExtra-prague"></div>
+                  </div>
+                </div>
+
+                <div class="guide-card">
+                  <div class="guide-kicker">Sights & entrance fees</div>
+                  <h3>What to visit</h3>
+                  <h4>Top sights</h4>
+                  <div
+                    class="sight-picks"
+                    aria-label="Featured sights in Prague"
+                  >
+                    <article class="sight-pick">
+                      <img
+                        class="sight-pick-img"
+                        src="images/prague-castle.jpg"
+                        alt="Prague Castle, Prague"
+                      />
+                      <div class="sight-pick-name">Prague Castle</div>
+                      <p class="sight-pick-desc">
+                        Hradčany complex—St. Vitus Cathedral, Golden Lane, and
+                        terraces over red roofs and the river.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Prague%20Castle%2C%20Prague"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <img
+                        class="sight-pick-img"
+                        src="images/prague-astronomical-clock.jpg"
+                        alt="Astronomical Clock, Prague"
+                      />
+                      <div class="sight-pick-name">Astronomical Clock</div>
+                      <p class="sight-pick-desc">
+                        Medieval orloj on the Old Town Hall—crowds gather on the
+                        hour for apostles in the windows.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Prague%20Astronomical%20Clock%20Old%20Town%20Hall"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <img
+                        class="sight-pick-img"
+                        src="images/prague-charles-bridge.jpg"
+                        alt="Charles Bridge, Prague"
+                      />
+                      <div class="sight-pick-name">Prague bridge</div>
+                      <p class="sight-pick-desc">
+                        Charles Bridge—baroque statues, buskers, and sunrise
+                        views between Old Town and Malá Strana.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Charles%20Bridge%2C%20Prague"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <img
+                        class="sight-pick-img"
+                        src="images/prague-old-town-square.jpg"
+                        alt="Old Town Square, Prague"
+                      />
+                      <div class="sight-pick-name">Old Town Square</div>
+                      <p class="sight-pick-desc">
+                        Staroměstské náměstí—Týn Church spires, cafés, and the
+                        hub between the clock and Jewish Quarter walks.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Square%20Prague"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                  </div>
+                  <div class="guide-table-wrap">
+                    <table class="guide-forms">
+                      <thead>
+                        <tr>
+                          <th>Sight</th>
+                          <th>Entrance fee</th>
+                        </tr>
+                      </thead>
+                      <tbody id="sights-prague"></tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="guide-card">
+                  <div class="guide-kicker">Food & drink</div>
+                  <h3>Local cuisine</h3>
+                  <p class="guide-meta guide-food-lede">
+                    Bohemian cooking is built on knedlíky (dumplings), slow
+                    meats, and caraway-scented sauces—pair plates with
+                    tank-drawn pale lager from Czech breweries.
+                  </p>
+                  <div
+                    class="food-picks"
+                    aria-label="Prague food and drink picks"
+                  >
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/prague-svickova.jpg"
+                        alt="Svíčková — marinated beef in creamy sauce, Prague"
+                      />
+                      <div class="food-pick-name">Svíčková</div>
+                      <p class="food-pick-desc">
+                        Marinated beef in creamy root-vegetable sauce,
+                        cranberry, and bread dumplings—a Sunday-lunch icon.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/prague-vepro-knedlo-zelo.jpg"
+                        alt="Vepřo knedlo zelo — roast pork, dumplings, sauerkraut, Prague"
+                      />
+                      <div class="food-pick-name">Vepřo knedlo zelo</div>
+                      <p class="food-pick-desc">
+                        Roast pork, bread dumplings, and stewed sauerkraut—the
+                        Czech comfort trinity on every pub menu.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/prague-gulas.jpg"
+                        alt="Guláš — paprika beef stew, Prague"
+                      />
+                      <div class="food-pick-name">Guláš</div>
+                      <p class="food-pick-desc">
+                        Paprika-rich beef stew, thicker than Hungarian
+                        soup—sopped up with knedlíky or rye bread.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/prague-smazeny-syr.jpg"
+                        alt="Smažený sýr — fried cheese, Prague"
+                      />
+                      <div class="food-pick-name">Smažený sýr</div>
+                      <p class="food-pick-desc">
+                        Breaded fried Edam or Hermelín with tartar sauce and
+                        chips—beer-hall guilty pleasure.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/prague-trdlenik.jpg"
+                        alt="Trdelník — sweet dough grilled with sugar and nuts, Prague"
+                      />
+                      <div class="food-pick-name">Trdelník</div>
+                      <p class="food-pick-desc">
+                        Sweet dough wrapped on a spit, grilled, rolled in sugar
+                        and nuts—tourist lanes, still a warm treat.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/prague-pivo.jpg"
+                        alt="České pivo — Czech pale lager, Prague"
+                      />
+                      <div class="food-pick-name">České pivo</div>
+                      <p class="food-pick-desc">
+                        Pale lagers (10°–12°) from tank or tap—Pilsner style
+                        born here; ask for “pivo, prosím.”
+                      </p>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section
+                class="guide-section"
+                id="vienna"
+                data-city="vienna"
+                aria-hidden="true"
+              >
+                <div class="guide-grid">
+                  <div class="guide-card">
+                    <div class="guide-kicker">Hotel</div>
+                    <label class="guide-label" for="hotelName-vienna"
+                      >Hotel name</label
+                    >
+                    <div class="hotel-field-wrap">
+                      <input
+                        class="guide-field plan-field hotel-name-field"
+                        id="hotelName-vienna"
+                        data-city="vienna"
+                        data-field="hotelName"
+                        type="text"
+                        placeholder="Vienna Central Residence"
+                        autocomplete="off"
+                      />
+                      <ul
+                        class="hotel-suggestions"
+                        id="hotelSuggest-vienna"
+                        role="listbox"
+                        aria-label="Hotel suggestions"
+                      ></ul>
+                    </div>
+
+                    <label class="guide-label" for="hotelAddress-vienna"
+                      >Hotel address</label
+                    >
+                    <input
+                      class="guide-field plan-field"
+                      id="hotelAddress-vienna"
+                      data-city="vienna"
+                      data-field="hotelAddress"
+                      type="text"
+                      placeholder="Innere Stadt, district, postal code"
+                    />
+                    <div class="hotel-dates">
+                      <div>
+                        <label class="guide-label" for="checkIn-vienna"
+                          >Check-in</label
+                        >
+                        <input
+                          class="guide-field plan-field"
+                          id="checkIn-vienna"
+                          data-city="vienna"
+                          data-field="checkIn"
+                          type="date"
+                        />
+                      </div>
+                      <div>
+                        <label class="guide-label" for="checkOut-vienna"
+                          >Check-out</label
+                        >
+                        <input
+                          class="guide-field plan-field"
+                          id="checkOut-vienna"
+                          data-city="vienna"
+                          data-field="checkOut"
+                          type="date"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="guide-actions">
+                      <button
+                        class="guide-btn save"
+                        data-action="save"
+                        data-city="vienna"
+                        type="button"
+                      >
+                        Save
+                      </button>
+                      <button
+                        class="guide-btn"
+                        data-action="load"
+                        data-city="vienna"
+                        type="button"
+                      >
+                        Load saved
+                      </button>
+                      <button
+                        class="guide-btn"
+                        data-action="clear"
+                        data-city="vienna"
+                        type="button"
+                      >
+                        Clear
+                      </button>
+                    </div>
+                    <p class="guide-status" id="status-vienna">
+                      No saved draft
+                    </p>
+                    <div class="hotel-map-wrap">
+                      <iframe
+                        class="hotel-map"
+                        id="hotelMap-vienna"
+                        title="Hotel location — Vienna"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                    <div
+                      class="transport-hubs"
+                      id="transport-vienna"
+                      aria-label="Airport and train station"
+                    ></div>
+                  </div>
+
+                  <div class="guide-card weather-card">
+                    <div class="guide-kicker">Weather</div>
+                    <h3>Weather overview</h3>
+                    <div id="forecast-vienna" class="weather-loading">
+                      Loading forecast…
+                    </div>
+                    <p class="weather-climate-note" id="climateNote-vienna"></p>
+                  </div>
+
+                  <div class="guide-card currency-card">
+                    <div class="guide-kicker">Currency</div>
+                    <h3>Currency</h3>
+                    <p class="guide-meta" id="currency-vienna"></p>
+                    <div class="guide-converter">
+                      <label class="guide-label" for="convert-vienna"
+                        >Convert to €</label
+                      >
+                      <input
+                        class="guide-field guide-convert-input"
+                        id="convert-vienna"
+                        data-city="vienna"
+                        inputmode="decimal"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        placeholder="Amount in EUR"
+                      />
+                      <p class="guide-convert-result">
+                        = <strong id="converted-vienna">€—</strong>
+                      </p>
+                      <p class="guide-rate-note" id="rate-vienna"></p>
+                    </div>
+                    <div class="currency-extra" id="currencyExtra-vienna"></div>
+                  </div>
+                </div>
+
+                <div class="guide-card">
+                  <div class="guide-kicker">Sights & entrance fees</div>
+                  <h3>What to visit</h3>
+                  <h4>Top sights</h4>
+                  <div
+                    class="sight-picks"
+                    aria-label="Featured sights in Vienna"
+                  >
+                    <article class="sight-pick">
+                      <div
+                        class="sight-pick-img sight-pick-img--placeholder"
+                        role="img"
+                        aria-label="Photo placeholder: Schönbrunn Palace"
+                      >
+                        Photo
+                      </div>
+                      <div class="sight-pick-name">Schönbrunn Palace</div>
+                      <p class="sight-pick-desc">
+                        Habsburg summer residence—palace tour, formal gardens,
+                        Gloriette viewpoint, and zoo nearby.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Sch%C3%B6nbrunn%20Palace%2C%20Vienna"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <div
+                        class="sight-pick-img sight-pick-img--placeholder"
+                        role="img"
+                        aria-label="Photo placeholder: Vienna State Opera"
+                      >
+                        Photo
+                      </div>
+                      <div class="sight-pick-name">Vienna State Opera</div>
+                      <p class="sight-pick-desc">
+                        Renaissance Revival house on the Ring—standing-room
+                        tickets or a guided backstage visit by day.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Vienna%20State%20Opera"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <div
+                        class="sight-pick-img sight-pick-img--placeholder"
+                        role="img"
+                        aria-label="Photo placeholder: St. Stephen's Cathedral"
+                      >
+                        Photo
+                      </div>
+                      <div class="sight-pick-name">St. Stephen’s Cathedral</div>
+                      <p class="sight-pick-desc">
+                        Stephansdom—tiled roof, south-tower climb, and the heart
+                        of the pedestrian Innere Stadt.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Stephen%27s%20Cathedral%2C%20Vienna"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                    <article class="sight-pick">
+                      <div
+                        class="sight-pick-img sight-pick-img--placeholder"
+                        role="img"
+                        aria-label="Photo placeholder: Kunsthistorisches Museum"
+                      >
+                        Photo
+                      </div>
+                      <div class="sight-pick-name">
+                        Kunsthistorisches Museum
+                      </div>
+                      <p class="sight-pick-desc">
+                        Ring palace of fine art—Bruegel, Velázquez, Egyptian
+                        antiquities, and the grand café under the dome.
+                      </p>
+                      <a
+                        class="sight-pick-maps"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Kunsthistorisches%20Museum%2C%20Vienna"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Google Maps</a
+                      >
+                    </article>
+                  </div>
+                  <div class="guide-table-wrap">
+                    <table class="guide-forms">
+                      <thead>
+                        <tr>
+                          <th>Sight</th>
+                          <th>Entrance fee</th>
+                        </tr>
+                      </thead>
+                      <tbody id="sights-vienna"></tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="guide-card">
+                  <div class="guide-kicker">Food & drink</div>
+                  <h3>Local cuisine</h3>
+                  <p class="guide-meta guide-food-lede">
+                    Viennese cooking pairs Habsburg roasts and clarified-butter
+                    classics with Kaffeehaus ritual—expect jewel-box cakes,
+                    whipped cream, and precise service.
+                  </p>
+                  <div
+                    class="food-picks"
+                    aria-label="Vienna food and drink picks"
+                  >
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/vienna-schnitzel.jpg"
+                        alt="Wiener Schnitzel — breaded fried veal, Vienna"
+                      />
+                      <div class="food-pick-name">Wiener Schnitzel</div>
+                      <p class="food-pick-desc">
+                        Veal pounded thin, breaded, fried in butter—lemon wedge,
+                        potato salad or parsley potatoes on the side.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/vienna-tafelspitz.jpg"
+                        alt="Tafelspitz — boiled beef brisket, Vienna"
+                      />
+                      <div class="food-pick-name">Tafelspitz</div>
+                      <p class="food-pick-desc">
+                        Boiled beef brisket at the simmer—served with minced
+                        apple-horseradish, spinach, and roesti.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/vienna-sachertorte.jpg"
+                        alt="Sachertorte — dense chocolate cake, Vienna"
+                      />
+                      <div class="food-pick-name">Sachertorte</div>
+                      <p class="food-pick-desc">
+                        Dense chocolate cake, thin apricot jam, dark
+                        glaze—invented here; debate Hotel Sacher vs Demel.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/vienna-apfelstrudel.jpg"
+                        alt="Apfelstrudel — paper-thin pastry with apples, Vienna"
+                      />
+                      <div class="food-pick-name">Apfelstrudel</div>
+                      <p class="food-pick-desc">
+                        Paper-thin pastry wrapped around spiced apples, raisins,
+                        and breadcrumbs—vanilla sauce optional.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/vienna-kaiserschmarrn.jpg"
+                        alt="Kaiserschmarrn — shredded fluffy pancake, Vienna"
+                      />
+                      <div class="food-pick-name">Kaiserschmarrn</div>
+                      <p class="food-pick-desc">
+                        Shredded fluffy pancake with rum-soaked raisins, icing
+                        sugar, and plum compote—coffee-house staple.
+                      </p>
+                    </article>
+                    <article class="food-pick">
+                      <img
+                        class="food-pick-img"
+                        src="images/vienna-melange.jpg"
+                        alt="Melange — espresso with steamed milk, Vienna"
+                      />
+                      <div class="food-pick-name">Melange</div>
+                      <p class="food-pick-desc">
+                        Espresso lengthened with steamed milk, like a
+                        cappuccino—order with a glass of water and linger.
+                      </p>
+                    </article>
+                  </div>
+                </div>
+              </section>
+            </main>
+          </div>
+          <footer class="guide-footer">
+            <a class="guide-footer-about" href="about.html">About</a>
+          </footer>
+        </section>
       </div>
-      <footer class="guide-footer">
-        <div class="guide-footer-links">
-          <button type="button" class="guide-footer-change" id="change-cities">Change cities</button>
-          <a class="guide-footer-about" href="about.html">About</a>
-        </div>
-      </footer>
-      </section>
     </div>
-  </div>
 
-  <script src="data.js"></script>
-  <script src="weather.js"></script>
-  <script src="hotel.js"></script>
-  <script src="landing.js"></script>
-  <script src="guide.js"></script>
-</body>
+    <script src="data.js"></script>
+    <script src="weather.js"></script>
+    <script src="currency.js"></script>
+    <script src="hotel.js"></script>
+    <script src="landing.js"></script>
+    <script src="guide.js"></script>
+  </body>
 </html>
