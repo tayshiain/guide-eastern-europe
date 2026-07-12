@@ -3,88 +3,197 @@ const cityData = {
     transport: {
       airport: {
         name: "Budapest Ferenc Liszt International Airport (BUD)",
-        mapsQuery: "Budapest Ferenc Liszt International Airport"
+        mapsQuery: "Budapest Ferenc Liszt International Airport",
+        transit: {
+          option: "Bus 100E express to Deák Ferenc tér (city centre)",
+          duration: "~30 min",
+          cost: "2,200 HUF (~€5.60)"
+        },
+        taxi: {
+          cost: "7,500–9,000 HUF (~€19–23)",
+          duration: "~25–30 min"
+        }
       },
       station: {
         name: "Budapest Keleti (Eastern) railway station",
-        mapsQuery: "Budapest Keleti railway station"
+        mapsQuery: "Budapest Keleti railway station",
+        transit: {
+          option: "M2 metro (Deák Ferenc tér / city centre)",
+          duration: "~10–15 min",
+          cost: "450 HUF (~€1.15)"
+        },
+        taxi: {
+          cost: "2,500–3,500 HUF (~€6–9)",
+          duration: "~10 min"
+        }
       }
     },
+    transportTips: [
+      "💳 Tap your contactless bank card straight on BKK validators on metro, bus, and tram — no ticket needed for single rides",
+      "🎫 Single paper ticket: ~450 HUF — valid 80 min on metro, bus, tram, and trolley",
+      "🗓️ 24-hour travel pass: ~2,500 HUF — unlimited BKK network",
+      "📅 72-hour travel pass: ~5,500 HUF — best value for a long weekend",
+      "📆 7-day pass: ~6,900 HUF — ideal if staying a full week"
+    ],
     currency: "Hungarian forint (HUF)",
     currencyCode: "HUF",
     toEuroRate: 390,
+    cardPayment: "Contactless cards are accepted almost everywhere — restaurants, shops, taxis, and transit. Keep a little HUF cash for markets, small family-run eateries, and thermal bath lockers.",
+    climateNotes: "Continental climate: cold winters (Dec–Feb, avg −1°C to 4°C, occasional snow) and warm, sometimes hot summers (Jun–Aug, avg 20–28°C). Best months: May, June, and September for mild days and fewer crowds.",
     sights: [
       ["Buda Castle", "4,900 HUF (~€12.50)"],
-      ["Fisherman’s Bastion", "2,600 HUF"],
-      ["Parliament Building Guided Tour", "6,900 HUF"],
-      ["Gellért Baths (entry + locker)", "10,000 HUF"],
+      ["Fisherman’s Bastion", "2,600 HUF (~€6.50)"],
+      ["Széchenyi Thermal Baths", "~9,500 HUF (~€24)"],
       ["Heroes' Square", "Free"],
-      ["Budapest Zoo Aquarium", "8,290 HUF"],
-      ["City Park Ice Cream & view spots", "Free"]
+      ["St. Stephen’s Basilica", "Free (tower: 2,500 HUF / ~€6.50)"],
+      ["Danube River Cruise", "from 4,500 HUF (~€11.50)"]
     ]
   },
   krakow: {
     transport: {
       airport: {
         name: "Kraków John Paul II International Airport (KRK)",
-        mapsQuery: "Kraków John Paul II International Airport"
+        mapsQuery: "Kraków John Paul II International Airport",
+        transit: {
+          option: "Train (SKA) to Kraków Główny, then tram or walk",
+          duration: "~20 min train + ~10 min",
+          cost: "17 PLN (~€4) train + 4 PLN (~€1) tram"
+        },
+        taxi: {
+          cost: "80–100 PLN (~€18–23)",
+          duration: "~25–30 min"
+        }
       },
       station: {
         name: "Kraków Główny (main railway station)",
-        mapsQuery: "Kraków Główny railway station"
+        mapsQuery: "Kraków Główny railway station",
+        transit: {
+          option: "Walk to Rynek Główny (Old Town) or tram 1/2/3",
+          duration: "~10 min walk",
+          cost: "Free on foot (tram: 4 PLN / ~€1)"
+        },
+        taxi: {
+          cost: "15–25 PLN (~€3.50–6)",
+          duration: "~5 min"
+        }
       }
     },
+    transportTips: [
+      "💳 Some trams/buses have onboard contactless card readers, but coverage is patchy — safest to buy via the jakdojade or moBILET app, or a stop machine, before boarding",
+      "🎫 Single ticket (MPK): ~4 PLN — 40 min on trams and buses",
+      "🗓️ 24-hour ticket: ~17 PLN — unlimited city transport",
+      "📅 48-hour ticket: ~28 PLN — good for a weekend",
+      "📆 72-hour ticket: ~36 PLN — best for 3-day stays",
+      "🏛️ Kraków City Card includes unlimited transport plus museum discounts"
+    ],
     currency: "Polish złoty (PLN)",
     currencyCode: "PLN",
     toEuroRate: 4.4,
+    cardPayment: "Cards are widely accepted in cafés, restaurants, and shops. Carry a little PLN cash for market stalls, milk bars (bary mleczne), and public restrooms.",
+    climateNotes: "Continental climate with cold, often snowy winters (Dec–Feb, avg −3°C to 2°C) and warm summers (Jun–Aug, avg 18–25°C). Best months: May–June and September for pleasant temps and lighter crowds.",
     sights: [
-      ["Wawel Royal Castle", "100 PLN"],
-      ["St. Mary's Basilica tower climb", "30 PLN"],
+      ["Wawel Royal Castle", "100 PLN (~€23)"],
+      ["St. Mary's Basilica tower climb", "30 PLN (~€7)"],
       ["Main Market Square", "Free"],
-      ["Wieliczka Salt Mine", "130 PLN"],
-      ["Kazimierz Jewish District museum", "35 PLN"],
-      ["Ojców National Park entry", "15 PLN"],
-      ["Schindler's Factory", "25 PLN"]
+      ["Wieliczka Salt Mine", "130 PLN (~€30)"],
+      ["Kazimierz Jewish District museum", "35 PLN (~€8)"],
+      ["Ojców National Park entry", "15 PLN (~€3.50)"],
+      ["Schindler's Factory", "25 PLN (~€6)"]
     ]
   },
   prague: {
     transport: {
       airport: {
         name: "Václav Havel Airport Prague (PRG)",
-        mapsQuery: "Václav Havel Airport Prague"
+        mapsQuery: "Václav Havel Airport Prague",
+        transit: {
+          option: "Airport Express bus to Praha hlavní nádraží",
+          duration: "~35 min",
+          cost: "150 CZK (~€6)"
+        },
+        taxi: {
+          cost: "600–800 CZK (~€24–32)",
+          duration: "~25–35 min"
+        }
       },
       station: {
         name: "Praha hlavní nádraží (Prague Main Station)",
-        mapsQuery: "Praha hlavní nádraží"
+        mapsQuery: "Praha hlavní nádraží",
+        transit: {
+          option: "Metro C to Muzeum, then A to Staroměstská (Old Town)",
+          duration: "~10 min",
+          cost: "40 CZK (~€1.60)"
+        },
+        taxi: {
+          cost: "150–250 CZK (~€6–10)",
+          duration: "~10 min"
+        }
       }
     },
+    transportTips: [
+      "💳 Tap your contactless bank card directly on PID validators in metro, trams, and buses — fare is charged automatically, no ticket needed",
+      "🎫 Single ticket (PID): ~40 CZK — 90 min on metro, tram, and bus",
+      "🗓️ 24-hour pass: ~120 CZK — unlimited within Prague",
+      "📆 72-hour pass: ~330 CZK — best for a long weekend",
+      "📅 Lítačka monthly pass available if staying longer (requires registration)"
+    ],
     currency: "Czech koruna (CZK)",
     currencyCode: "CZK",
     toEuroRate: 25,
+    cardPayment: "Card payment (including contactless) is standard across the city. A little CZK cash is handy for market stalls, public toilets, and some older pubs.",
+    climateNotes: "Continental climate: cold winters (Dec–Feb, avg −2°C to 4°C) and mild-to-warm summers (Jun–Aug, avg 18–24°C). Best months: April–May and September–October for mild weather and thinner crowds.",
     sights: [
-      ["Prague Castle", "250 CZK (tourist pass available)"],
-      ["St. Vitus Cathedral", "50 CZK"],
+      ["Prague Castle", "250 CZK (~€10, tourist pass available)"],
+      ["St. Vitus Cathedral", "50 CZK (~€2)"],
       ["Charles Bridge sunrise area", "Free"],
       ["Lennon Wall area", "Free"],
-      ["Astronomical Clock tower entry", "250 CZK"],
-      ["Petřín funicular + tower", "220 CZK"],
-      ["National Museum", "250 CZK"]
+      ["Astronomical Clock tower entry", "250 CZK (~€10)"],
+      ["Petřín funicular + tower", "220 CZK (~€9)"],
+      ["National Museum", "250 CZK (~€10)"]
     ]
   },
   vienna: {
     transport: {
       airport: {
         name: "Vienna International Airport (VIE)",
-        mapsQuery: "Vienna International Airport"
+        mapsQuery: "Vienna International Airport",
+        transit: {
+          option: "S7 suburban train to Wien Mitte / Landstraße (city centre)",
+          duration: "~25 min",
+          cost: "4.50 EUR (zone ticket)"
+        },
+        taxi: {
+          cost: "36–45 EUR (fixed airport rate)",
+          duration: "~20–25 min"
+        }
       },
       station: {
         name: "Wien Hauptbahnhof (main railway station)",
-        mapsQuery: "Wien Hauptbahnhof"
+        mapsQuery: "Wien Hauptbahnhof",
+        transit: {
+          option: "U1 metro to Stephansplatz (Innere Stadt)",
+          duration: "~8 min",
+          cost: "2.40 EUR (single ticket)"
+        },
+        taxi: {
+          cost: "12–18 EUR",
+          duration: "~10 min"
+        }
       }
     },
+    transportTips: [
+      "🎫 No contactless tap-to-pay on Wiener Linien yet — buy tickets in advance from machines, the WienMobil app, or a Tabak (tobacco) shop before boarding",
+      "🎟️ Single ticket (Wiener Linien): ~2.40 EUR — valid 90 min in one direction",
+      "🗓️ 24-hour pass: ~8.90 EUR — unlimited metro, tram, and bus",
+      "📅 48-hour pass: ~15.30 EUR — good for a weekend",
+      "📆 72-hour pass: ~19.90 EUR — best for 3-day visits",
+      "🗺️ Weekly pass: ~19.20 EUR — ideal for a full week (Mon–Mon)"
+    ],
     currency: "Euro (EUR)",
     currencyCode: "EUR",
     toEuroRate: 1,
+    cardPayment: "Cards (including contactless) are accepted almost everywhere, even for small purchases. Keep a little cash for markets like Naschmarkt and some traditional Heurigen wine taverns.",
+    climateNotes: "Continental climate: cold winters (Dec–Feb, avg −1°C to 4°C) and warm summers (Jun–Aug, avg 19–26°C). Best months: April–May and September–October for comfortable sightseeing weather.",
     sights: [
       ["Schönbrunn Palace", "22 EUR (Grand Entrance)"],
       ["Belvedere Palace", "17 EUR"],
