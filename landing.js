@@ -16,7 +16,7 @@ const normalizeSurvey = (survey) => ({
 });
 
 let activeTrip = {
-  cities: [...allCities],
+  cities: [],
   origin: "",
   originCountry: "",
   survey: emptySurvey(),
@@ -292,7 +292,15 @@ const initTrip = () => {
       originCountry: saved.originCountry || "",
       survey: normalizeSurvey(saved.survey),
     };
-    if (!activeTrip.cities.length) activeTrip.cities = [...allCities];
+    if (!activeTrip.cities.length) {
+      selectedCities = [];
+      originMeta = { label: activeTrip.origin, country: activeTrip.originCountry };
+      if (tripOriginInput && activeTrip.origin) tripOriginInput.value = activeTrip.origin;
+      applySurveyToForm(activeTrip.survey);
+      updateLandingSelectionUI();
+      showView("landing");
+      return;
+    }
     selectedCities = [...activeTrip.cities];
     originMeta = { label: activeTrip.origin, country: activeTrip.originCountry };
     showView("guide");
@@ -303,7 +311,7 @@ const initTrip = () => {
 
   selectedCities = saved?.cities?.length
     ? saved.cities.filter((city) => allCities.includes(city))
-    : [...allCities];
+    : [];
   if (tripOriginInput && saved?.origin) tripOriginInput.value = saved.origin;
   originMeta = { label: saved?.origin || "", country: saved?.originCountry || "" };
   applySurveyToForm(saved?.survey);
