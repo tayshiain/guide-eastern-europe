@@ -197,7 +197,10 @@ const setupActions = () => {
 
 const renderContent = () => {
   Object.entries(cityData).forEach(([city, cityInfo]) => {
-    document.getElementById(`currency-${city}`).textContent = cityInfo.currency;
+    const currencyNode = document.getElementById(`currency-${city}`);
+    if (currencyNode) {
+      currencyNode.textContent = cityInfo.currency;
+    }
     const rateNode = document.getElementById(`rate-${city}`);
     const convertedNode = document.getElementById(`converted-${city}`);
     if (rateNode) {
@@ -209,6 +212,10 @@ const renderContent = () => {
     const climateNode = document.getElementById(`climateNote-${city}`);
     if (climateNode && cityInfo.climateNotes) {
       climateNode.innerHTML = `🌦️ ${cityInfo.climateNotes}`;
+    }
+    const sightsNote = document.getElementById(`sightsNote-${city}`);
+    if (sightsNote && cityInfo.cardPayment) {
+      sightsNote.innerHTML = `💳 ${cityInfo.cardPayment}`;
     }
     const list = document.getElementById(`sights-${city}`);
     cityInfo.sights.forEach(([place, price]) => {
@@ -234,13 +241,7 @@ const renderCurrencyExtras = () => {
       : "";
 
     if (cityInfo.currencyCode === "EUR") {
-      extra.innerHTML = `
-        ${paymentNote}
-        <div class="currency-fx">
-          <div class="currency-fx-title">📈 Exchange trend</div>
-          <p class="currency-fx-note">🇪🇺 Vienna uses the Euro — no exchange needed if you're travelling from the Eurozone.</p>
-        </div>
-      `;
+      extra.innerHTML = paymentNote;
       return;
     }
 
