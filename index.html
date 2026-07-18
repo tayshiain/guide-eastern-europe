@@ -445,6 +445,17 @@
                 data-city="budapest"
                 aria-hidden="false"
               >
+                <div class="guide-card city-intro">
+                  <h2 class="city-intro-title">Welcome to Budapest!</h2>
+                  <p class="city-intro-blurb">
+                    Split by the Danube into hilly Buda and flat, buzzing Pest,
+                    Hungary's capital pairs grand thermal baths and ornate Art
+                    Nouveau architecture with a gritty, after-dark ruin bar
+                    scene. Expect paprika-laced comfort food, a soaking-hot bath
+                    house any time of year, and river views that look best lit
+                    up after sunset.
+                  </p>
+                </div>
                 <div class="guide-grid">
                   <div class="guide-card">
                     <div class="guide-kicker">Hotel</div>
@@ -841,6 +852,17 @@
                 data-city="krakow"
                 aria-hidden="true"
               >
+                <div class="guide-card city-intro">
+                  <h2 class="city-intro-title">Welcome to Krakow!</h2>
+                  <p class="city-intro-blurb">
+                    Poland's former royal capital survived World War II almost
+                    untouched, leaving one of Europe's best-preserved medieval
+                    Old Towns. Wander the vast Rynek Główny market square,
+                    explore the Jewish quarter of Kazimierz, and take a sobering
+                    day trip to Auschwitz-Birkenau or the underground chambers
+                    of the Wieliczka Salt Mine.
+                  </p>
+                </div>
                 <div class="guide-grid">
                   <div class="guide-card">
                     <div class="guide-kicker">Hotel</div>
@@ -1186,6 +1208,17 @@
                 data-city="prague"
                 aria-hidden="true"
               >
+                <div class="guide-card city-intro">
+                  <h2 class="city-intro-title">Welcome to Prague!</h2>
+                  <p class="city-intro-blurb">
+                    The Czech capital's fairy-tale skyline of spires, a
+                    centuries-old castle, and the Vltava River crossed by
+                    Charles Bridge have made it one of Europe's most
+                    photographed cities. Cobbled lanes lead from the
+                    Astronomical Clock to hearty pub fare and some of the best
+                    (and cheapest) beer on the continent.
+                  </p>
+                </div>
                 <div class="guide-grid">
                   <div class="guide-card">
                     <div class="guide-kicker">Hotel</div>
@@ -1522,6 +1555,17 @@
                 data-city="vienna"
                 aria-hidden="true"
               >
+                <div class="guide-card city-intro">
+                  <h2 class="city-intro-title">Welcome to Vienna!</h2>
+                  <p class="city-intro-blurb">
+                    Once the seat of the Habsburg Empire, Austria's capital
+                    blends imperial palaces and grand boulevards with a
+                    centuries-old coffeehouse culture and a thriving classical
+                    music scene. Between museum visits and palace tours, slow
+                    down for a coffee and a slice of cake—Viennese life runs on
+                    café time.
+                  </p>
+                </div>
                 <div class="guide-grid">
                   <div class="guide-card">
                     <div class="guide-kicker">Hotel</div>
@@ -1630,39 +1674,13 @@
                     ></div>
                   </div>
 
-                  <div class="guide-card weather-card">
+                  <div class="guide-card weather-card weather-card--full">
                     <div class="guide-kicker">Weather</div>
                     <h3>Weather overview</h3>
                     <div id="forecast-vienna" class="weather-loading">
                       Loading forecast…
                     </div>
                     <p class="weather-climate-note" id="climateNote-vienna"></p>
-                  </div>
-
-                  <div class="guide-card currency-card">
-                    <div class="guide-kicker">Currency</div>
-                    <h3>Currency</h3>
-                    <p class="guide-meta" id="currency-vienna"></p>
-                    <div class="guide-converter">
-                      <label class="guide-label" for="convert-vienna"
-                        >Convert to €</label
-                      >
-                      <input
-                        class="guide-field guide-convert-input"
-                        id="convert-vienna"
-                        data-city="vienna"
-                        inputmode="decimal"
-                        type="number"
-                        min="0"
-                        step="0.01"
-                        placeholder="Amount in EUR"
-                      />
-                      <p class="guide-convert-result">
-                        = <strong id="converted-vienna">€—</strong>
-                      </p>
-                      <p class="guide-rate-note" id="rate-vienna"></p>
-                    </div>
-                    <div class="currency-extra" id="currencyExtra-vienna"></div>
                   </div>
                 </div>
 
@@ -1675,13 +1693,11 @@
                     aria-label="Featured sights in Vienna"
                   >
                     <article class="sight-pick">
-                      <div
-                        class="sight-pick-img sight-pick-img--placeholder"
-                        role="img"
-                        aria-label="Photo placeholder: Schönbrunn Palace"
-                      >
-                        Photo
-                      </div>
+                      <img
+                        class="sight-pick-img"
+                        src="images/vienna-schonbrunn-palace.jpg"
+                        alt="Schönbrunn Palace, Vienna"
+                      />
                       <div class="sight-pick-name">Schönbrunn Palace</div>
                       <p class="sight-pick-desc">
                         Habsburg summer residence—palace tour, formal gardens,
@@ -1696,13 +1712,11 @@
                       >
                     </article>
                     <article class="sight-pick">
-                      <div
-                        class="sight-pick-img sight-pick-img--placeholder"
-                        role="img"
-                        aria-label="Photo placeholder: Vienna State Opera"
-                      >
-                        Photo
-                      </div>
+                      <img
+                        class="sight-pick-img"
+                        src="images/vienna-state-opera.jpg"
+                        alt="Vienna State Opera, Vienna"
+                      />
                       <div class="sight-pick-name">Vienna State Opera</div>
                       <p class="sight-pick-desc">
                         Renaissance Revival house on the Ring—standing-room
@@ -1717,13 +1731,11 @@
                       >
                     </article>
                     <article class="sight-pick">
-                      <div
-                        class="sight-pick-img sight-pick-img--placeholder"
-                        role="img"
-                        aria-label="Photo placeholder: St. Stephen's Cathedral"
-                      >
-                        Photo
-                      </div>
+                      <img
+                        class="sight-pick-img"
+                        src="images/vienna-st-stephens-cathedral.jpg"
+                        alt="St. Stephen's Cathedral, Vienna"
+                      />
                       <div class="sight-pick-name">St. Stephen’s Cathedral</div>
                       <p class="sight-pick-desc">
                         Stephansdom—tiled roof, south-tower climb, and the heart
@@ -1738,23 +1750,20 @@
                       >
                     </article>
                     <article class="sight-pick">
-                      <div
-                        class="sight-pick-img sight-pick-img--placeholder"
-                        role="img"
-                        aria-label="Photo placeholder: Kunsthistorisches Museum"
-                      >
-                        Photo
-                      </div>
-                      <div class="sight-pick-name">
-                        Kunsthistorisches Museum
-                      </div>
+                      <img
+                        class="sight-pick-img"
+                        src="images/vienna-hofburg.jpg"
+                        alt="Hofburg, Vienna"
+                      />
+                      <div class="sight-pick-name">Hofburg</div>
                       <p class="sight-pick-desc">
-                        Ring palace of fine art—Bruegel, Velázquez, Egyptian
-                        antiquities, and the grand café under the dome.
+                        Former imperial palace—Sisi Museum's private apartments,
+                        plus the Spanish Riding School's Lipizzaner stallions
+                        next door.
                       </p>
                       <a
                         class="sight-pick-maps"
-                        href="https://www.google.com/maps/search/?api=1&amp;query=Kunsthistorisches%20Museum%2C%20Vienna"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Hofburg%2C%20Vienna"
                         target="_blank"
                         rel="noopener noreferrer"
                         >Google Maps</a
@@ -1772,6 +1781,7 @@
                       <tbody id="sights-vienna"></tbody>
                     </table>
                   </div>
+                  <p class="sight-payment-note" id="sightsNote-vienna"></p>
                 </div>
 
                 <div class="guide-card">
@@ -1780,7 +1790,13 @@
                   <p class="guide-meta guide-food-lede">
                     Viennese cooking pairs Habsburg roasts and clarified-butter
                     classics with Kaffeehaus ritual—expect jewel-box cakes,
-                    whipped cream, and precise service.
+                    whipped cream, and precise service. The city's UNESCO-listed
+                    coffeehouse culture dates back centuries: marble tables,
+                    bentwood chairs, newspapers on wooden racks, and a glass of
+                    water served alongside every coffee, no matter how long you
+                    stay. Beyond schnitzel and strudel, look for hearty Beisl
+                    (tavern) fare, seasonal game, and a proper Sunday Jause
+                    (afternoon snack) of cold cuts and bread.
                   </p>
                   <div
                     class="food-picks"
@@ -1849,13 +1865,13 @@
                     <article class="food-pick">
                       <img
                         class="food-pick-img"
-                        src="images/vienna-melange.jpg"
-                        alt="Melange — espresso with steamed milk, Vienna"
+                        src="images/vienna-einspanner.jpg"
+                        alt="Einspänner — espresso topped with whipped cream, Vienna"
                       />
-                      <div class="food-pick-name">Melange</div>
+                      <div class="food-pick-name">Einspänner</div>
                       <p class="food-pick-desc">
-                        Espresso lengthened with steamed milk, like a
-                        cappuccino—order with a glass of water and linger.
+                        Strong espresso crowned with whipped cream in a glass
+                        with a handle—Viennese coffee-house classic.
                       </p>
                     </article>
                   </div>
