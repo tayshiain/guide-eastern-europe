@@ -9,7 +9,7 @@ const fetchFxSeries = async (currencyCode) => {
   const start = new Date();
   start.setDate(start.getDate() - 30);
 
-  const url = `https://api.frankfurter.app/${toIsoDate(start)}..${toIsoDate(end)}?from=EUR&to=${currencyCode}`;
+  const url = `https://api.frankfurter.dev/v1/${toIsoDate(start)}..${toIsoDate(end)}?from=EUR&to=${currencyCode}`;
 
   const res = await fetch(url);
   if (!res.ok) throw new Error("HTTP " + res.status);
