@@ -139,7 +139,7 @@ body {
 
 .guide-tabs-caption {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--color-text-secondary);
   font-family: var(--font-sans);
@@ -158,7 +158,7 @@ body {
 }
 
 .guide-shell .guide-footer-about {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--color-text-tertiary);
   text-decoration: none;
@@ -195,7 +195,7 @@ body {
 }
 
 .guide-title-card h1 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: var(--color-text-primary);
   line-height: 1.1;
@@ -204,7 +204,7 @@ body {
 }
 
 .guide-title-card p {
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   color: var(--color-text-secondary);
   line-height: 1.6;
   margin: 0;
@@ -231,7 +231,7 @@ body {
   border-bottom: 2px solid transparent;
   border-radius: 0;
   padding: 10px 16px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--color-text-secondary);
   cursor: pointer;
@@ -252,6 +252,22 @@ body {
 
 .guide-section[aria-hidden="false"] {
   display: block;
+}
+
+.city-intro-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+  font-family: var(--font-serif);
+}
+
+.city-intro-blurb {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
 }
 
 .guide-grid {
@@ -275,8 +291,12 @@ body {
   grid-row: 2;
 }
 
+.guide-card.weather-card.weather-card--full {
+  grid-row: span 2;
+}
+
 .guide-kicker {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--color-text-tertiary);
@@ -294,32 +314,32 @@ body {
 }
 
 .guide-card h3 {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   color: var(--color-text-primary);
   margin-bottom: 0.4rem;
 }
 
 .guide-card h4 {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--color-text-primary);
   font-weight: 500;
 }
 
 .guide-meta {
   color: var(--color-text-secondary);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .guide-meta.guide-food-lede {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
 }
 
 .guide-label,
 .guide-form-title {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--color-text-tertiary);
@@ -339,11 +359,11 @@ body {
   box-sizing: border-box;
   border: 1px solid var(--color-border-tertiary);
   border-radius: var(--border-radius-md);
-  padding: 6px 10px;
+  padding: 8px 10px;
   background: var(--color-background-secondary);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 16px;
   margin-bottom: 0.6rem;
 }
 
@@ -377,7 +397,7 @@ body {
   color: var(--color-text-secondary);
   font-family: var(--font-sans);
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   padding: 3px 9px;
   cursor: pointer;
@@ -397,7 +417,7 @@ body {
 }
 
 .guide-status {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-text-secondary);
   margin: 0;
   min-height: 16px;
@@ -444,9 +464,9 @@ body {
   position: absolute;
   left: 10px;
   bottom: 0;
-  height: 32px;
-  line-height: 32px;
-  font-size: 12px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
   color: var(--color-text-tertiary);
   pointer-events: none;
   font-family: var(--font-sans);
@@ -466,7 +486,7 @@ body {
 }
 
 .guide-field[type="date"] {
-  min-height: 32px;
+  min-height: 36px;
   color-scheme: light;
   -webkit-appearance: none;
   appearance: none;
@@ -537,7 +557,7 @@ body {
   border: 0;
   background: transparent;
   font: inherit;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.35;
   color: var(--color-text-primary);
   cursor: pointer;
@@ -556,7 +576,7 @@ body {
 
 .hotel-suggestions .hotel-suggest-addr {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-tertiary);
   margin-top: 2px;
 }
@@ -570,7 +590,7 @@ body {
 }
 
 .transport-hub-type {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-tertiary);
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -578,7 +598,7 @@ body {
 }
 
 .transport-hub-name {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--color-text-primary);
   margin: 0 0 0.35rem;
@@ -597,20 +617,20 @@ body {
 }
 
 .transport-option-label {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--color-text-tertiary);
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
 .transport-option-detail {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-text-primary);
   line-height: 1.4;
 }
 
 .transport-option-meta {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-secondary);
 }
 
@@ -622,7 +642,7 @@ body {
 }
 
 .transport-tips-title {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--color-text-tertiary);
@@ -632,7 +652,7 @@ body {
 .transport-tips-list {
   margin: 0;
   padding-left: 1.1rem;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-secondary);
   line-height: 1.55;
 }
@@ -645,7 +665,7 @@ body {
   margin: 0.2rem 0 0 1rem;
   color: var(--color-text-secondary);
   line-height: 1.55;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .guide-hint {
@@ -655,24 +675,24 @@ body {
   border-radius: 8px;
   color: var(--color-text-warning);
   padding: 0.5rem 0.65rem;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.45;
 }
 
 .guide-convert-result {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-text-secondary);
   margin: 0;
 }
 
 .guide-rate-note {
   color: var(--color-text-tertiary);
-  font-size: 11px;
+  font-size: 13px;
   margin-top: 4px;
 }
 
 .guide-converter .guide-label {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-tertiary);
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -687,13 +707,26 @@ body {
 }
 
 .currency-payment-note {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-secondary);
   line-height: 1.5;
 }
 
+.sight-payment-note {
+  margin: 0.65rem 0 0;
+  padding-top: 0.65rem;
+  border-top: 0.5px solid var(--color-border-tertiary);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.sight-payment-note:empty {
+  display: none;
+}
+
 .currency-fx-title {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--color-text-tertiary);
@@ -702,7 +735,7 @@ body {
 
 .currency-fx-loading,
 .currency-fx-note {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-tertiary);
 }
 
@@ -717,7 +750,7 @@ body {
 }
 
 .currency-fx-summary {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-secondary);
   margin: 0.4rem 0 0;
   line-height: 1.5;
@@ -770,7 +803,7 @@ body {
 }
 
 .weather-day-name {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--color-text-tertiary);
   text-transform: uppercase;
@@ -782,29 +815,29 @@ body {
 }
 
 .weather-day-icon {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
 }
 
 .weather-day-high {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--color-text-primary);
 }
 
 .weather-day-low {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-tertiary);
 }
 
 .weather-loading {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-text-tertiary);
   padding: 0.4rem 0;
 }
 
 .weather-live-label {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--color-text-tertiary);
   margin-top: 2px;
   letter-spacing: 0.3px;
@@ -824,7 +857,7 @@ body {
   margin: 0.65rem 0 0;
   padding-top: 0.65rem;
   border-top: 0.5px solid var(--color-border-tertiary);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-secondary);
   line-height: 1.5;
 }
@@ -833,19 +866,19 @@ body {
   margin-top: 0.65rem;
   padding-top: 0.65rem;
   border-top: 0.5px solid var(--color-border-tertiary);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-text-secondary);
   line-height: 1.45;
 }
 
 .weather-month-summary.weather-month-hint {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-tertiary);
   margin-bottom: 0;
 }
 
 .weather-month-summary.weather-month-loading {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-tertiary);
 }
 
@@ -856,7 +889,7 @@ body {
 }
 
 .weather-month-icon {
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   line-height: 1;
   flex-shrink: 0;
 }
@@ -867,7 +900,7 @@ body {
 }
 
 .weather-month-title {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -876,7 +909,7 @@ body {
 }
 
 .weather-month-temps {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-text-primary);
   margin-bottom: 0.15rem;
 }
@@ -886,7 +919,7 @@ body {
 }
 
 .weather-month-note {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--color-text-tertiary);
   letter-spacing: 0.02em;
 }
@@ -899,7 +932,7 @@ body {
 .guide-forms {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .guide-forms th,
@@ -908,7 +941,7 @@ body {
   border-bottom: 0.5px solid var(--color-border-tertiary);
   padding: 8px 10px;
   color: var(--color-text-secondary);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
 }
 
@@ -958,14 +991,14 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--color-text-tertiary);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .sight-pick-name {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--color-text-primary);
   margin: 0 0 0.25rem;
@@ -973,14 +1006,14 @@ body {
 }
 
 .sight-pick-desc {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-text-secondary);
   line-height: 1.45;
   margin: 0 0 0.35rem;
 }
 
 .sight-pick-maps {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--color-text-info);
   text-decoration: none;
@@ -1027,14 +1060,14 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--color-text-tertiary);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .food-pick-name {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--color-text-primary);
   margin: 0 0 0.2rem;
@@ -1042,7 +1075,7 @@ body {
 }
 
 .food-pick-desc {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-secondary);
   line-height: 1.35;
   margin: 0;
@@ -1070,11 +1103,11 @@ body {
   }
 
   .guide-tabs-caption {
-    font-size: 0.74rem;
+    font-size: 0.85rem;
   }
 
   .guide-footer-change {
-    font-size: 10px;
+    font-size: 12px;
     padding: 0.35rem 0.65rem;
   }
 
@@ -1106,7 +1139,7 @@ body {
 }
 
 .landing-lead {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--color-text-secondary);
   margin: 0 0 1rem;
@@ -1118,7 +1151,7 @@ body {
 }
 
 .landing-section-title {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-tertiary);
@@ -1161,7 +1194,7 @@ body {
 
 .landing-city-name {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--color-text-primary);
   margin-bottom: 0.15rem;
@@ -1169,7 +1202,7 @@ body {
 
 .landing-city-country {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-tertiary);
 }
 
@@ -1183,7 +1216,7 @@ body {
 
 .landing-survey-heading {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   margin: 0 0 0.85rem;
   color: var(--color-text-primary);
@@ -1217,7 +1250,7 @@ body {
 
 .survey-chip {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--color-text-secondary);
   background: var(--color-background-primary);
@@ -1246,7 +1279,7 @@ body {
 }
 
 .survey-hint {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-tertiary);
   margin: 0.35rem 0 0;
   line-height: 1.4;
@@ -1284,7 +1317,7 @@ body {
 }
 
 .inspiration-card-title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--color-text-primary);
   margin: 0 0 0.25rem;
@@ -1292,7 +1325,7 @@ body {
 }
 
 .inspiration-card-desc {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-secondary);
   line-height: 1.45;
   margin: 0;
@@ -1309,7 +1342,7 @@ body {
   background: var(--color-text-primary);
   color: var(--color-background-primary);
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   padding: 0.65rem 1rem;
   border-radius: 24px;
@@ -1330,7 +1363,7 @@ body {
 }
 
 .landing-hint {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-tertiary);
   margin: 0.5rem 0 0;
 }
@@ -1344,7 +1377,7 @@ body {
 
 .guide-footer-change {
   flex-shrink: 0;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--color-text-secondary);
   background: var(--color-background-secondary);
@@ -1400,7 +1433,7 @@ body {
 }
 
 .about-eyebrow {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold);
@@ -1467,7 +1500,7 @@ body {
   margin: 0;
   font-family: var(--font-serif);
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 2.15rem;
   line-height: 1.15;
   color: #fdfaf5;
   letter-spacing: -0.01em;
@@ -1478,7 +1511,7 @@ body {
   position: relative;
   z-index: 1;
   margin: 0.5rem 0 0;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 500;
@@ -1523,7 +1556,7 @@ body {
 }
 
 .brand-hero--compact .brand-wordmark {
-  font-size: 1.85rem;
+  font-size: 1.95rem;
 }
 
 .brand-hero--compact .brand-tagline {
@@ -1536,7 +1569,7 @@ body {
   position: relative;
   z-index: 1;
   margin: 0.4rem 0 0.85rem;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 500;
@@ -1549,7 +1582,7 @@ body {
   margin: 0 0 1rem;
   font-family: var(--font-serif);
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 2.15rem;
   line-height: 1.2;
   color: #fdfaf5;
   letter-spacing: -0.01em;
@@ -1560,7 +1593,7 @@ body {
   z-index: 1;
   max-width: 480px;
   margin: 0 auto;
-  font-size: 13.5px;
+  font-size: 15px;
   line-height: 1.65;
   color: #d8d2c8;
 }
@@ -1571,7 +1604,7 @@ body {
 }
 
 .about-lead {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.75;
   color: var(--color-text-secondary);
   text-align: center;
@@ -1615,12 +1648,12 @@ body {
   margin-bottom: 0.65rem;
   border-radius: 50%;
   background: linear-gradient(150deg, #fbf1dc, #f3e2b8);
-  font-size: 19px;
+  font-size: 21px;
 }
 
 .about-feature h3 {
   margin: 0 0 0.3rem;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--color-text-primary);
   font-family: var(--font-sans);
@@ -1628,7 +1661,7 @@ body {
 
 .about-feature p {
   margin: 0;
-  font-size: 11.5px;
+  font-size: 13px;
   line-height: 1.5;
   color: var(--color-text-secondary);
 }
@@ -1645,7 +1678,7 @@ body {
 .about-city-chip {
   position: relative;
   font-family: var(--font-serif);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--color-text-primary);
   padding: 0.5rem 1.15rem;
@@ -1658,7 +1691,7 @@ body {
   content: "✦";
   color: var(--gold);
   margin-right: 0.4rem;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 /* Steps */
@@ -1685,7 +1718,7 @@ body {
 .about-step-num {
   flex-shrink: 0;
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--gold);
   line-height: 1.4;
@@ -1694,14 +1727,14 @@ body {
 
 .about-step h4 {
   margin: 0 0 0.2rem;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--color-text-primary);
 }
 
 .about-step p {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--color-text-secondary);
 }
@@ -1719,21 +1752,21 @@ body {
 
 .about-privacy-icon {
   flex-shrink: 0;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1;
   margin-top: 0.1rem;
 }
 
 .about-privacy h4 {
   margin: 0 0 0.3rem;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: #fdfaf5;
 }
 
 .about-privacy p {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
   color: #cfc8bc;
 }
@@ -1767,11 +1800,11 @@ body {
   }
 
   .brand-wordmark {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
 
   .about-title {
-    font-size: 1.65rem;
+    font-size: 1.75rem;
   }
 
   .about-feature-grid {
@@ -1780,7 +1813,7 @@ body {
 
   .about-lead {
     padding: 1.25rem 1.25rem;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .about-step {
