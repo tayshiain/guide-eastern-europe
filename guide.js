@@ -290,6 +290,31 @@ const renderCurrencyExtras = () => {
 const mapsSearchUrl = (query) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
+const setupHotelSearchLinks = () => {
+  Object.keys(cityData).forEach((city) => {
+    const nameField = document.getElementById(`hotelName-${city}`);
+    const card = nameField?.closest(".guide-card");
+    const kicker = card?.querySelector(".guide-kicker");
+    if (!kicker || card.querySelector(".hotel-search-links")) return;
+
+    const cityLabel = cityCatalog[city]?.label || city;
+    const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(
+      `hotels in ${cityLabel}`
+    )}`;
+    const trivagoUrl = `https://www.trivago.com/en-US/srl?search=${encodeURIComponent(
+      cityMapDefaults[city] || cityLabel
+    )}`;
+
+    const wrap = document.createElement("div");
+    wrap.className = "hotel-search-links";
+    wrap.innerHTML = `
+      <a class="hotel-search-btn" href="${googleUrl}" target="_blank" rel="noopener noreferrer">Search hotels</a>
+      <a class="hotel-search-btn hotel-search-btn-trivago" href="${trivagoUrl}" target="_blank" rel="noopener noreferrer">Search hotels on trivago</a>
+    `;
+    kicker.insertAdjacentElement("afterend", wrap);
+  });
+};
+
 const renderTransportHubs = () => {
   const optionRow = (label, primary, meta) => {
     const metaHtml = meta
@@ -429,6 +454,7 @@ const setupTabsWithWeather = () => {
 
 renderContent();
 renderTransportHubs();
+setupHotelSearchLinks();
 renderCurrencyExtras();
 setupHotelDates();
 setupHotelAutocomplete();
