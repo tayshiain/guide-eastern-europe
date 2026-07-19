@@ -19,10 +19,12 @@ let activeTrip = {
   cities: [],
   origin: "",
   originCountry: "",
+  originLat: null,
+  originLon: null,
   survey: emptySurvey(),
 };
 let selectedCities = [];
-let originMeta = { label: "", country: "" };
+let originMeta = { label: "", country: "", lat: null, lon: null };
 let originSuggestTimer = null;
 
 const landingView = document.getElementById("landing-view");
@@ -125,8 +127,8 @@ const clearOriginSuggestions = () => {
   if (originSuggestList) originSuggestList.innerHTML = "";
 };
 
-const applyOriginSelection = (label, country) => {
-  originMeta = { label, country };
+const applyOriginSelection = (label, country, lat, lon) => {
+  originMeta = { label, country, lat, lon };
   if (tripOriginInput) tripOriginInput.value = label;
   clearOriginSuggestions();
 };
@@ -153,12 +155,13 @@ const fetchOriginSuggestions = async (query) => {
       const props = feature.properties || {};
       const label = formatOriginLabel(props);
       if (!label) return;
+      const [lon, lat] = feature.geometry?.coordinates || [null, null];
       const li = document.createElement("li");
       const button = document.createElement("button");
       button.type = "button";
       button.innerHTML = `<span class="hotel-suggest-name">${label}</span>`;
       button.addEventListener("click", () =>
-        applyOriginSelection(label, props.country || "")
+        applyOriginSelection(label, props.country || "", lat, lon)
       );
       li.appendChild(button);
       originSuggestList.appendChild(li);
@@ -185,6 +188,8 @@ const applyTripToGuide = () => {
   if (topbarTrip) {
     topbarTrip.textContent = cities.map((city) => cityCatalog[city].tabLabel).join(" · ");
   }
+
+  renderGettingThere();
 };
 
 const persistTrip = () => {
@@ -192,6 +197,8 @@ const persistTrip = () => {
     cities: activeTrip.cities,
     origin: activeTrip.origin,
     originCountry: activeTrip.originCountry || "",
+    originLat: activeTrip.originLat ?? null,
+    originLon: activeTrip.originLon ?? null,
     survey: normalizeSurvey(activeTrip.survey),
   });
 };
@@ -202,6 +209,8 @@ const enterGuide = () => {
     cities: selectedCities.filter((city) => allCities.includes(city)),
     origin: originLabel,
     originCountry: originMeta.country || "",
+    originLat: typeof originMeta.lat === "number" ? originMeta.lat : null,
+    originLon: typeof originMeta.lon === "number" ? originMeta.lon : null,
     survey: readSurveyFromForm(),
   };
   if (!activeTrip.cities.length) return;
@@ -231,6 +240,8 @@ const setupLanding = () => {
     originMeta = {
       label: activeTrip.origin || "",
       country: activeTrip.originCountry || "",
+      lat: activeTrip.originLat ?? null,
+      lon: activeTrip.originLon ?? null,
     };
     if (tripOriginInput) tripOriginInput.value = activeTrip.origin || "";
     applySurveyToForm(activeTrip.survey);
@@ -256,7 +267,7 @@ const setupLanding = () => {
 
   tripOriginInput?.addEventListener("input", () => {
     const query = tripOriginInput.value.trim();
-    originMeta = { label: query, country: "" };
+    originMeta = { label: query, country: "", lat: null, lon: null };
     clearTimeout(originSuggestTimer);
 
     if (query.length < 2) {
@@ -290,11 +301,18 @@ const initTrip = () => {
       cities: saved.cities.filter((city) => allCities.includes(city)),
       origin: saved.origin || "",
       originCountry: saved.originCountry || "",
+      originLat: typeof saved.originLat === "number" ? saved.originLat : null,
+      originLon: typeof saved.originLon === "number" ? saved.originLon : null,
       survey: normalizeSurvey(saved.survey),
     };
     if (!activeTrip.cities.length) {
       selectedCities = [];
-      originMeta = { label: activeTrip.origin, country: activeTrip.originCountry };
+      originMeta = {
+        label: activeTrip.origin,
+        country: activeTrip.originCountry,
+        lat: activeTrip.originLat,
+        lon: activeTrip.originLon,
+      };
       if (tripOriginInput && activeTrip.origin) tripOriginInput.value = activeTrip.origin;
       applySurveyToForm(activeTrip.survey);
       updateLandingSelectionUI();
@@ -302,7 +320,12 @@ const initTrip = () => {
       return;
     }
     selectedCities = [...activeTrip.cities];
-    originMeta = { label: activeTrip.origin, country: activeTrip.originCountry };
+    originMeta = {
+      label: activeTrip.origin,
+      country: activeTrip.originCountry,
+      lat: activeTrip.originLat,
+      lon: activeTrip.originLon,
+    };
     showView("guide");
     applyTripToGuide();
     switchCityWithWeather(activeTrip.cities[0]);
@@ -313,7 +336,12 @@ const initTrip = () => {
     ? saved.cities.filter((city) => allCities.includes(city))
     : [];
   if (tripOriginInput && saved?.origin) tripOriginInput.value = saved.origin;
-  originMeta = { label: saved?.origin || "", country: saved?.originCountry || "" };
+  originMeta = {
+    label: saved?.origin || "",
+    country: saved?.originCountry || "",
+    lat: typeof saved?.originLat === "number" ? saved.originLat : null,
+    lon: typeof saved?.originLon === "number" ? saved.originLon : null,
+  };
   applySurveyToForm(saved?.survey);
   updateLandingSelectionUI();
   showView("landing");
