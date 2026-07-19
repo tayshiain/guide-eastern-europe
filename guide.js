@@ -353,6 +353,66 @@ const renderTransportHubs = () => {
     }
   });
 };
+const EARTH_RADIUS_KM = 6371;
+const toRadians = (deg) => (deg * Math.PI) / 180;
+
+const haversineKm = (lat1, lon1, lat2, lon2) => {
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLon / 2) ** 2;
+  return EARTH_RADIUS_KM * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+};
+
+// Rough block-time estimate for a nonstop flight: cruise speed ~750 km/h
+// plus a fixed climb/descent allowance.
+const estimateFlightHours = (km) => 0.5 + km / 750;
+
+const formatHours = (hours) => {
+  const wholeHours = Math.floor(hours);
+  const minutes = Math.round((hours - wholeHours) * 60);
+  if (wholeHours <= 0) return `${minutes}min`;
+  if (minutes === 0) return `${wholeHours}h`;
+  return `${wholeHours}h ${minutes}min`;
+};
+
+const renderGettingThere = () => {
+  const { origin, originLat, originLon } = activeTrip;
+
+  Object.keys(cityData).forEach((city) => {
+    const node = document.getElementById(`transitNote-${city}`);
+    if (!node) return;
+
+    const coords = cityCoords[city];
+    if (!coords || typeof originLat !== "number" || typeof originLon !== "number" || !origin) {
+      node.innerHTML = "";
+      return;
+    }
+
+    const destLabel = cityCatalog[city]?.label || city;
+    const km = haversineKm(originLat, originLon, coords.lat, coords.lon);
+    const flightHours = estimateFlightHours(km);
+    const flightsUrl = `https://www.google.com/travel/flights?q=${encodeURIComponent(
+      `Flights from ${origin} to ${destLabel}`
+    )}`;
+    const trainUrl = `https://www.google.com/search?q=${encodeURIComponent(
+      `train tickets ${origin} to ${destLabel}`
+    )}`;
+
+    node.innerHTML = `
+      <span class="transit-body">
+        <span class="transit-headline"><strong>~${formatHours(flightHours)}</strong> nonstop flight from ${origin}</span>
+        <span class="transit-km">${Math.round(km)} km</span>
+      </span>
+      <span class="transit-links">
+        <a class="transit-link transit-link-flights" href="${flightsUrl}" target="_blank" rel="noopener noreferrer">Search flights</a>
+        <a class="transit-link transit-link-trains" href="${trainUrl}" target="_blank" rel="noopener noreferrer">Search trains</a>
+      </span>
+    `;
+  });
+};
+
 // Fetch weather for the active city on load, and on every tab switch
 const originalSwitchCity = switchCity;
 const switchCityWithWeather = (city) => {
