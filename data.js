@@ -40,6 +40,23 @@ const cityData = {
     toEuroRate: 390,
     cardPayment: "Contactless cards are accepted almost everywhere — restaurants, shops, taxis, and transit. Keep a little HUF cash for markets, small family-run eateries, and thermal bath lockers.",
     climateNotes: "Continental climate: cold winters (Dec–Feb, avg −1°C to 4°C, occasional snow) and warm, sometimes hot summers (Jun–Aug, avg 20–28°C). Best months: May, June, and September for mild days and fewer crowds.",
+    language: {
+      name: "Hungarian",
+      code: "hu",
+      intro: "Hungarian is the official language — unlike most European tongues, it isn't Indo-European, so it can feel unfamiliar at first. English is common in hotels, restaurants, and tourist areas, but a few local phrases are always appreciated.",
+      phrases: [
+        ["Hello", "Szia", "SEE-ah"],
+        ["Good day", "Jó napot", "yoh NAH-pot"],
+        ["Goodbye", "Viszlát", "VEEZ-laht"],
+        ["Please", "Kérem", "KAY-rem"],
+        ["Thank you", "Köszönöm", "KUR-suh-nuhm"],
+        ["Yes / No", "Igen / Nem", "EE-gen / nem"],
+        ["Excuse me", "Elnézést", "EL-nay-zaysht"],
+        ["How much is this?", "Mennyibe kerül?", "MEN-yi-beh KEH-rool"],
+        ["Where is the bathroom?", "Hol a mosdó?", "hol uh MOSH-doh"],
+        ["Cheers!", "Egészségedre!", "EH-gaysh-shay-ged-reh"]
+      ]
+    },
     sights: [
       ["Buda Castle", "4,900 HUF (~€12.50)"],
       ["Fisherman’s Bastion", "2,600 HUF (~€6.50)"],
@@ -91,6 +108,23 @@ const cityData = {
     toEuroRate: 4.4,
     cardPayment: "Cards are widely accepted in cafés, restaurants, and shops. Carry a little PLN cash for market stalls, milk bars (bary mleczne), and public restrooms.",
     climateNotes: "Continental climate with cold, often snowy winters (Dec–Feb, avg −3°C to 2°C) and warm summers (Jun–Aug, avg 18–25°C). Best months: May–June and September for pleasant temps and lighter crowds.",
+    language: {
+      name: "Polish",
+      code: "pl",
+      intro: "Polish is the national language. In Kraków's Old Town and at major sights, many staff speak English, though basic Polish helps in smaller shops, markets, and with older locals.",
+      phrases: [
+        ["Hello", "Cześć", "cheshch"],
+        ["Good day", "Dzień dobry", "jen DOH-brih"],
+        ["Goodbye", "Do widzenia", "do vee-DZEH-nyah"],
+        ["Please", "Proszę", "PROH-sheh"],
+        ["Thank you", "Dziękuję", "jehn-KOO-yeh"],
+        ["Yes / No", "Tak / Nie", "tahk / nyeh"],
+        ["Excuse me", "Przepraszam", "psheh-PRAH-shahm"],
+        ["How much is this?", "Ile to kosztuje?", "EE-leh to kosh-TOO-yeh"],
+        ["Where is the bathroom?", "Gdzie jest toaleta?", "gdjeh yest to-ah-LEH-tah"],
+        ["Cheers!", "Na zdrowie!", "nah ZDROH-vyeh"]
+      ]
+    },
     sights: [
       ["Wawel Royal Castle", "100 PLN (~€23)"],
       ["St. Mary's Basilica tower climb", "30 PLN (~€7)"],
@@ -142,6 +176,23 @@ const cityData = {
     toEuroRate: 25,
     cardPayment: "Card payment (including contactless) is standard across the city. A little CZK cash is handy for market stalls, public toilets, and some older pubs.",
     climateNotes: "Continental climate: cold winters (Dec–Feb, avg −2°C to 4°C) and mild-to-warm summers (Jun–Aug, avg 18–24°C). Best months: April–May and September–October for mild weather and thinner crowds.",
+    language: {
+      name: "Czech",
+      code: "cs",
+      intro: "Czech is the official language. Prague is very tourist-friendly — English is widely spoken in the centre, hotels, and restaurants — but greetings and thank-yous in Czech go a long way.",
+      phrases: [
+        ["Hello", "Ahoj", "AH-hoy"],
+        ["Good day", "Dobrý den", "DOH-bree den"],
+        ["Goodbye", "Na shledanou", "nah SKHLEH-dah-noh"],
+        ["Please", "Prosím", "PRO-seem"],
+        ["Thank you", "Děkuji", "DYEH-koo-yee"],
+        ["Yes / No", "Ano / Ne", "AH-noh / neh"],
+        ["Excuse me", "Promiňte", "PROH-min-teh"],
+        ["How much is this?", "Kolik to stojí?", "KOH-leek toh STOH-yee"],
+        ["Where is the bathroom?", "Kde je záchod?", "gdeh yeh ZAH-khot"],
+        ["Cheers!", "Na zdraví!", "nah ZDRAH-vee"]
+      ]
+    },
     sights: [
       ["Prague Castle", "250 CZK (~€10, tourist pass available)"],
       ["St. Vitus Cathedral", "50 CZK (~€2)"],
@@ -194,10 +245,29 @@ const cityData = {
     toEuroRate: 1,
     cardPayment: "Cards (including contactless) are accepted almost everywhere, even for small purchases. Keep a little cash for markets like Naschmarkt and some traditional Heurigen wine taverns.",
     climateNotes: "Continental climate: cold winters (Dec–Feb, avg −1°C to 4°C) and warm summers (Jun–Aug, avg 19–26°C). Best months: April–May and September–October for comfortable sightseeing weather.",
+    language: {
+      name: "German",
+      code: "de",
+      intro: "Austrian German is the everyday language, with local phrases like \"Grüß Gott\" instead of plain \"Hallo.\" English is common in the city centre and at major sights, though German is still the default in smaller cafés and off the main tourist routes.",
+      phrases: [
+        ["Hello", "Grüß Gott / Hallo", "grewss got / HAH-loh"],
+        ["Good day", "Guten Tag", "GOO-ten tahk"],
+        ["Goodbye", "Auf Wiedersehen", "owf VEE-der-zayn"],
+        ["Please", "Bitte", "BIT-teh"],
+        ["Thank you", "Danke", "DAHN-keh"],
+        ["Yes / No", "Ja / Nein", "yah / nine"],
+        ["Excuse me", "Entschuldigung", "ent-SHOOL-dee-goong"],
+        ["How much is this?", "Wie viel kostet das?", "vee feel KOS-tet dahs"],
+        ["Where is the bathroom?", "Wo ist die Toilette?", "voh ist dee twah-LET-teh"],
+        ["Cheers!", "Prost!", "prohst"]
+      ]
+    },
     sights: [
-      ["Schönbrunn Palace", "22 EUR (Grand Entrance)"],
+      ["Schönbrunn Palace gardens", "Free"],
+      ["Schönbrunn Palace (interior passes)", "30–81 EUR"],
       ["Belvedere Palace", "17 EUR"],
-      ["Hofburg Palace", "22 EUR (selected areas)"],
+      ["Hofburg courtyards", "Free"],
+      ["Hofburg (museum & attraction passes)", "16–26 EUR"],
       ["Schmetterling (butterfly house)", "19 EUR"],
       ["Vienna State Opera guided tour", "12 EUR"],
       ["Prater park rides (wheel combo)", "13 EUR"],
